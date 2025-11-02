@@ -1,37 +1,28 @@
-# ---------- Stage 1: Build the React frontend ----------
-FROM node:20-bullseye AS ui-build
-WORKDIR /ui
-
-# Copy frontend package files
-COPY client/package*.json ./
-RUN npm ci
-
-# Copy frontend source and build
-COPY client/ ./
-RUN npm run build
-
-# ---------- Stage 2: Runtime with Playwright + Node backend ----------
+# Production-ready Dockerfile for UB Bank Scraper
 FROM mcr.microsoft.com/playwright:v1.47.0-jammy
+
 WORKDIR /app
 
-# Optional OCR support (uncomment if using tesseract.js with local OCR)
-# RUN apt-get update && apt-get install -y tesseract-ocr && rm -rf /var/lib/apt/lists/*
+# Copy package files (no package-lock.json)
+COPY package.json ./
+COPY client/package.json ./client/
 
-# Copy backend package files
-COPY package*.json ./
-RUN npm ci --omit=dev
+# Install backend dependencies
+RUN npm install --force
 
-# Copy backend source
-COPY src/ ./src/
-COPY tsconfig.json ./
+# Install and build frontend
+WORKDIR /app/client
+RUN npm install --force
+RUN npm run build
 
-# Copy built frontend into /app/static
-COPY --from=ui-build /ui/dist ./static
+# Setup static files and copy source
+WORKDIR /app
+COPY . .
+RUN mkdir -p static && cp -r client/dist/* static/
 
-# Set production environment
+# Environment
 ENV NODE_ENV=production
 ENV PORT=3000
 EXPOSE 3000
 
-# Run the TypeScript server directly with ts-node
 CMD ["npx", "ts-node", "-T", "src/server.ts"]

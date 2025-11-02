@@ -14,7 +14,7 @@
     "cors": "^2.8.5",
     "express": "^4.19.2",
     "fast-xml-parser": "^4.5.0",
-    "jsdom": "^27.0.0",
+    "jsdom": "^25.0.0",
     "node-fetch": "^3.3.2",
     "pdf-parse": "^1.1.1",
     "pdfjs-dist": "^5.4.296",
