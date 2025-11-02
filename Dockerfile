@@ -10,6 +10,9 @@ COPY client/package.json ./client/
 # Install backend dependencies
 RUN npm install --force
 
+# Cache bust for Render
+ARG CACHEBUST=1
+
 # Copy all source files
 COPY . .
 
