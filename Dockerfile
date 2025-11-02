@@ -1,4 +1,4 @@
-# Production-ready Dockerfile for UB Bank Scraper
+# Production-ready Dockerfile for UB Bank Scraper v2
 FROM mcr.microsoft.com/playwright:v1.47.0-jammy
 
 WORKDIR /app
