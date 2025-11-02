@@ -16,10 +16,10 @@ ARG CACHEBUST=1
 # Copy all source files
 COPY . .
 
-# Install and build frontend
+# Install and build frontend (skip tsc, only vite build)
 WORKDIR /app/client
 RUN npm install --force
-RUN npm run build
+RUN npx vite build
 
 # Setup static files
 WORKDIR /app
