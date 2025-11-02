@@ -10,14 +10,16 @@ COPY client/package.json ./client/
 # Install backend dependencies
 RUN npm install --force
 
+# Copy all source files
+COPY . .
+
 # Install and build frontend
 WORKDIR /app/client
 RUN npm install --force
 RUN npm run build
 
-# Setup static files and copy source
+# Setup static files
 WORKDIR /app
-COPY . .
 RUN mkdir -p static && cp -r client/dist/* static/
 
 # Environment
