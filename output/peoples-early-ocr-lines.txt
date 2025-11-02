@@ -1,0 +1,60 @@
+[p1][1] Issuing of balance confirmation for any other purpose . 750/ -
+[p1][2] Issuing of balance confirmation for audit purpose for previous year 750/ -
+[p1][3] Issuing of balance confirmation for audit purpose for current year 500/ -
+[p1][4] Providing of complete investment details of the previous year. 500/ -
+[p1][5] Issuing of a duplicate confirmation as of any date 100/ -
+[p1][6] Rate / Fee (Rs.)
+[p1][7] Treasury & Investment Banking
+[p1][8] It the loan settled after the 2 year of the repayment tenure Free
+[p1][9] nd
+[p1][10] It the loan settled within the 2 year of the repayment tenure 1.0% from the capital outstanding
+[p1][11] nd
+[p1][12] It the loan settled within the 1 year of the repayment tenure 2.0% from the capital outstanding
+[p1][13] st
+[p1][14] Rate / Fee (Rs.)
+[p1][15] Early Settlement Charges for Business Loans (Block Loans Facilities)
+[p1][16] Within 9 and 10 year 1.0%
+[p1][17] th th
+[p1][18] Within 7 and 8 year 1.0% 1.5%
+[p1][19] th th
+[p1][20] Within 5 and 6 year 1.0% 1.5% 2.0%
+[p1][21] th th
+[p1][22] Within 3 and 4 year 1.0% 1.5% 2.0% 2.5%
+[p1][23] rd th
+[p1][24] Within 1 two years 1.5% 2.0% 2.5% 3.0%
+[p1][25] st
+[p1][26] to 03 years 05 years 07years
+[p1][27] Over 01 year up Over 03 year up to Over 05 year up to Over 07 year
+[p1][28] settled in Advance
+[p1][29] Time period during which loan is Payment Period for which Facility Was Granted – Rate/ Fee (Rs.)
+[p1][30] Early Settlement Charges For personal loans Granted to Housing , Vehicle, Educational and other purpose
+[p1][31] It the loan settled in 3 Quarter of the repayment tenure 1.0% from the capital outstanding
+[p1][32] rd
+[p1][33] It the loan settled in 2 Quarter of the repayment tenure 2.0% from the capital outstanding
+[p1][34] nd
+[p1][35] It the loan settled in 1 Quarter of the repayment tenure 3.0% from the capital outstanding
+[p1][36] st
+[p1][37] Rate Early Settlement Charges for Housing Loans Granted on Immovable Mortgage
+[p1][38] Loans
+[p1][39] Pawning auction handling charges 500/=
+[p1][40] Reminders 3 (Notice of auction) 100 / = ( Excluding postage charges)
+[p1][41] rd
+[p1][42] Reminders 2 (Demand Notice) 50 / = ( Excluding postage charges)
+[p1][43] nd
+[p1][44] Handling charges for loss of a pawning Ticket 300/ -
+[p1][45] Rate / Fee (Rs.)
+[p1][46] Pawning
+[p1][47] Pawning & Loans
+[p2][48] Above Rs. 100,000 500/=
+[p2][49] Rs. 25,001 – Rs.100,000 250/=
+[p2][50] Below Rs. 25,000/= Free
+[p2][51] Rate / Fee (Rs.)
+[p2][52] Handling fee for Deceased Customer account
+[p2][53] abandoned accounts)
+[p2][54] Handling & Record maintenance fee on Abandoned Accounts 250 /= (At the time of classifying as
+[p2][55] Dormant account Reactivation charge 100/=
+[p2][56] the System)
+[p2][57] Transferring to Dormant category . (one time to all accounts in dormant category) 25/ = ( Automatically recovered by
+[p2][58] Rate / Fee (Rs.)
+[p2][59] Customer account
+[p2][60] Service Charges Related to Dormant accounts, Abandoned accounts and Handling fee for Deceased

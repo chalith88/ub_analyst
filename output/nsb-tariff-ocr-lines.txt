@@ -1,0 +1,335 @@
+[0001] Fee Based Income
+[0002] A) Branch Operations
+[0003] No. Description New Fee / Charges
+[0004] Cheque related
+[0005] Returned Cheques (Additional to the Commercial
+[0006] 1 Rs. 300/ -
+[0007] Bank Charges
+[0008] Issue of Cheques (for Savings/FD Accounts)
+[0009] 2 a) Third Party Rs. 500/ -
+[0010] b) In favour of Account Holder No Charges
+[0011] 3 Stop Payment Rs. 150/ + Other Bank Charges
+[0012] 1% from the Cheque amount (subject to a
+[0013] Cheque Purchase Commi s sion (other than the
+[0014] 4 minimum of Rs. 100/ and a maximum of Rs.
+[0015] Government issued Cheques)
+[0016] 1,000/ )
+[0017] Balance Confirmation & Issuing of Statements related
+[0018] Providing transactions printouts of statements for
+[0019] 5 Rs. 250/ per single page
+[0020] 3 months and over
+[0021] 6 Issuance of a Letter of Balance Confirmation Rs. 1,000/ -
+[0022] Initial Certificate for current year No Charges
+[0023] 7 Issuance of a Tax Statement Re issuance Rs. 200/ -
+[0024] Previous year Certificates Rs. 350/ per year
+[0025] Customer enquiries relating to old records/entries
+[0026] 8 (More than 12 month old written request shall be Rs. 300/ -
+[0027] obtained)
+[0028] Lost or Damaged Passbook / Fixed Deposit Certificates related
+[0029] Issuance of a duplicate Passbook for lost or
+[0030] 9 Rs. 300/ (for all deposit products)
+[0031] damaged Passbook
+[0032] 10 Issuance of a Certificate for lost FD Certificate Rs. 1,000/ -
+[0033] Issue of Duplicate Certificate related
+[0034] 11 Issuance of a duplicate Certificate f or FD Rs. 1,000/ -
+[0035] ATM related Services
+[0036] 12 New ATM Card Issu ance Rs. 5 00/ -
+[0037] 1st instance Rs. 500/ -
+[0038] 13 Replacement of lost/damaged ATM Card
+[0039] From 2nd Instance Rs.1,000/ for each instance
+[0040] Issuance of New PIN number for NSB Debit
+[0041] 14 Rs. 25 0 / -
+[0042] Master/ Shopping Card
+[0043] 15 Cash Withdrawal from ATM Rs. 5/ -
+[0044] Linking of Accounts to the Primary ATM
+[0045] 1 6 Rs. 100/ -
+[0046] Account
+[0047] Rs. 400/ per transaction and 4% for currency
+[0048] 1 7 ATM withdrawal (International)
+[0049] fluctuations
+[0050] 1 8 ATM Annual fee Rs. 500/ to be charged annually in December
+[0051] 1 9 ATM limit enhancement No Charges
+[0052] 20 Activation of ATM card for overseas use No Charges
+[0053] Standing Orders related
+[0054] 2 1 Change / Modification of SOD Rs. 200/ -
+[0055] Termination of S ta nding Order on Customer
+[0056] 2 2 Rs. 100/ -
+[0057] Request (external payments)
+[0058] Rs. 250/ -
+[0059] Installment transfers to other institutions, issuance
+[0060] 2 3 Processing (Only for other institutions)
+[0061] of SLIP/Cheque through standing orde r
+[0062] Rs. 100/ each
+[0063] Closure of Accounts related
+[0064] Closing of Savings Accounts at the customer
+[0065] Rs. 200/ (If the balance is < Rs. 200/ , charge
+[0066] 2 4 request (when the entire outstanding balance is not
+[0067] the entire balance)
+[0068] re invested)
+[0069] Closure of Minor Savings Account on a special
+[0070] 2 5 Rs. 500/ -
+[0071] approval
+[0072] Closure of Pension+ un matured Accounts on a
+[0073] 2 6 Rs. 1,500/ -
+[0074] customer request
+[0075] Safety Deposit Lockers related
+[0076] Type of Box Non Commercial Commercial
+[0077] Safety deposit lockers Minimum Deposit
+[0078] ("Commercial" denotes the locker rented out Small 100,000 200,000
+[0079] 2 7
+[0080] to an entity or rented out to an Individual for Medium 200,000 400,000
+[0081] commercial purpose)
+[0082] Large 300,000 600,000
+[0083] Small 5,000 10,000
+[0084] 2 8 Safety de p osit lockers Annual Rental
+[0085] Medium 10,000 20,000
+[0086] Large 15,000 30,000
+[0087] 1st Two Visits No Charges
+[0088] 2 9 Visits to Safety Deposit Locker per month 3rd & 4th Visits Rs. 250/ for each visit
+[0089] 5th & above Visits Rs. 500/ for each visit
+[0090] 30 Safety Deposit Locker replacement Actual cost reimbursement + Rs. 2,500/ -
+[0091] Safety Deposit Lockers penal charges for Additional payment of Rs. 100/ for each
+[0092] 3 1
+[0093] overdue rent completed calendar month
+[0094] 32 Joining a new person to Safety Deposit Locker Rs. 500/ -
+[0095] Power of Attorney & Nominations related
+[0096] 3 3 Registration of Power of Attorney Rs. 500/ -
+[0097] 3 4 Cancellation of Power of Attorney Rs. 500/ -
+[0098] 3 5 Change of Nomination Rs. 500/ -
+[0099] 3 6 Issuance of a duplicate Nomination Paper Rs. 500/ -
+[0100] Deceased Accounts related
+[0101] up to Rs. 100,000 Rs. 500/ -
+[0102] from Rs. 100,001 to Rs. 500,000 Rs. 1,000/ -
+[0103] 3 7 Service Charges for closing deceased file
+[0104] from Rs. 500,001 to Rs. 1 M Rs. 1,500/ -
+[0105] Above Rs. 1 M Rs. 2,500/ -
+[0106] Fund Transfers related
+[0107] Up to Rs.100,000 Rs. 5 0/ -
+[0108] Fund transfers (LKR) to another institution's A/c
+[0109] 3 8 Rs.100,001 to Rs. 1,000,000 Rs. 5 0/ -
+[0110] (Other than monthly interest earning A/cs)
+[0111] Rs.1,000,000 and above Rs. 5 0/ -
+[0112] Fund transfers through other Banks via Internet
+[0113] 3 9 Rs. 3 0/ ( within the Bank No Charges )
+[0114] Banking / Mobile Banking
+[0115] Utility Bills related
+[0116] Payments through ATM No Charges (only
+[0117] charges levied by the Service Provider)
+[0118] 40 Utility Bills (Water and Electricity)
+[0119] Counter Payment Charge Rs. 10/ (in addition
+[0120] to the charges levied by the Service Provider)
+[0121] Savings / FD Accounts related
+[0122] Dormant Account activation (Paying Cash /
+[0123] 41 Rs. 500/ -
+[0124] Transfer to an Account)
+[0125] 4 2 Issuance of a certified copy of a Passbook Rs. 100/ per single page
+[0126] 4 3 Adding a Person/s to a Fixed Deposit Account Rs. 1,000/ for a new addition
+[0127] 44 Charges for No Passbook IBT withdrawals Rs. 250/ -
+[0128] Legal Service Related
+[0129] Legal fees for Rental / Lease Agreement of
+[0130] Buildings for the Bank (To be charged from the
+[0131] 4 5 Rs. 5,000 / -
+[0132] Building Owner at the time of signing the
+[0133] agreement)
+[0134] Deed of Postponement (To be charged from the
+[0135] 4 6 Building Owner at the time of postponing/signing Rs. 2,500/ -
+[0136] the agreement)
+[0137] B) Retail Lending
+[0138] No. Description New Fee / Charges
+[0139] General
+[0140] Charges on CRIB report
+[0141] 4 7 a) Retail Rs. 250/ -
+[0142] b) Corporate Processing Fee 0.25%
+[0143] Issuance of a duplicate receipt for the loan
+[0144] 4 8 No Charges
+[0145] instalment paid
+[0146] 4 9 Early settlement charges 5.00%
+[0147] Issuance of a letter confirming loan balances or
+[0148] 50 Rs. 200/ -
+[0149] any other purposes
+[0150] 5 1 Issuance of a Letter of Demand Rs. 200/ -
+[0151] Housing Loan related
+[0152] Obtaining deed settling of the housing loan after 3
+[0153] 52 Rs. 3,000/ per year
+[0154] months
+[0155] 5 3 Not obtaining loan in full (to limit the Loan) Rs. 2,500/ -
+[0156] Loan Balance upto Rs. 1 Mn Rs. 4,500/ ,
+[0157] 5 4 Deed of Release
+[0158] Loan balance above Rs.1 Mn Rs. 9,000/ -
+[0159] 5 5 Top Up Charges Rs. 7,500/ + All incurred costs
+[0160] 5 6 Issuance of a Letter of No Objection Rs. 500/ -
+[0161] 5 7 Obtaining copies of following documents
+[0162] 57.1 Set of Deeds Rs. 500/ per Deed
+[0163] 57.2 Survey Plan Rs. 200/ -
+[0164] 57.3 Copies of Mortgage Bond Rs. 1,000/ -
+[0165] 57. 4 Building Plan (if the copies issued by the
+[0166] Rs. 1,000/ -
+[0167] Bank)
+[0168] 57.5 Letter of No Objection Rs. 500/ -
+[0169] 5 8 Government Housing Loan Processing Fee Rs. 7,500/ -
+[0170] Upto Rs. 2,500,000/ Actual Cost
+[0171] 5 9 Housing Loans Processing Fee Above Rs. 2,500,000/ 0.5% of the loan
+[0172] amount
+[0173] 60 Obtaining a copy of the survey plan Rs. 150/ per page
+[0174] File Cancellation (withdrawn by the customer /
+[0175] 61 Rs. 2,500/ -
+[0176] legal defect)
+[0177] Cancellation of Mortgage bond (misplaced by the
+[0178] 6 2 Rs. 3,000/ -
+[0179] customer)
+[0180] 4 days Rs. 50,000/ -
+[0181] 6 3 Express Service Charges
+[0182] 10 days Rs. 20,000/ -
+[0183] Personal Loan related
+[0184] Upto Rs. 1 Mn Rs. 5,000/ -
+[0185] Service Charges for Personal Loan Including
+[0186] from Rs. 1,000,001 to Rs. 3 Mn Rs. 8,500/ -
+[0187] 6 4 CRIB charges for Applicant+Joint Applicants+2
+[0188] Above Rs. 3,000,001 Rs. 10,000/ -
+[0189] Gurantors
+[0190] + Any additional CRIB Rs.250/ -
+[0191] RDA vehicle loan
+[0192] 6 5 a) Non Permit Holders
+[0193] No Charge
+[0194] b) Permit Holders
+[0195] Retrieving documents from Archives (On
+[0196] 6 6 Actual Cost + 500/ -
+[0197] Customers request)
+[0198] Pawning related
+[0199] 6 7 Handling charges for loss of a Pawning Ticket Rs. 500/ -
+[0200] Handling charges Third Party Redemtion of
+[0201] 6 8 Rs. 250/ -
+[0202] Pawning Article
+[0203] 1st Reminder 100/ , 2nd Reminder 200/ , 3rd
+[0204] 6 9 Reminders 1st, 2nd & 3rd
+[0205] Reminder 300/ (including Postage )
+[0206] 70 Pawning Auction handling charges Rs. 1, 5 00/ per customer
+[0207] Loan Against Deposits related
+[0208] 7 1 Service charges for Loans against Deposits Rs. 350/ -
+[0209] 7 2 Same day loan against FD Rs. 1,000/ -
+[0210] (when granting an LFD on the same day,
+[0211] Rs.350/ shall be charged additionally )
+[0212] Rs.500/ for each reminder after expiring the
+[0213] 7 3 Expired LFD Reminders
+[0214] LFD
+[0215] Bank Gu a rantees related
+[0216] 7 4 Amendment of Bank Guarantee No Charges ( Amendments cannot be made )
+[0217] 7 5 Renewal of Bank Guarantee Commission charges + Rs. 500/ -
+[0218] 7 6 Bank Gu a rantee issued under special format Rs. 2,000/ -
+[0219] 7 7 Bank Gu a rantee claim handling Charges Rs. 1,000/ -
+[0220] Minimum Charges Rs. 1,000/ -
+[0221] Gu a rantee Amount Commission (%)
+[0222] 78 Issuance of Bank Guarantee
+[0223] Up to Rs. 1,000,000/ 1.5%
+[0224] Above Rs.1,000,000/ 2.0%
+[0225] C) Foreign Inward / Outward Remittances
+[0226] No. Description New Fee / Charges
+[0227] Draft issued by Exchange Companies in FC to the
+[0228] No Special Charges (only the actual Bank
+[0229] 7 9 credit of NSB FC accounts
+[0230] Charges )
+[0231] (USD/EUR/GBP/AUD)
+[0232] Draft issued by Exchange Companies in LKR
+[0233] to the credit of NSB LKR accounts
+[0234] a) upto LKR 5,000/ No Special Charges + Actual Bank Charges
+[0235] 80
+[0236] b) from LKR 5,001/ to LKR 10,000/ Rs. 100/ + Actual Bank Charges
+[0237] c) from LKR 10,001/ to LKR 100,000/ Rs. 250/ + Actual Bank Charges
+[0238] d) LKR 100,001/ and Above Rs. 500/ + Actual Bank Charges
+[0239] FC Drafts issued by Sri Lankan Banks to the
+[0240] 1 Unit of Each Issuing Currency + Collection
+[0241] 81 Credit of NSB FC/LKR accounts above 100 units
+[0242] Charges
+[0243] in each currency
+[0244] FC Drafts issued by Overseas Banks to the Credit
+[0245] 82 of NSB FC/LKR accounts above 100 units in each
+[0246] currency
+[0247] Inward Remittances through SWIFT (Charges
+[0248] are applicable only for charges type ''BEN''
+[0249] and ''SHA'')
+[0250] 8 2
+[0251] a) to the credit of NSB FC
+[0252] No Special Charges + Actual Bank Charges
+[0253] Accounts(USD/EUR/GBP/AUD)
+[0254] b) to the credit of NSB LKR Accounts Rs. 250/ + Actual Bank Charges
+[0255] Inward Remittances through EUROGIRO
+[0256] b) to the credit of NSB LKR Accounts (received
+[0257] Rs. 250/ + Actual Bank Charges
+[0258] in USD)
+[0259] c) to the credit of NSB LKR Accounts (received
+[0260] Rs. 350/ + Actual Bank Charges
+[0261] in EUR)
+[0262] d) to the credit of other bank FC accounts
+[0263] One unit of FC + Actual Bank Charges
+[0264] (received in USD)
+[0265] 8 4 e) to the credit of other bank FC accounts
+[0266] (received in EUR)
+[0267] f) to the credit of other bank LKR accounts
+[0268] Rs. 500/ + Actual Bank Charges
+[0269] g) to the credit of other bank LKR accounts
+[0270] Rs. 750/ + Actual Bank Charges
+[0271] (charges are applicable only for charges types
+[0272] ''Ben'' and ''Sha'' and charges type 'OUR' a
+[0273] commission of Rs.5/ each in USD/EUR is to be
+[0274] claimed monthly from the respective institutions)
+[0275] 8 5 Inward Remittances through CITI Bank NY
+[0276] a) to the credit of NSB FC
+[0277] No Charges
+[0278] Accounts(USD/EUR/GBP/AUD)
+[0279] b) to the credit of NSB LKR accounts Rs. 250/ -
+[0280] Inward Remittances through Exchange
+[0281] Companies
+[0282] a) in FC/LKR to the credit of NSB FC/LKR
+[0283] No Special Charges + Actual Bank Charges
+[0284] accounts from income sharing instituions
+[0285] 8 6
+[0286] b) in FC to the credit of NSB FC accounts from
+[0287] One unit of FC + Actual Bank Charges
+[0288] non income sharing institutions
+[0289] c) in LKR to the credit of NSB / Other Bank LKR
+[0290] Rs. 100/ + Bank Charges
+[0291] accounts from non income sharing institutions
+[0292] Accepting Travelers' cheques
+[0293] 8 7 a) to the credit of NSB FC accounts Suspended
+[0294] b) to the credit of NSB LKR accounts Suspended
+[0295] Accepting Foreign Currency Notes to the credit of
+[0296] NSB FC/LKR accounts (Exchange income could
+[0297] be earned only for FCN accepted in
+[0298] USD/GBP/EUR/AUD to the credit of LKR
+[0299] 8 8 No Charges
+[0300] accounts deposited to respective accounts at
+[0301] commercial bank. in addtion, the commission is
+[0302] claimed from commercial bank of ceylon for FCN
+[0303] deposited to LKR accounts of Commercial Bank)
+[0304] 8 9 Issuance of LKR drafts from NSB FC Accounts Rs. 1,500/ -
+[0305] Cancellation of Drafts
+[0306] 90 a) FC Drafts
+[0307] Rs. 500/ -
+[0308] b) LKR Drafts
+[0309] Cancellation of Drafts from NSB FC Accounts Cancellation Rs. 500/ -
+[0310] 91 a) FC Drafts FC draft Charges (as per 94)
+[0311] b) LKR Drafts LKR draft charges (as per 94)
+[0312] Cancellation of Drafts and remitting by
+[0313] 92 TT charges + Cancellation Charges
+[0314] telegraphic Transfer
+[0315] LKR Fund Transfers from NSB FC Accounts
+[0316] a) to NSB LKR Accounts No Charges
+[0317] 9 3
+[0318] b) to other bank LKR accounts Rs. 4,000/ -
+[0319] Issuance of Travellers cheques from NSB FC Issuance of TC was discontinued from
+[0320] 9 4
+[0321] Accounts 11/11/2013
+[0322] 9 5 Issuance of Balance Confirmation Rs. 1,000/ -
+[0323] 9 6 Closure of Foreign Currency Account US $ 5 Equivalent
+[0324] Telegraphic Transfer (TT ) Charges (Commission + Charges for Issuing
+[0325] 9 7 Foreign Outward Remittances (New Charges) FC Draft Charges
+[0326] SWIFT Charges + Actual Bank Charges) Foreign Currency Notes
+[0327] 2.50% 2.25% 1.75%
+[0328] 97.1 NSB Account Holders of Same Currency
+[0329] + SWIFT message charges 25 USD per message + Actual Bank Charges minimum USD 10
+[0330] 97. 2 NSB Foreign Currency Account holders but
+[0331] 2.95% 2.85% 2.10%
+[0332] not the same currency
+[0333] 3.00% 3.00% 3.00%
+[0334] 97. 3 NSB LKR Account Holders
+[0335] 97. 4 Walk In Customers

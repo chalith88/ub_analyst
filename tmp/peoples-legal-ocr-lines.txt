@@ -1,0 +1,75 @@
+[p1][ocr][y=0] Legal Charges for mortgage bonds prepared by the Law Officers of the Bank
+[p1][ocr][y=20] Rate / Fee (Rs.)
+[p1][ocr][y=40] Up to Rs. 1,000,000/-       1.25 %
+[p1][ocr][y=60] Rs. 1,000,001/- to 25,000,000/- 1.0 %
+[p1][ocr][y=80] Rs. 25,000,001/- to 50,000,000/- 0.8 %
+[p1][ocr][y=100] Rs. 50,000,001/- to 75,000,000/- 0.75 %
+[p1][ocr][y=120] Rs. 75,000,001/- to 100,000,000/- 0.5 %
+[p1][ocr][y=140] Above Rs. 100,000,000/- 0.25 %
+[p1][ocr][y=160] Preparation and registration of priority notice 1,500/-
+[p1][ocr][y=180] Examination of Title for staff loans 1,000/-
+[p1][ocr][y=200] Examination of Title for customers
+[p1][ocr][y=220] Rate / Fee (Rs.)
+[p1][ocr][y=240] Preparation and registration of priority  notice 1,500/-
+[p1][ocr][y=260] For Examination of Title
+[p1][ocr][y=280] Up to Rs. 500,000/-
+[p1][ocr][y=300] Above Rs. 500,000/-
+[p1][ocr][y=320] 2,500/-
+[p1][ocr][y=340] 4,500/-
+[p1][ocr][y=360] For  obtaining land registry extracts 1,500/-
+[p1][ocr][y=380] For obtaining any Land Registry extract(per extract) 1,000/-
+[p1][ocr][y=400] Legal charges for piusing (subsequent) mortgage
+[p1][ocr][y=420] bonds
+[p1][ocr][y=440] As per the above legal charges
+[p1][ocr][y=460] Legal charges for mortgage bonds executed in respect of movable properties
+[p1][ocr][y=480] Rate / Fee (Rs.)
+[p1][ocr][y=500] Up to Rs. 500,000/- 5,000/-
+[p1][ocr][y=520] 500,001/- to 3,000,000/-
+[p1][ocr][y=540] 1.5% of the value of the mortgage bond
+[p1][ocr][y=560] ( Minimum Rs. 7,500/-)
+[p1][ocr][y=580] Above Rs. 3,000,000/- Fixed rate of Rs. 50,000/-
+[p1][ocr][y=600] Certificate of Sale / Resale Endorsements/ Deeds of Cancellations and Deeds of Release
+[p1][ocr][y=620] Rate / Fee (Rs.)
+[p1][ocr][y=640] Issuing of Certificate of Sale
+[p1][ocr][y=660] 0.5% of the value of the certificate of sale (Maximum
+[p1][ocr][y=680] 500,000/-)
+[p1][ocr][y=700] Resale Endorsement 0.5%  of the purchase value (Maximum 500,000/=)
+[p1][ocr][y=720] Legal Charges
+[p1][ocr][y=740] Cancellation / Release / Agreement
+[p1][ocr][y=760] Rate / Fee (Rs.)
+[p1][ocr][y=780] For Cancellation of Mortgage Bonds or Certificate of Sale and executing
+[p1][ocr][y=800] Deed of   Releases
+[p1][ocr][y=820] 5,000/=
+[p1][ocr][y=840] For any Deed attested by the  Bank to  cancel or to rectify the same, if the
+[p1][ocr][y=860] original Mortgage  Bond / Deed/Deed Volume is misplaced in the Branch
+[p1][ocr][y=880] Free
+[p1][ocr][y=900] For issue a certified copy, if any of the original Mortgage Bond  bearing
+[p1][ocr][y=920] cancellation stamp  or Deed of Cancellation or Deed  of Release is
+[p1][ocr][y=940] misplaced by the customer after handing over to the customer
+[p1][ocr][y=960] 3,000/-
+[p1][ocr][y=980] For execution of any agreement by the Bank upon the request of the
+[p1][ocr][y=1000] customer (Reschedule/restructure etc.)
+[p1][ocr][y=1020] 3,000/-
+[p1][ocr][y=1040] For obtaining of extracts after doing the Land Registry search personally by
+[p1][ocr][y=1060] the Law Officers  when required
+[p1][ocr][y=1080] 7,500/-
+[p1][ocr][y=1100] Legal charges applicable for DR Matters
+[p1][ocr][y=1120] Rate / Fee (Rs.)
+[p1][ocr][y=1140] Drafting plaints/ answers and any other relevant  documents 15,000/-
+[p1][ocr][y=1160] Serving Nisi Orders 10,000/-
+[p1][ocr][y=1180] Obtaining order absolute 15,000/-
+[p1][ocr][y=1200] For every appearances 2,500/-
+[p1][ocr][y=1220] Legal Charges for filing other recovery actions
+[p1][ocr][y=1240] Amount to be recovered
+[p1][ocr][y=1260] Rate / Fee (Rs.)
+[p1][ocr][y=1280] Up to Rs. 50,000/= 3,500/-
+[p1][ocr][y=1300] Rs. 50,001/= to Rs.250,000/= 5,000/-
+[p1][ocr][y=1320] Rs. 250,001/= to Rs.1,000,000/= 10,000/-
+[p1][ocr][y=1340] Above Rs.1,000,000/= 25,000/-
+[p1][ocr][y=1360] For each appearance  2,500/-
+[p1][ocr][y=1380] Legal charges for specified services
+[p1][ocr][y=1400] Rate / Fee (Rs.)
+[p1][ocr][y=1420] For perusing Power of Attorney 250/-
+[p1][ocr][y=1440] For preparing & attesting Branch Leases 5,000/-
+[p1][ocr][y=1460] For preparing & attesting Supplementary Mortgage Bonds 5,000/-
+[p1][ocr][y=1480] For perusing any other document 750/-

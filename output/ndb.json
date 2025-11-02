@@ -1,0 +1,74 @@
+[
+  {
+    "bank": "NDB Bank",
+    "product": "Home Loan",
+    "type": "Floating",
+    "rateWithSalary": "9.90%",
+    "source": "https://www.ndbbank.com/rates/interest-rates-on-advances",
+    "updatedAt": "2025-09-28T03:57:54.101Z",
+    "notes": "Min rate"
+  },
+  {
+    "bank": "NDB Bank",
+    "product": "Home Loan",
+    "type": "Floating",
+    "rateWithSalary": "12.25%",
+    "source": "https://www.ndbbank.com/rates/interest-rates-on-advances",
+    "updatedAt": "2025-09-28T03:57:54.101Z",
+    "notes": "Max rate"
+  },
+  {
+    "bank": "NDB Bank",
+    "product": "Personal Loan",
+    "type": "Fixed",
+    "rateWithSalary": "13.95%",
+    "source": "https://www.ndbbank.com/rates/interest-rates-on-advances",
+    "updatedAt": "2025-09-28T03:57:54.101Z",
+    "notes": "General personal loan · Min rate"
+  },
+  {
+    "bank": "NDB Bank",
+    "product": "Personal Loan",
+    "type": "Fixed",
+    "rateWithSalary": "13.95%",
+    "source": "https://www.ndbbank.com/rates/interest-rates-on-advances",
+    "updatedAt": "2025-09-28T03:57:54.101Z",
+    "notes": "Special rate for doctors · Min rate"
+  },
+  {
+    "bank": "NDB Bank",
+    "product": "Personal Loan",
+    "type": "Fixed",
+    "rateWithSalary": "15.50%",
+    "source": "https://www.ndbbank.com/rates/interest-rates-on-advances",
+    "updatedAt": "2025-09-28T03:57:54.101Z",
+    "notes": "General personal loan · Max rate"
+  },
+  {
+    "bank": "NDB Bank",
+    "product": "Personal Loan",
+    "type": "Fixed",
+    "rateWithSalary": "13.95%",
+    "source": "https://www.ndbbank.com/rates/interest-rates-on-advances",
+    "updatedAt": "2025-09-28T03:57:54.101Z",
+    "notes": "Special rate for doctors · Max rate"
+  },
+  {
+    "bank": "NDB Bank",
+    "product": "Education Loan",
+    "type": "Fixed",
+    "rateWithSalary": "13.95%",
+    "source": "https://www.ndbbank.com/rates/interest-rates-on-advances",
+    "updatedAt": "2025-09-28T03:57:54.101Z",
+    "notes": "Min rate"
+  },
+  {
+    "bank": "NDB Bank",
+    "product": "Education Loan",
+    "type": "Fixed",
+    "rateWithSalary": "13.95%",
+    "source": "https://www.ndbbank.com/rates/interest-rates-on-advances",
+    "updatedAt": "2025-09-28T03:57:54.101Z",
+    "notes": "Max rate"
+  }
+]

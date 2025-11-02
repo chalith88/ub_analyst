@@ -1,0 +1,2720 @@
+[0] 
+[1] 
+[2] DFCCBank PLC
+[3] Tariff 2025
+[4] Version 3.1
+[5] # Confidential-External
+[6] 
+[7] LKRFCYLKRFCYLKRFCYLKRFCYLKRFCY
+[8] 1.1Initial Deposit - CASA
+[9] 1.1.1N/ACurrent Account - Business10,000N/AN/AN/AN/AN/AN/AN/AN/AN/A
+[10] 1.1.2N/ACurrent Account - Personal 10,000N/AWaived OffN/AWaived OffN/AWaived OffN/AWaived OffN/A
+[11] 1.1.3N/AAny Savings Account - Business10,000
+[12] USD 100 or equivalent in
+[13] any other authorised FCY
+[14] N/AN/AN/AN/AN/AN/AN/AN/A
+[15] 1.1.4N/AMega Bonus - Personal 1,000
+[16] USD 100 or equivalent in
+[17] any other authorised FCY
+[18] First salary remittance
+[19] within 30 days of opening
+[20] the account
+[21] USD 100 or equivalent in any
+[22] other authorised FCY
+[23] First salary remittance
+[24] within 30 days of opening
+[25] the account
+[26] USD 100 or equivalent in any
+[27] other authorised FCY
+[28] First salary remittance
+[29] within 30 days of opening
+[30] the account
+[31] USD 100 or equivalent in
+[32] any other authorised FCY
+[33] Waived OffWaived Off
+[34] 1.1.5DFCC Winner - Personal2,500N/A
+[35] First salary remittence
+[36] within 30 days of opening
+[37] the account
+[38] N/A
+[39] First salary remittence
+[40] within 30 days of opening
+[41] the account
+[42] N/A
+[43] First salary remittence
+[44] within 30 days of opening
+[45] the account
+[46] N/AWaived OffN/A
+[47] 1.1.6N/AJunior Savings 500N/AN/AN/AN/AN/A
+[48] 1.1.7N/AJunior Plus 1,000N/A10,000N/A10,000N/A
+[49] 1.1.8Junior Teen1,000N/AN/AN/AN/AN/A
+[50] 1.1.9N/AGarusaru Savings Account (Senior Citizens)1,000N/A1,000N/A1,000N/A
+[51] 1.1.10N/AExtreme Money Market100,000N/A100,000N/A100,000N/A100,000N/A100,000N/A
+[52] 1.1.11DFCC Aloka1,000N/A1,000N/A1,000N/A1,000N/A1,000N/A
+[53] 1.2
+[54] 1.2.1N/ACurrent Account - Business10,000N/AN/AN/AN/AN/AN/AN/AN/AN/A
+[55] 1.2.2N/ACurrent Account - Personal 10,000N/AWaived OffN/AWaived OffN/AWaived OffN/AWaived OffN/A
+[56] 1.2.3N/ASalary Booster - Personal N/AN/AN/AN/AN/AN/AN/AN/AN/AN/A
+[57] 1.2.5N/AMega Bonus - Personal \ Business1,000N/A1000N/A1000N/A1000N/AN/AN/A
+[58] 1.2.7DFCC Winner - Personal \ Business5,000N/A5000N/A5000N/A5000N/AN/AN/A
+[59] 1.2.8N/AJunior Savings1,000N/AN/AN/AN/AN/AN/AN/AN/AN/A
+[60] 1.2.9N/AJunior Plus1,000N/AN/AN/AN/AN/AN/AN/AN/AN/A
+[61] 1.2.10Junior Teen1,000N/AN/AN/AN/AN/AN/AN/AN/AN/A
+[62] 1.2.11N/AGarusaru Savings Account (Senior Citizens)1000N/A1000N/A1000N/A1000N/AN/AN/A
+[63] 1.2.12N/AExtreme Money Market- Personal \ Business100,000N/A100,000N/A100,000N/A100,000N/A100,000N/A
+[64] 1.2.13DFCC Aloka1,000N/A1,000N/A1,000N/A1,000N/A1,000N/A
+[65] 1.3Minimum Deposit - Fixed Deposits
+[66] 1.3.1N/AGeneral 10,000
+[67] USD 500 or equivalent in
+[68] any other authorised FCY
+[69] 10,000
+[70] USD 500 or equivalent in any
+[71] other authorised FCY
+[72] 10,000
+[73] USD 500 or equivalent in any
+[74] other authorised FCY
+[75] 10,000
+[76] USD 500 or equivalent in
+[77] any other authorised FCY
+[78] 10,000
+[79] USD 500 or equivalent in
+[80] any other authorised FCY
+[81] 1.3.2N/ASenior Citizens100,000N/A100,000N/A100,000N/A100,000N/A100,000N/A
+[82] 1.3.3N/ACall Deposits 100,000N/A100,000N/A100,000N/A100,000N/A100,000N/A
+[83] 1.3.4N/ACertificates of Deposits 100,000N/A100,000N/A100,000N/A100,000N/A100,000N/A
+[84] 1.4Current Account Specific Charges
+[85] 1.4.1Issuance of Cheque Books
+[86] 1.4.1.1CHQ/CHVCheque books
+[87] 35 per leaf + Postage where
+[88] applicable
+[89] N/A
+[90] 35 per leaf + Postage where
+[91] applicable
+[92] N/A
+[93] 35 per leaf + Postage where
+[94] applicable
+[95] N/A
+[96] 35 per leaf + Postage where
+[97] applicable
+[98] N/A
+[99] 35 per leaf + Postage where
+[100] applicable
+[101] N/A
+[102] 1.4.1.2
+[103] Manually enter by
+[104] branch
+[105] Loose cheque leaves 1,000 per leaf N/A1,000 per leaf N/A1,000 per leaf N/AFreeN/AFreeN/A
+[106] 1.4.1.3
+[107] Manually enter by
+[108] branch
+[109] Continuous cheque leaves - per order Actual cost + 20 per leafN/AActual cost + 20 per leafN/AN/AN/AN/AN/AN/AN/A
+[110] 1.4.1.4N/APostage on cheque book dispatch500 per parcelN/A500 per parcelN/A500 per parcelN/A500 per parcellN/A500 per parcellN/A
+[111] N/AN/AN/AN/A
+[112] Minimum Balance Requirement - CASA (Interest on savings accounts shall be accrued subject to maintenance of the stipulated minimum balances) / Avarage Minimum Balance maintainance requirment same as below
+[113] Account Operations
+[114] NORMALSALARY PLUSSALARY PARTNERPRESTIGEPINNACLE
+[115] NO.CHARGE CODE DESCRIPTION
+[116] # Confidential-External
+[117] 
+[118] LKRFCYLKRFCYLKRFCYLKRFCYLKRFCY
+[119] 1.4.2Stop Payments
+[120] 1.4.2.1STQWithout funds5,000 per cheque N/A5,000 per cheque N/A5,000 per cheque N/A5,000 per cheque N/A5,000 per cheque N/A
+[121] 1.4.2.2STPWith funds 2,000 per chequeN/A2,000 per chequeN/A2,000 per chequeN/A2,000 per chequeN/A2,000 per chequeN/A
+[122] 1.4.2.3
+[123] STR - create a new
+[124] code
+[125] Entire cheque book - lost cheque books 5,000 per book N/A5,000 per book N/A5,000 per book N/A5,000 per book N/A5,000 per book N/A
+[126] 1.4.2.4N/ACancellation of stop payment instructions 500 per cheque N/A500 per cheque N/A500 per cheque N/A500 per cheque N/A500 per cheque N/A
+[127] 1.4.2.5N/AIssuance of Duplicate Cheque Return Notification (CRN) 1,500 per cheque N/A1,500 per cheque N/A1,500 per cheque N/A1,500 per cheque N/A1,500 per cheque N/A
+[128] 1.4.3Inward Cheque Returns
+[129] 1.4.3.1CLA First return
+[130] 150 per cheque + postage if
+[131] applicable
+[132] N/A
+[133] 150 per cheque + postage if
+[134] applicable
+[135] N/A
+[136] 150 per cheque + postage if
+[137] applicable
+[138] N/A
+[139] 150 per cheque + postage if
+[140] applicable
+[141] N/A
+[142] 150 per cheque + postage if
+[143] applicable
+[144] N/A
+[145] 1.4.3.2CLBSecond return
+[146] 300 per cheque + postage if
+[147] applicable
+[148] N/A
+[149] 300 per cheque + postage if
+[150] applicable
+[151] N/A
+[152] 300 per cheque + postage if
+[153] applicable
+[154] N/A
+[155] 300 per cheque + postage if
+[156] applicable
+[157] N/A
+[158] 300 per cheque + postage if
+[159] applicable
+[160] N/A
+[161] 1.4.4Outward Cheque Returns
+[162] 1.4.4.1CHBRefer to drawer 5,000 per cheque N/A5,000 per cheque N/A5,000 per cheque N/A5,000 per cheque N/A5,000 per cheque N/A
+[163] 1.4.4.2CHBPayment postponed 4,000 per cheque N/A4,000 per cheque N/A4,000 per cheque N/A4,000 per cheque N/A4,000 per cheque N/A
+[164] 1.4.4.3Effects not Realized1,500 per cheque N/A1,500 per cheque N/A1,500 per cheque N/A1,500 per cheque N/A1,500 per cheque N/A
+[165] 1.4.4.3?Technical error cheques
+[166] 1.4.4.3.1?Amount in words and figures differ 750 per cheque N/A750 per cheque N/A750 per cheque N/A750 per cheque N/A750 per cheque N/A
+[167] 1.4.4.3.2?Drawer's signature differs from the specimen 750 per cheque N/A750 per cheque N/A750 per cheque N/A750 per cheque N/A750 per cheque N/A
+[168] 1.4.4.3.3?Alteration not confirmed by the drawer750 per cheque N/A750 per cheque N/A750 per cheque N/A750 per cheque N/A750 per cheque N/A
+[169] 1.4.4.3.4?Cheque incomplete 750 per cheque N/A750 per cheque N/A750 per cheque N/A750 per cheque N/A750 per cheque N/A
+[170] 1.4.4.3.5? Cheque not drawn in accordance with the mandate 750 per cheque N/A750 per cheque N/A750 per cheque N/A750 per cheque N/A750 per cheque N/A
+[171] 1.4.4.3.6?Cheque irregularly drawn 750 per cheque N/A750 per cheque N/A750 per cheque N/A750 per cheque N/A750 per cheque N/A
+[172] 1.4.4.3.7Payment of technical error cheques750 per cheque N/A750 per cheque N/A750 per cheque N/A750 per cheque N/A750 per cheque N/A
+[173] 1.4.5Cheques Marked for Payment
+[174] 1.4.5.1N/AOutward4,000 per cheque N/A4,000 per cheque N/A4,000 per cheque N/A4,000 per cheque N/A4,000 per cheque N/A
+[175] 1.4.5.2N/AIf sent on collection
+[176] 1,500 per cheque + actual
+[177] transport cost
+[178] N/A
+[179] 1,500 per cheque + actual
+[180] transport cost
+[181] N/A
+[182] 1,500 per cheque + actual
+[183] transport cost
+[184] N/A
+[185] 1,500 per cheque + actual
+[186] transport cost
+[187] N/A
+[188] 1,500 per cheque + actual
+[189] transport cost
+[190] N/A
+[191] 1.4.5.3N/AIf purchased
+[192] 0.35% of the value or 2,000 -
+[193] whichever is higher
+[194] N/A
+[195] 0.35% of the value or 2,000 -
+[196] whichever is higher
+[197] N/A
+[198] 0.35% of the value or 2,000 -
+[199] whichever is higher
+[200] N/A
+[201] 0.35% of the value or 2,000 -
+[202] whichever is higher
+[203] N/A
+[204] 0.35% of the value or 2,000 -
+[205] whichever is higher
+[206] N/A
+[207] 1.4.5.4N/AInward - DFCC cheque
+[208] 2,000 per cheque + pay
+[209] order charges
+[210] N/A
+[211] 2,000 per cheque + pay
+[212] order charges
+[213] N/A
+[214] 2,000 per cheque + pay
+[215] order charges
+[216] N/A
+[217] 2,000 per cheque + pay
+[218] order charges
+[219] N/A
+[220] 2,000 per cheque + pay
+[221] order charges
+[222] N/A
+[223] SALARY PARTNER
+[224] Account Operations
+[225] PRESTIGEPINNACLE
+[226] NO.CHARGE CODE DESCRIPTION
+[227] NORMALSALARY PLUS
+[228] # Confidential-External
+[229] 
+[230] LKRFCYLKRFCYLKRFCYLKRFCYLKRFCY
+[231] 1.4.6Cheque Referral Charges
+[232] 1.4.6.1CRC Inward500 per cheque N/A500 per cheque N/A500 per cheque N/A500 per cheque N/A500 per cheque N/A
+[233] 1.4.6.2
+[234] WIP - On hold with
+[235] Tharindu
+[236] Counter500 per cheque N/A500 per cheque N/A500 per cheque N/A500 per cheque N/A500 per cheque N/A
+[237] 1.4.6.3
+[238] WIP - On hold with
+[239] Tharindu
+[240] Transfer 500 per cheque N/A500 per cheque N/A500 per cheque N/A500 per cheque N/A500 per cheque N/A
+[241] 1.4.7Cheque Purchases
+[242] 1.4.7.1Cheque purchase fee
+[243] 1.5% of the value
+[244] Min. 2,500 per cheque
+[245] N/A
+[246] 1.5% of the value
+[247] Min. 2,500 per cheque
+[248] N/A
+[249] 1.5% of the value
+[250] Min. 2,500 per cheque
+[251] N/A
+[252] 1.5% of the value
+[253] Min. 2,500 per cheque
+[254] N/A
+[255] 1.5% of the value
+[256] Min. 2,500 per cheque
+[257] N/A
+[258] 1.4.8Handling Post Dated Cheques
+[259] 1.4.8.1With facility 50 per chequeN/AN/AN/AN/AN/AN/AN/AN/AN/A
+[260] 1.4.8.2Without facility 50 per chequeN/AN/AN/AN/AN/AN/AN/AN/AN/A
+[261] 1.4.9Statement Charges - All CASA Accounts
+[262] 1.4.9.1N/ADaily - Over the counter 2,000 per month USD 15 per month 2,000 per month USD 15 per month 2,000 per month USD 15 per month 2,000 per month USD 15 per month FreeFree
+[263] 1.4.9.2N/AWeekly - Over the counter 1,500 per month USD 10 per month 1,500 per month USD 10 per month 1,500 per month USD 10 per month 1,500 per month USD 10 per month FreeFree
+[264] 1.4.9.3N/AMonthly - By post FreeFreeFreeFreeFreeFreeFreeFreeFreeFree
+[265] 1.4.9.4N/ATemporary statements on request - Over the counter
+[266] 200 per pageEquivalent in any other
+[267] foreign currency
+[268] 200 per pageEquivalent in any other foreign
+[269] currency
+[270] 200 per pageEquivalent in any other
+[271] foreign currency
+[272] 200 per pageEquivalent in any other
+[273] foreign currency
+[274] 200 per pageEquivalent in any other
+[275] foreign currency
+[276] 1.4.9.5Temporary statements on request - Corporate
+[277] 1.4.9.6N/AeStatements - Daily (Ad hoc - includes PDF, MT940)1,000 per accountUSD 10 per account1,000 per accountUSD 10 per account1,000 per accountUSD 10 per account1,000 per accountUSD 10 per account1,000 per accountUSD 10 per account
+[278] 1.4.9.7N/AeStatements - Weekly (Ad hoc)500 per accountUSD 5 per account500 per accountUSD 5 per account500 per accountUSD 5 per account500 per accountUSD 5 per accountFreeFree
+[279] 1.4.9.8N/AeStatements - Monthly FreeFreeFreeFreeFreeFreeFreeFreeFreeFree
+[280] 1.4.9.9
+[281] eStatements (Business) - Daily (Ad hoc - includes PDF,
+[282] MT940)
+[283] 1,000 per accountUSD 10 per accountN/AN/AN/AN/AN/AN/AN/AN/A
+[284] 1.4.9.10eStatements (Business) - Weekly (Ad hoc)500 per accountUSD 5 per accountN/AN/AN/AN/AN/AN/AN/AN/A
+[285] 1.4.9.11eStatements (Business) - Monthly FreeFreeN/AN/AN/AN/AN/AN/AN/AN/A
+[286] 1.4.9.12DFCC Teen - eStatement (issue only on monthly basis)FreeN/AN/AN/AN/AN/AN/AN/AN/AN/A
+[287] 1.4.9.13N/APassbook accounts
+[288] 200 per page
+[289] N/A
+[290] 200 per page
+[291] N/A
+[292] 200 per page
+[293] N/AFreeFreeFreeFree
+[294] 200 per page
+[295] Account Operations
+[296] NORMALSALARY PLUSSALARY PARTNERPRESTIGEPINNACLE
+[297] NO.CHARGE CODE DESCRIPTION
+[298] # Confidential-External
+[299] 
+[300] LKRFCYLKRFCYLKRFCYLKRFCYLKRFCY
+[301] 1.5Fixed Deposit Interest Payment
+[302] 1.5.1N/ADFCC Bank - Internal transfers FreeFreeFreeFreeFreeFreeFreeFreeFreeFree
+[303] 1.5.2SLCOther Banks - SLIPS50N/A50N/A50N/A50N/AFreeFree
+[304] 1.5.3COROther Banks - RTGS 1,000USD 10 1,000USD 10 1,000USD 10500USD 5500USD 5
+[305] 1.5.4SOCOther Banks - Pay order2,000Refer OTT charges2,000Refer OTT charges2,000Refer OTT charges2,000Refer OTT charges2,000Refer OTT charges
+[306] 1.6Service Charges
+[307] 1.6.1Over the counter withrdawal fee50 (Below 200K)N/A50 (Below 200K)N/A50 (Below 200K)N/A50 (Below 200K)N/AFreeN/A
+[308] 1.6.2MSA
+[309] Minimum balance maintenance for current accounts:
+[310] If the balance falls below LKR 10,000
+[311] 500 per month
+[312] USD 0.50 per month or
+[313] equivalent in any other
+[314] authorised FCY
+[315] Free
+[316] USD 0.50 per month or
+[317] equivalent in any other
+[318] authorised FCY
+[319] Free
+[320] USD 0.50 per month or
+[321] equivalent in any other
+[322] authorised FCY
+[323] Free
+[324] USD 0.50 per month or
+[325] equivalent in any other
+[326] authorised FCY
+[327] FreeFree
+[328] 1.6.11
+[329] Minimum Avarage balance not maintenance fee - Savings
+[330] Accounts ( Exclude Pinnacle + Junior Products )
+[331] 50
+[332] N/A50N/A50N/A50N/AN/AN/A
+[333] 1.6.3N/AIssuance of duplicate passbook300N/A300N/A300N/A300N/AFreeN/A
+[334] 1.6.4MNF
+[335] Dormant account maintenance fee - if the balance is below
+[336] LKR 1,000
+[337] 100 per month
+[338] USD 1 per month or
+[339] equivalent in any other
+[340] authorised FCY
+[341] 100 per month
+[342] USD 1 per month or equivalent
+[343] in any other authorised FCY
+[344] 100 per month
+[345] USD 1 per month or
+[346] equivalent in any other
+[347] authorised FCY
+[348] 100 per month
+[349] USD 1 per month or
+[350] equivalent in any other
+[351] authorised FCY
+[352] 100 per month
+[353] USD 1 per month or
+[354] equivalent in any other
+[355] authorised FCY
+[356] 1.6.12
+[357] Dormant account maintenance fee - if the balance is below
+[358] LKR 1000.01 - 5000
+[359] 50
+[360] N/A50N/A50N/A50N/A50N/A
+[361] 1.6.5N/AIssuance of duplicate FD certificates 2,000 per certificate
+[362] USD 5 per month or
+[363] equivalent in any other
+[364] authorised FCY
+[365] 2,000 per certificate
+[366] USD 5 per month or equivalent
+[367] in any other authorised FCY
+[368] 2,000 per certificate
+[369] USD 5 per month or
+[370] equivalent in any other
+[371] authorised FCY
+[372] 2,000 per certificate
+[373] USD 5 per month or
+[374] equivalent in any other
+[375] authorised FCY
+[376] 2,000 per certificate
+[377] USD 5 per month or
+[378] equivalent in any other
+[379] authorised FCY
+[380] 1.6.6ACSSavings account closure 1000 per account
+[381] Equivalent in any other
+[382] authorised FCY
+[383] 1000 per account
+[384] Equivalent in any other
+[385] authorised FCY
+[386] 1000 per account
+[387] Equivalent in any other
+[388] authorised FCY
+[389] 1000 per account
+[390] Equivalent in any other
+[391] authorised FCY
+[392] 1000 per account
+[393] Equivalent in any other
+[394] authorised FCY
+[395] 1.6.7ACCCurrent account closure - Voluntary 2000 per account
+[396] Equivalent in any other
+[397] authorised FCY
+[398] 2000 per account
+[399] Equivalent in any other
+[400] authorised FCY
+[401] 2000 per account
+[402] Equivalent in any other
+[403] authorised FCY
+[404] 2000 per account
+[405] Equivalent in any other
+[406] authorised FCY
+[407] 2000 per account
+[408] Equivalent in any other
+[409] authorised FCY
+[410] 1.6.8N/ACurrent account closure - Due to unsatisfactory conduct
+[411] Max. 2,500 per account or
+[412] available balance
+[413] N/A
+[414] Max. 2,500 per account or
+[415] available balance
+[416] N/A
+[417] Max. 2,500 per account or
+[418] available balance
+[419] N/A
+[420] Max. 2,500 per account or
+[421] available balance
+[422] N/A
+[423] Max. 2,500 per account or
+[424] available balance
+[425] N/A
+[426] 1.6.9ATM/CRM Withdrawal Fee5N/AN/AN/AN/AN/AN/AN/AN/AN/A
+[427] 1.6.10Abandoned Fee ( One Off)500N/A500N/A500N/A500N/A500N/A
+[428] Where unspecified, the normal tariff shall apply.
+[429] Where specified 18% VAT shall apply
+[430] Account Operations
+[431] NORMALSALARY PLUSSALARY PARTNERPRESTIGEPINNACLE
+[432] NO.CHARGE CODE DESCRIPTION
+[433] # Confidential-External
+[434] 
+[435] LKRFCYLKRFCYLKRFCYLKRFCYLKRFCY
+[436] 2.1Fund Transfers - Over the Counter
+[437] 2.1.1DFCC Bank - Internal transfers150N/A150N/A150N/A150N/AFreeFree
+[438] 2.1.2Other Banks - SLIPS50 per transactionN/A50 per transactionN/A50 per transactionN/A50 per transactionN/AFreeN/A
+[439] 2.1.3Other Banks - CEFTS100 per transactionN/A100 per transactionN/A100 per transactionN/A100 per transactionN/AFreeN/A
+[440] 2.1.4Other Banks - RTGS (CBSL 200 + Bank 200)400 per transactionUSD 4 per transaction400 per transactionUSD 4 per transaction400 per transactionUSD 4 per transaction400 per transactionUSD 4 per transactionFreeFree
+[441] 2.2Salaries
+[442] 2.2.1Processing of salaries to DFCC Bank accounts
+[443] 30 per transaction+5,000
+[444] processing fee per file
+[445] (OB free)
+[446] N/AN/AN/AN/AN/AN/AN/AN/AN/A
+[447] 2.3Standing Orders
+[448] 2.3.1Setup
+[449] 250 - Internal
+[450] 350 - External
+[451] USD 3
+[452] or equivalent in any other
+[453] authorised FCY
+[454] 250 - Internal
+[455] 350 - External
+[456] USD 3
+[457] or equivalent in any other
+[458] authorised FCY
+[459] FreeFreeFreeFreeFreeFree
+[460] 2.3.2Amendment250
+[461] USD 3
+[462] or equivalent in any other
+[463] authorised FCY
+[464] 250
+[465] USD 3
+[466] or equivalent in any other
+[467] authorised FCY
+[468] FreeFreeFreeFreeFreeFree
+[469] 2.3.3Cancellation250
+[470] USD 1
+[471] or equivalent in any other
+[472] authorised FCY
+[473] 250
+[474] USD 1
+[475] or equivalent in any other
+[476] authorised FCY
+[477] FreeFreeFreeFreeFreeFree
+[478] 2.3.4Charge for lack of funds150
+[479] USD 1
+[480] or equivalent in any other
+[481] authorised FCY
+[482] 150
+[483] USD 1
+[484] or equivalent in any other
+[485] authorised FCY
+[486] 150
+[487] USD 1
+[488] or equivalent in any other
+[489] authorised FCY
+[490] 150
+[491] USD 1
+[492] or equivalent in any other
+[493] authorised FCY
+[494] FreeFree
+[495] 2.4Sweeping Facility
+[496] 2.4.1Setup - Personal/Business2,000N/A2,000N/AFreeFreeFreeFreeFreeFree
+[497] 2.4.2Monthly fee - Personal150N/A150N/AFreeFreeFreeFreeFreeFree
+[498] 2.4.3Monthly fee - Business150N/A150N/AN/AN/AN/AN/AN/AN/A
+[499] 2.5Pay Orders
+[500] 2.5.1Issuance of Pay Orders
+[501] 2.5.1.1Account holder1000 per pay orderN/A1000 per pay orderN/A1000 per pay orderN/A1000 per pay orderN/A1000 per pay orderN/A
+[502] 2.5.1.2Non-account holder2,000N/AN/AN/AN/AN/AN/AN/AN/AN/A
+[503] 2.5.2Cancellation of Pay Orders
+[504] 2.5.2.1Account holder1,500N/A1,500N/A1,500N/A1,500N/A1,500N/A
+[505] 2.5.2.2Non-account holder2,000N/A2,000N/AN/AN/AN/AN/AN/AN/A
+[506] 2.6Debit Cards
+[507] 2.6.1
+[508] Personalised Debit Cards - Only for Pinnacle Customers ,
+[509] DFCC Teen Accounts & DFCC Aloka
+[510] 2.6.1.1New card
+[511] FreeFreeFreeFreeFreeFreeFreeFreeFreeFree
+[512] 2.6.1.2Replacement card - lost/damaged card
+[513] N/AN/AN/AN/AN/AN/AFreeFreeFreeFree
+[514] 2.6.1.3PIN replacement
+[515] N/AN/AN/AN/AN/AN/AFreeFreeFreeFree
+[516] 2.6.1.4
+[517] Annual fee (Annual Fee for the 01st year will be collected at
+[518] point of the card issuance and from the 02nd year onwards it
+[519] will be on the card anniversary date)
+[520] 500
+[521] Equivalent LKR amount in
+[522] the account currency at
+[523] the prevailing exchange
+[524] rateFreeFreeFreeFreeFreeFreeFreeFree
+[525] 2.6.1.5DFCC Teen Account - New Card
+[526] FreeN/AN/AN/AN/AN/AN/AN/AN/AN/A
+[527] 2.6.1.6
+[528] DFCC Teen Account - PIN Replacement and Replacement
+[529] Card
+[530] 350N/AN/AN/AN/AN/AN/AN/AN/AN/A
+[531] 2.6.1.7
+[532] DFCC Teen Account - Annual Fee (Annual Fee for the 01st
+[533] year will be collected at point of the card issuance and from
+[534] the 02nd year onwards it will be on the card anniversary
+[535] date)
+[536] 500N/AN/AN/AN/AN/AN/AN/AN/AN/A
+[537] 2.6.1.8DFCC Aloka - New Card
+[538] 200N/AN/AN/AN/AN/AN/AN/AN/AN/A
+[539] 2.6.1.9DFCC Aloka - Annual Fee
+[540] 250N/AN/AN/AN/AN/AN/AN/AN/AN/A
+[541] 2.6.2Pre-encoded Debit Cards
+[542] 2.6.2.1New card
+[543] 400FreeFreeFreeFreeFreeFreeFreeFreeFree
+[544] Services
+[545] NORMALSALARY PLUSSALARY PARTNERPRESTIGEPINNACLE
+[546] NO.DESCRIPTION
+[547] # Confidential-External
+[548] 
+[549] 2.6.2.2Replacement card - lost/damaged card
+[550] Replacement card -500
+[551] lost/damaged card-700
+[552] Equivalent LKR amount in
+[553] the account currency at
+[554] the prevailing exchange
+[555] rateFreeFreeFreeFreeFreeFreeFreeFree
+[556] 2.6.2.3PIN replacement350
+[557] Equivalent LKR amount in
+[558] the account currency at
+[559] the prevailing exchange
+[560] rate
+[561] 350
+[562] Equivalent LKR amount in
+[563] the account currency at
+[564] the prevailing exchange
+[565] rate
+[566] FreeFreeFreeFreeFreeFree
+[567] 2.6.2.4
+[568] Annual fee (Annual Fee for the 01st year will be collected at
+[569] point of the card issuance and from the 02nd year onwards it
+[570] will be on the card anniversary date)
+[571] 500
+[572] Equivalent LKR amount in
+[573] the account currency at
+[574] the prevailing exchange
+[575] rate
+[576] FreeFreeFreeFreeFreeFreeFreeFree
+[577] 2.6.2.5DFCC Aloka - New Card200N/AFreeN/AFreeN/AFreeN/AFreeN/A
+[578] 2.6.2.6DFCC Aloka - Annual Fee250N/AFreeN/AFreeN/AFreeN/AFreeN/A
+[579] 2.7ATM/Debit Card Charges
+[580] 2.7.1Cash withdrawal from LankaPay ATM network
+[581] 30
+[582] Equivalent LKR amount in
+[583] the account currency at
+[584] the prevailing exchange
+[585] rate30
+[586] Equivalent LKR amount in
+[587] the account currency at
+[588] the prevailing exchange
+[589] rate30
+[590] Equivalent LKR amount in
+[591] the account currency at
+[592] the prevailing exchange
+[593] rateFreeFreeFreeFree
+[594] 2.7.2DFCC Aloka - Cash withdrawal from LankaPay ATM network
+[595] 30
+[596] Equivalent LKR amount in
+[597] the account currency at
+[598] the prevailing exchange
+[599] rate30
+[600] Equivalent LKR amount in
+[601] the account currency at
+[602] the prevailing exchange
+[603] rate30
+[604] Equivalent LKR amount in
+[605] the account currency at
+[606] the prevailing exchange
+[607] rateFreeN/AFreeN/A
+[608] 2.7.3Balance inquiry from LankaPay ATM network
+[609] 7.57.57.5FreeFreeFreeFree
+[610] 2.7.4Cash withdrawal from Foreign ATMs
+[611] 12001200120012001200
+[612] 2.7.5Balance inquiry from Foreign ATMs
+[613] 300300300300300
+[614] 2.7.6Card Limit Increase/Decrease Fee
+[615] 250
+[616] Equivalent LKR amount in
+[617] the account currency at
+[618] the prevailing exchange
+[619] rate250
+[620] Equivalent LKR amount in
+[621] the account currency at
+[622] the prevailing exchange
+[623] rate250
+[624] Equivalent LKR amount in
+[625] the account currency at
+[626] the prevailing exchange
+[627] rate250
+[628] Equivalent LKR amount in
+[629] the account currency at
+[630] the prevailing exchange
+[631] rate250
+[632] Equivalent LKR amount in
+[633] the account currency at
+[634] the prevailing exchange
+[635] rate
+[636] 2.7.7Maintenance Fee - Adding/Removing Accounts
+[637] 250
+[638] Equivalent LKR amount in
+[639] the account currency at
+[640] the prevailing exchange
+[641] rate250
+[642] Equivalent LKR amount in
+[643] the account currency at
+[644] the prevailing exchange
+[645] rate250
+[646] Equivalent LKR amount in
+[647] the account currency at
+[648] the prevailing exchange
+[649] rate250
+[650] Equivalent LKR amount in
+[651] the account currency at
+[652] the prevailing exchange
+[653] rate250
+[654] Equivalent LKR amount in
+[655] the account currency at
+[656] the prevailing exchange
+[657] rate
+[658] 2.7.8Foreign Currency Transaction Conversion Markup
+[659] 3.5% of the transaction
+[660] value
+[661] 3.5% of the transaction
+[662] value
+[663] 3.5% of the transaction
+[664] value
+[665] 3.5% of the transaction
+[666] value
+[667] 3.5% of the transaction
+[668] value
+[669] 3.5% of the transaction
+[670] value
+[671] 3.5% of the transaction
+[672] value
+[673] 3.5% of the transaction
+[674] value
+[675] 3.5% of the transaction
+[676] value
+[677] 3.5% of the transaction
+[678] value
+[679] 2.7.9Unsuccessful Transaction Dispute Fee
+[680] 250
+[681] Equivalent LKR amount in
+[682] the account currency at
+[683] the prevailing exchange
+[684] rate250
+[685] Equivalent LKR amount in
+[686] the account currency at
+[687] the prevailing exchange
+[688] rate250250
+[689] Equivalent LKR amount in
+[690] the account currency at
+[691] the prevailing exchange
+[692] rate250
+[693] Equivalent LKR amount in
+[694] the account currency at
+[695] the prevailing exchange
+[696] rate
+[697] 2.7.10Fuel Surcharge
+[698] 1% from the transaction
+[699] value
+[700] 1% from the transaction
+[701] value
+[702] 1% from the transaction
+[703] value
+[704] 1% from the transaction
+[705] value
+[706] 1% from the transaction
+[707] value
+[708] 1% from the transaction
+[709] value
+[710] 1% from the transaction
+[711] value
+[712] 1% from the transaction
+[713] value
+[714] 1% from the transaction
+[715] value
+[716] 1% from the transaction
+[717] value
+[718] 2.7.11
+[719] Debit Card DCC Fee
+[720] 3.5% of the transaction
+[721] amount (This is
+[722] applicable for all Debit
+[723] Card Products.)
+[724] 3.5% of the transaction
+[725] amount (This is
+[726] applicable for all Debit
+[727] Card Products.)
+[728] 3.5% of the transaction
+[729] amount (This is
+[730] applicable for all Debit
+[731] Card Products.)
+[732] 3.5% of the transaction
+[733] amount (This is
+[734] applicable for all Debit
+[735] Card Products.)
+[736] 3.5% of the transaction
+[737] amount (This is
+[738] applicable for all Debit
+[739] Card Products.)
+[740] 3.5% of the transaction
+[741] amount (This is
+[742] applicable for all Debit
+[743] Card Products.)
+[744] 3.5% of the transaction
+[745] amount (This is
+[746] applicable for all Debit
+[747] Card Products.)
+[748] 3.5% of the transaction
+[749] amount (This is
+[750] applicable for all Debit
+[751] Card Products.)
+[752] 3.5% of the transaction
+[753] amount (This is
+[754] applicable for all Debit
+[755] Card Products.)
+[756] 3.5% of the transaction
+[757] amount (This is
+[758] applicable for all Debit
+[759] Card Products.)
+[760] 2.7.12Cash withdrawal from DFCC ATMs
+[761] 5
+[762] Equivalent LKR amount in
+[763] the account currency at
+[764] the prevailing exchange
+[765] rate5
+[766] Equivalent LKR amount in
+[767] the account currency at
+[768] the prevailing exchange
+[769] rate5
+[770] Equivalent LKR amount in
+[771] the account currency at
+[772] the prevailing exchange
+[773] rateFreeFreeFreeFree
+[774] Equivalent LKR amount in
+[775] the account currency at
+[776] the prevailing exchange
+[777] rate
+[778] Equivalent LKR amount in
+[779] the account currency at
+[780] the prevailing exchange
+[781] rate
+[782] Equivalent LKR amount in
+[783] the account currency at
+[784] the prevailing exchange
+[785] rate
+[786] Equivalent LKR amount in
+[787] the account currency at
+[788] the prevailing exchange
+[789] rate
+[790] Equivalent LKR amount in
+[791] the account currency at
+[792] the prevailing exchange
+[793] rate
+[794] # Confidential-External
+[795] 
+[796] 2.7.13DFCC Aloka - Cash withdrawal from DFCC ATMs
+[797] 5
+[798] Equivalent LKR amount in
+[799] the account currency at
+[800] the prevailing exchange
+[801] rate5
+[802] Equivalent LKR amount in
+[803] the account currency at
+[804] the prevailing exchange
+[805] rate5
+[806] Equivalent LKR amount in
+[807] the account currency at
+[808] the prevailing exchange
+[809] rateFreeFreeFreeFree
+[810] 2.7.14DFCC Aloka - Balance inquiry from LankaPay ATM network
+[811] 7.5
+[812] Equivalent LKR amount in
+[813] the account currency at
+[814] the prevailing exchange
+[815] rate7.5
+[816] Equivalent LKR amount in
+[817] the account currency at
+[818] the prevailing exchange
+[819] rate7.5
+[820] Equivalent LKR amount in
+[821] the account currency at
+[822] the prevailing exchange
+[823] rateFreeFreeFreeFree
+[824] 2.7.15DFCC Aloka/Teen -Cash withdrawal from Foreign ATMs
+[825] 1200
+[826] Equivalent LKR amount in
+[827] the account currency at
+[828] the prevailing exchange
+[829] rate1200
+[830] Equivalent LKR amount in
+[831] the account currency at
+[832] the prevailing exchange
+[833] rate1200
+[834] Equivalent LKR amount in
+[835] the account currency at
+[836] the prevailing exchange
+[837] rate1200
+[838] Equivalent LKR amount in
+[839] the account currency at
+[840] the prevailing exchange
+[841] rate1200
+[842] Equivalent LKR amount in
+[843] the account currency at
+[844] the prevailing exchange
+[845] rate
+[846] 2.7.16DFCC Aloka/Teen Balance inquiry from Foreign ATMs
+[847] 300
+[848] Equivalent LKR amount in
+[849] the account currency at
+[850] the prevailing exchange
+[851] rate300
+[852] Equivalent LKR amount in
+[853] the account currency at
+[854] the prevailing exchange
+[855] rate300
+[856] Equivalent LKR amount in
+[857] the account currency at
+[858] the prevailing exchange
+[859] rate300
+[860] Equivalent LKR amount in
+[861] the account currency at
+[862] the prevailing exchange
+[863] rate300
+[864] Equivalent LKR amount in
+[865] the account currency at
+[866] the prevailing exchange
+[867] rate
+[868] 2.8
+[869] Debit Card Daily Transaction Limits
+[870] 2.8.1Daily Withdrawal Limit200,000
+[871] Equivalent LKR amount in
+[872] the account currency at
+[873] the prevailing exchange
+[874] rate
+[875] 200,000
+[876] Equivalent LKR amount in
+[877] the account currency at
+[878] the prevailing exchange
+[879] rate
+[880] 200,000
+[881] Equivalent LKR amount in
+[882] the account currency at
+[883] the prevailing exchange
+[884] rate
+[885] 200,000
+[886] Equivalent LKR amount in
+[887] the account currency at
+[888] the prevailing exchange
+[889] rate
+[890] 200,000
+[891] Equivalent LKR amount in
+[892] the account currency at
+[893] the prevailing exchange
+[894] rate
+[895] 2.8.2Daily POS Limit300,000
+[896] Equivalent LKR amount in
+[897] the account currency at
+[898] the prevailing exchange
+[899] rate
+[900] 300,000
+[901] Equivalent LKR amount in
+[902] the account currency at
+[903] the prevailing exchange
+[904] rate
+[905] 300,000
+[906] Equivalent LKR amount in
+[907] the account currency at
+[908] the prevailing exchange
+[909] rate
+[910] 300,000
+[911] Equivalent LKR amount in
+[912] the account currency at
+[913] the prevailing exchange
+[914] rate
+[915] 300,000
+[916] Equivalent LKR amount in
+[917] the account currency at
+[918] the prevailing exchange
+[919] rate
+[920] 2.8.3Fund Transfer Between Own A/C’s 5,000,000
+[921] Equivalent LKR amount in
+[922] the account currency at
+[923] the prevailing exchange
+[924] rate
+[925] 5,000,000
+[926] Equivalent LKR amount in
+[927] the account currency at
+[928] the prevailing exchange
+[929] rate
+[930] 5,000,000
+[931] Equivalent LKR amount in
+[932] the account currency at
+[933] the prevailing exchange
+[934] rate
+[935] 5,000,000
+[936] Equivalent LKR amount in
+[937] the account currency at
+[938] the prevailing exchange
+[939] rate
+[940] 5,000,000
+[941] Equivalent LKR amount in
+[942] the account currency at
+[943] the prevailing exchange
+[944] rate
+[945] 2.9Safe Deposit Lockers
+[946] 2.9.1Small
+[947] 2.9.1.1Deposit
+[948] 100,000 FD/
+[949] 50,000 Savings
+[950] USD 5,000 FD/
+[951] 1,000 Savings
+[952] 100,000 FD/
+[953] 50,000 Savings
+[954] USD 5,000 FD/
+[955] 1,000 Savings
+[956] 100,000 FD/
+[957] 50,000 Savings
+[958] USD 5,000 FD/
+[959] 1,000 Savings
+[960] 100,000 FD/
+[961] 50,000 Savings
+[962] USD 5,000 FD/
+[963] 1,000 Savings
+[964] 100,000 FD/50,000
+[965] Savings
+[966] USD 5,000 FD/ 1,000
+[967] Savings
+[968] 2.9.1.2Rental6,000 per annum + VATUSD 50 per annum6,000 per annum + VATUSD 50 per annum6,000 per annum + VATUSD 50 per annum6,000 per annum + VATUSD 50 per annum6,000 per annum + VATUSD 50 per annum
+[969] 2.9.2Medium
+[970] 2.9.2.1Deposit
+[971] 200,000 FD/
+[972] 100,000 Savings
+[973] USD 10,000 FD/
+[974] 2,000 Savings
+[975] 200,000 FD/
+[976] 100,000 Savings
+[977] USD 10,000 FD/
+[978] 2,000 Savings
+[979] 200,000 FD/
+[980] 100,000 Savings
+[981] USD 10,000 FD/
+[982] 2,000 Savings
+[983] 200,000 FD/
+[984] 100,000 Savings
+[985] USD 10,000 FD/
+[986] 2,000 Savings
+[987] 200,000 FD/
+[988] 100,000 Savings
+[989] USD 10,000 FD/
+[990] 2,000 Savings
+[991] 2.9.2.2Rental8,000 per annum + VATUSD 65 per annum8,000 per annum + VATUSD 65 per annum8,000 per annum + VATUSD 65 per annum8,000 per annum + VATUSD 65 per annum8,000 per annum + VATUSD 65 per annum
+[992] 2.9.3Large
+[993] 2.9.3.1Deposit
+[994] 400,000 FD/
+[995] 150,000 Savings
+[996] USD 10,000 FD/
+[997] 2,000 Savings
+[998] 400,000 FD/
+[999] 150,000 Savings
+[1000] USD 10,000 FD/
+[1001] 2,000 Savings
+[1002] 400,000 FD/
+[1003] 150,000 Savings
+[1004] USD 10,000 FD/
+[1005] 2,000 Savings
+[1006] 400,000 FD/
+[1007] 150,000 Savings
+[1008] USD 10,000 FD/
+[1009] 2,000 Savings
+[1010] 400,000 FD/
+[1011] 150,000 Savings
+[1012] USD 10,000 FD/
+[1013] 2,000 Savings
+[1014] 2.9.3.2Rental10,000 per annum + VATUSD 65 per annum10,000 per annum + VATUSD 65 per annum10,000 per annum + VATUSD 65 per annum10,000 per annum + VATUSD 65 per annum10,000 per annum + VATUSD 65 per annum
+[1015] Dynamic Currency Conversion (DCC)
+[1016] DCC processing fee of 3.5% will be charged on the billed amount with effect from 15th January 2022 for both Credit and Debit Card transactions.
+[1017] This fee will be shown as a separate transaction and processed to the Credit Card/Bank Account within 7 working days from the transaction posting date.
+[1018] The stamp duty of 2.5% will be applicable for DCC Credit Card transactions.
+[1019] What is a DCC transaction?
+[1020] A DCC transaction is a service offered at POS, E-commerce or any card acceptance modes by merchants/service providers who are located locally or overseas or online. The DCC service converts a foreign currency transaction into the currency of the Credit Card/Bank Account at the point of sale and processes the agreed billing currency
+[1021] amount to the Credit Card/Bank Account.
+[1022] What happens if the transaction is converted via DCC service?
+[1023] The merchant/service provider will convert the foreign currency transaction amount into the currency of the Credit Card/Bank Account using an exchange rate determined by the relevant merchant/service provider and agreed with the cardholder. This rate may di er from the foreign exchange rates being used by Visa, Mastercard or other
+[1024] relevant card scheme associations.
+[1025] # Confidential-External
+[1026] 
+[1027] LKRFCYLKRFCYLKRFCYLKRFCYLKRFCY
+[1028] 2.9.3
+[1029] Maintenances
+[1030] 2.9.3.1Replacement of keys/locksActual Cost+ 4000Actual Cost+ 4000Actual Cost+ 4000Actual Cost+ 4000Actual Cost+ 4000Actual Cost+ 4000Actual Cost+ 4000Actual Cost+ 4000Actual Cost+ 4000Actual Cost+ 4000
+[1031] 2.10Balance Confirmation Letters
+[1032] 2.10.1
+[1033] Personal
+[1034] To embassies, universities, auditors, inland revenue, others
+[1035] Visa-1000
+[1036] Audit/other-750
+[1037] Equivalent in any other
+[1038] authorised FCY
+[1039] Visa-1000
+[1040] Audit/other-750
+[1041] Equivalent in any other
+[1042] authorised FCY
+[1043] Visa-1000
+[1044] Audit/other-750
+[1045] Equivalent in any other
+[1046] authorised FCY
+[1047] Visa-1000
+[1048] Audit/other-750
+[1049] Equivalent in any other
+[1050] authorised FCY
+[1051] Visa-1000
+[1052] Audit/other-750
+[1053] Equivalent in any other
+[1054] authorised FCY
+[1055] 2.10.2
+[1056] Business
+[1057] To embassies, universities, auditors, inland revenue, others
+[1058] 1,500USD 101,500USD 10N/AN/AN/AN/AN/AN/A
+[1059] 2.10.3
+[1060] Special formats,requesting details for than a year,
+[1061] amendments to issued balance confirmations
+[1062] 2,000
+[1063] Equivalent at the
+[1064] prevailing exchange rate
+[1065] 2,000
+[1066] Equivalent at the
+[1067] prevailing exchange rate
+[1068] 2,000
+[1069] Equivalent at the
+[1070] prevailing exchange rate
+[1071] 2,000
+[1072] Equivalent at the
+[1073] prevailing exchange rate
+[1074] 2,000
+[1075] Equivalent at the
+[1076] prevailing exchange rate
+[1077] 2.11SMS Alerts
+[1078] 2.11.1Personal 350 per accountFreeFreeFreeFreeFreeFreeFreeFreeFree
+[1079] 2.11.2Personal - Minor AccountsFreeN/AN/AN/AN/AN/AN/AN/AN/AN/A
+[1080] 2.11.3Personal - Teen Accounts
+[1081] Setup Fee - Free
+[1082] Annual-350
+[1083] N/AN/AN/AN/AN/AN/AN/AN/AN/A
+[1084] 2.11.4Personal - DFCC Ex staff350FreeN/AN/AN/AN/AN/AN/AN/AN/A
+[1085] 2.11.5Business - SMS alerts1,000 per account USD 10 per accountN/AN/AN/AN/AN/AN/AN/AN/A
+[1086] 2.11.6DFCC Aloka200N/AFreeN/AFreeN/AFreeN/AFreeN/A
+[1087] 2.14Fee on Bill Payments
+[1088] 2.14.1
+[1089] Any utility bill payment
+[1090] (excluding CEB, LECO, SLT, Dialog Telecom, Dialog TV, Dialog
+[1091] Broadband and Mobitel)
+[1092] 100 per billFree100 per billFree FreeFreeFreeFreeFreeFree
+[1093] 2.15Retrieval of Documents
+[1094] 2.15.1Any document 1000 per documentFree1000 per documentFree1000 per documentFreeFreeFreeFreeFree
+[1095] 2.16Cash Orders
+[1096] 2.16.1Preparation of cash denominations3,500 per orderFree3,500 per orderFreeN/AN/AN/AN/AN/AN/A
+[1097] 2.16.2Supply of coins
+[1098] 3,000 per order - Within
+[1099] Colombo and 6,000 per
+[1100] order - Outstation
+[1101] Free
+[1102] 3,000 per order - Within
+[1103] Colombo and 6,000 per
+[1104] order - Outstation
+[1105] FreeN/AN/AN/AN/AN/AN/A
+[1106] 2.17Pawning
+[1107] 2.17.1Processing Fee100 per transactionN/A100 per transactionN/A100 per transactionN/A100 per transactionN/A100 per transactionN/A
+[1108] NO.DESCRIPTION LKR
+[1109] 2.17.2CIF status changes(joint to single- single to joint) 1000
+[1110] 2.17.3POA processing fee1500
+[1111] 2.17.4Proposition downgrading fee500
+[1112] 2.17.5One off facility renewal15000
+[1113] 2.17.6Minor Savings closures with special approval500
+[1114] 2.17.7
+[1115] Transfer Fee when transferring accounts from Active status
+[1116] to
+[1117] Dormant status
+[1118] 100
+[1119] Where unspecified, the normal tariff shall apply.
+[1120] Where specified 18% VAT shall apply
+[1121] Services
+[1122] NORMALSALARY PLUSSALARY PARTNERPRESTIGEPINNACLE
+[1123] NO.DESCRIPTION
+[1124] # Confidential-External
+[1125] 
+[1126] NORMALSALARY PLUSSALARY PARTNERPRESTIGEPINNACLE
+[1127] 3.1Currency Notes
+[1128] 3.1.1Issuance
+[1129] 3.1.1.1Cash
+[1130] 2.50% of the value
+[1131] Min. 500
+[1132] 2.50% of the value
+[1133] Min. 500
+[1134] 2.50% of the value
+[1135] Min. 500
+[1136] FreeFree
+[1137] N/A
+[1138] 3.1.1.2From LKR accounts
+[1139] 2.00% of the value
+[1140] Min. 1000
+[1141] 2.00% of the value
+[1142] Min. 1000
+[1143] 2.00% of the value
+[1144] Min. 1000
+[1145] FreeFree
+[1146] N/A
+[1147] 3.1.1.3Foreign currency accounts
+[1148] USD 5USD 5USD 5FreeFree
+[1149] 2.50% of the value
+[1150] Min. USD 5
+[1151] 3.1.1.4Encashment of currencyFreeFree
+[1152] FreeFreeFree
+[1153] N/A
+[1154] 3.1.2Deposits to Accounts
+[1155] 3.1.2.1LKR accounts FreeFreeFreeFreeFreeN/A
+[1156] 3.1.2.2Foreign currency accounts FreeFreeFreeFreeFreeN/A
+[1157] 3.2Issuance of Foreign Drafts
+[1158] 3.2.1From LKR Accounts
+[1159] 3.2.1.1Customer 10001000100010001000N/A
+[1160] 3.2.1.2Non customer2,0002,00020002000N/AN/A
+[1161] 3.2.1.3For import purposes N/A
+[1162] 3.2.2From Foreign Currency Accounts
+[1163] 3.2.2.1CustomerUSD 10USD 10USD 10USD 10USD 10USD 10
+[1164] 3.2.2.2For import purposes N/A
+[1165] 3.3Purchase of USD Foreign Drafts Sent on Local Clearing
+[1166] 3.3.1LKR accounts 750750750750750N/A
+[1167] 3.3.2Foreign currency accounts
+[1168] 0.5% of the value
+[1169] Min. USD 5
+[1170] 0.5% of the value
+[1171] Min. USD 5
+[1172] 0.5% of the value
+[1173] Min. USD 5
+[1174] 0.5% of the value
+[1175] Min. USD 5
+[1176] 0.5% of the value
+[1177] Min. USD 5
+[1178] 0.5% of the value Min. USD 5
+[1179] 3.4Collection of Foreign Drafts
+[1180] 3.4.1LKR accounts
+[1181] 750 per collection +
+[1182] courier charges
+[1183] 750 per collection +
+[1184] courier charges
+[1185] 750 per collection +
+[1186] courier charges
+[1187] 750 per collection +
+[1188] courier charges
+[1189] 750 per collection +
+[1190] courier charges
+[1191] N/A
+[1192] 3.4.2Foreign currency accounts
+[1193] USD 5 per collection + courier charges USD 5 per collection + courier charges USD 5 per collection + courier charges USD 5 per collection + courier charges USD 5 per collection + courier charges
+[1194] USD 5 per collection
+[1195] 3.5Stop Payment of Foreign Drafts
+[1196] 3.5.1LKR accounts 2,0002,0002,0002,0002,000N/A
+[1197] 3.5.2Foreign currency accounts USD 15USD 15USD 15USD 15USD 15USD 15
+[1198] 3.6Cancellation of Foreign Drafts
+[1199] 3.6.1LKR accounts 4,7504,7504,7504,7504,750N/A
+[1200] 3.6.2Foreign currency accounts USD 30USD 30USD 30USD 30USD 30USD 20
+[1201] 3.7Telegraphic Transfers (TT)
+[1202] NO.DESCRIPTIONFCBU
+[1203] Foreign Currency
+[1204] DBU - LKR
+[1205] 0.25% of the value - Min. 2,500 - Max. 4,000
+[1206] 0.25% of the value - Min. USD 15 - Max. USD 25
+[1207] # Confidential-External
+[1208] 
+[1209] 3.7.1
+[1210] Outward Telegraphic Transfers (OTT)
+[1211] by debitting a LKR Account
+[1212] 3.7.1.1Commission - Other
+[1213] Education-3500
+[1214] Others-7,500
+[1215] Education-3500
+[1216] Others-7,500
+[1217] Education-3500
+[1218] Others-7,500
+[1219] Education-3500
+[1220] Others-7,500
+[1221] Education-3500
+[1222] Others-7,500
+[1223] USD 70
+[1224] 3.7.1.2Commission in LKR - import purposesN/A
+[1225] 3.7.1.3Swift2,0002,0002,0002,0002,000USD 20
+[1226] 3.7.1.4Amendment - LKR accounts3,0003,000300030003000
+[1227] 3.7.2
+[1228] Outward Telegraphic Transfers (OTT)
+[1229] by debitting a FCY Account
+[1230] 3.7.2.1Commission - OtherN/AN/AN/AN/AN/AN/A
+[1231] 3.7.2.2Commission in LKR - import purposes
+[1232] 0.125% of the of the payment value
+[1233] (Min USD 70-Max100)
+[1234] 0.25% of the of the payment value
+[1235] (Min USD 70-Max100)
+[1236] 3.7.2.3
+[1237] Swift
+[1238] Local or foreign commision + SWIFT =
+[1239] USD 35
+[1240] Local or foreign commision + SWIFT =
+[1241] USD 35
+[1242] Local or foreign commision + SWIFT =
+[1243] USD 35
+[1244] Local or foreign commision + SWIFT =
+[1245] USD 35
+[1246] Local or foreign commision + SWIFT =
+[1247] USD 35
+[1248] Local or foreign commision + SWIFT =
+[1249] USD 35
+[1250] 3.7.2.4Amendment - FCY accounts
+[1251] USD 20USD 20USD 20
+[1252] USD 15USD 10USD 10
+[1253] 3.7.3Outward Telegraphic Transfers (OTT) for Migration
+[1254] 3.7.3.1
+[1255] Migration Allowance10,00010,00010,00010,00010,00010,000
+[1256] 3.7.5Inward
+[1257] 3.7.5.1To LKR accounts300300300FreeFree-
+[1258] 3.7.5.2To foreign currency accountsUSD 3 or equivalent in any FCYUSD 3 or equivalent in any FCYUSD 3 or equivalent in any FCYFreeFreeUSD 3 or equivalent in any FCY
+[1259] 3.7.6Repair charges on Inward TTs
+[1260] 3.7.6.1To LKR accounts20002000200020002000-
+[1261] 3.7.6.2To foreign currency accountsUSD 10USD 10USD 10USD 10USD 10USD 10
+[1262] 3.7.7Repair charges on Inward RTGS
+[1263] 3.7.7.1To LKR accounts30003000300030003000USD 20
+[1264] 3.7.8 Inward TT Cancellation Fee
+[1265] 3.7.8.1Recall of an Inward TTUSD 20USD 20USD 20USD 20USD 20USD 20
+[1266] Where unspecified, the normal tariff shall apply to premier and staff category customers
+[1267] Where specified 18% VAT shall apply
+[1268] 0.25% of the payment value (Min USD 70 - Max 100)
+[1269] In addition to the above Bank Charges intermediary bank charges will be applicable
+[1270] 2% of the payment value
+[1271] (Min 5000 - No Max)
+[1272] # Confidential-External
+[1273] 
+[1274] COMMISSIONSWIFTCOMMISSIONSWIFT
+[1275] 4.1Imports
+[1276] 4.1.1Issuance of Documentary Credit
+[1277] 4.1.1.1
+[1278] Sight documentary credit
+[1279] (charged on the LC value + tolerance, if any)
+[1280] 0.25% per quarter or part thereof (if settlement through
+[1281] Foreign Currency) minimum USD50
+[1282] 1.5% for the 1st Quarter or part
+[1283] thereof and 0.45% for Each
+[1284] Additional Quarter or part thereof
+[1285] (if settlement through LKR)
+[1286] minimum 10,000.00
+[1287] 3,000
+[1288] 0.25% per quarter or part thereof
+[1289] minimum USD 50
+[1290] USD 30
+[1291] 4.1.1.2
+[1292] Usance documentary credit
+[1293] (charged on the LC value + tolerance, if any)
+[1294] 0.25% per quarter or part thereof (if settlement through
+[1295] Foreign Currency) minimum USD50
+[1296] 1.5% for the 1st Quarter or part
+[1297] thereof and 0.45% for Each
+[1298] Additional Quarter or part thereof
+[1299] (if settlement through LKR)
+[1300] minimum 10,000.00
+[1301] 3,000
+[1302] 0.25% per quarter or part thereof
+[1303] minimum USD 50
+[1304] USD 30
+[1305] 4.1.1.3Local Documentary Credit
+[1306] 0.25% per Quarter or part thereof (settlement through
+[1307] LKR A/C) minimum 6,0003,000
+[1308] 0.25% per quarter or part thereof
+[1309] minimum USD 50
+[1310] USD 30
+[1311] 4.1.1.4Standby documentary credit
+[1312] 0.5% per Quarter or part thereof (if settlement through
+[1313] Foreign Currency A/C) minimum USD55
+[1314] 2% for the 1st Quarter or part thereof and 0.45% for
+[1315] each Additional quarter or part thereof (if settlement by
+[1316] converting LKR into Foreign Currency and settlement
+[1317] through LKR A/C) minimum 10,000
+[1318] 3,500
+[1319] 0.5% per quarter or part thereof
+[1320] minimum USD 55
+[1321] USD 30
+[1322] 4.1.1.5Non issuance of processed documentary credit5,000 per documentary creditN/AUSD 50 per documentary creditN/A
+[1323] 4.1.2Amendments to Documentary Credit
+[1324] 4.1.2.1Value enhancement or validity extension - sight
+[1325] 0.25% per Quarter or part thereof (if settlement through
+[1326] Foreign Currency A/C) minimum 6,000
+[1327] 3% for the 1st Quarter or part thereof and 0.45% for
+[1328] each Additional quarter or part thereof (if settlement by
+[1329] converting LKR into Foreign Currency and settlement
+[1330] through LKR A/C) minimum 3,500
+[1331] 2,000
+[1332] 0.25% of the value
+[1333] minimum USD 35
+[1334] USD 20
+[1335] DBU - LKRFCBU/DBU - FCY
+[1336] NoDESCRIPTION
+[1337] # Confidential-External
+[1338] 
+[1339] 4.1.2.2Value enhancement or validity extension - usance
+[1340] 0.25% per Quarter or part thereof (if settlement through
+[1341] Foreign Currency A/C) minimum 6,000
+[1342] 1.5% First QTR and 0.45% Per QTR or
+[1343] part thereof (if settlement by converting LKR into Foreign
+[1344] Currency and settlement through LKR A/C) minimum
+[1345] 3,500
+[1346] 2,000
+[1347] 0.25% of the value
+[1348] Minimum commision to USD 35 if
+[1349] settlement from DBU FCY Account.
+[1350] USD 20
+[1351] 4.1.2.3Any other amendments3,0002,000USD 30USD 20
+[1352] 4.1.2.4Arranging documentary credit confirmations5,0001,000USD 30N/A
+[1353] 4.1.2.5If amendment charges on beneficiaryMinimum USD 50USD 20Minimum USD 50USD 20
+[1354] 4.1.2.6Non issuance of processed documentary credit - amendments2,000USD 20USD 20USD 20
+[1355] 4.1.2.7
+[1356] Cancellation of the LC - If the full LC value is un-utilised prior to 45 days
+[1357] after expiry
+[1358] (with beneficiary's consent where necessary)
+[1359] 2,0002,000USD 20USD 20
+[1360] 4.1.2.8Issuance of draft LC copy2,000 per LCN/AUSD10N/A
+[1361] 4.1.2.9Issuance of draft amendment copy750 per LCN/AUSD 5N/A
+[1362] 4.1.2.10Reinstate closed documentary credit - handling charge5,000N/AUSD 50N/A
+[1363] 4.1.3
+[1364] Acceptance of Bills under Usance Letter of Credit
+[1365] 4.1.3.1Commission
+[1366] 0.375% per Quarter or part thereof (if settlement
+[1367] through Foreign Currency A/C) minimum 5,000
+[1368] 0.5% per Quarter or part thereof (if settlement by
+[1369] converting LKR into Foreign Currency and settlement
+[1370] through LKR A/C) minimum 5,000
+[1371] 2,000
+[1372] 0.375% per quarter or part thereof
+[1373] minimum USD 35
+[1374] USD 20
+[1375] 4.1.4Settlement of Bills Under Documentary Credit
+[1376] 4.1.4.1Bill Payments
+[1377] 4.1.4.1.1Sight bills6,0002,000USD 30USD 20
+[1378] 4.1.4.1.2Accepted billsN/A2,000N/AUSD 20
+[1379] 4.1.4.1.3Foreign currency received from another bank to settle DC bills0.25% of the foreign currency valueN/A0.25% of the foreign currency valueN/A
+[1380] 4.1.4.2Discrepancy Charges
+[1381] 4.1.4.2.1Charges on applicant4,0002,000USD 40USD 20
+[1382] 4.1.4.2.2Charges on beneficiary - ACU countriesUSD 75USD 20USD 75USD 20
+[1383] 4.1.4.2.3Charges on beneficiary - All other countriesUSD 85USD 20USD 85USD 20
+[1384] 4.1.4.2.4Local bills6,000N/AN/AN/A
+[1385] 4.1.5Remittance of Proceeds
+[1386] # Confidential-External
+[1387] 
+[1388] 4.1.5.1
+[1389] Where funds have NOT been claimed even though reimbursement has been provided in DC
+[1390] 4.1.5.1.1BeneficiaryUSD 20N/AUSD 20N/A
+[1391] 4.1.5.1.2Applicant3,000N/AUSD 30N/A
+[1392] 4.1.5.2
+[1393] Where reimbursement of funds has not been provided in DC
+[1394] 4.1.5.2.1Charges on beneficiary - ACU countries
+[1395] Min.USD 20 - Max. USD 35 + correspondence bank
+[1396] charges
+[1397] N/A
+[1398] Min.USD 20 - Max. USD 35 +
+[1399] correspondence bank charges
+[1400] N/A
+[1401] 4.1.5.2.2Charges on beneficiary - All other countries
+[1402] Min.USD 20 - Max. USD 70 + correspondence bank
+[1403] charges
+[1404] N/A
+[1405] Min.USD 20 - Max. USD 70 +
+[1406] correspondence bank charges
+[1407] N/A
+[1408] 4.1.5.2.3Applicant3,000N/AMin. USD 20 - Max. USD 70N/A
+[1409] 4.1.5.2.4Remittance made on behalf of another bankUSD 100N/AUSD 100N/A
+[1410] 4.1.6Return of Documents to Foreign Banks
+[1411] 4.1.6.1Courier charges on applicant/Drawee4,000N/AUSD 40N/A
+[1412] 4.1.6.2Handling charges on applicant/Drawee3,0002,000USD 20USD 20
+[1413] 4.1.6.3Courier charges on beneficiary/PrincipalUSD 50N/AUSD 50N/A
+[1414] 4.1.6.4Handling charges on beneficiary/PrincipalUSD 502,000USD 50USD 20
+[1415] 4.1.7Transfer of Documents to another Local Bank
+[1416] 4.1.7.1Handling fee3,000N/AUSD 30N/A
+[1417] 4.1.8Documentary Collections -Imports
+[1418] 4.1.8.1Charges on Drawee
+[1419] 4.1.8.1.1Documents against payment (DP)
+[1420] 2% of the invoice value (if settlement by converting LKR
+[1421] into Foreign Currency and settlement through LKR A/C)
+[1422] Minimum Rs 10,000/-
+[1423] 0.3% of the invoice value (if settlement through Foreign
+[1424] Currency A/C)
+[1425] Minimum USD 40
+[1426] 2,0000.3% minimum USD 40USD 20
+[1427] 4.1.8.1.2Acceptance commission (DA)
+[1428] 2% of the invoice value (if settlement by converting LKR
+[1429] into Foreign Currency and settlement through LKR A/C)
+[1430] Minimum Rs 10,000/-
+[1431] 0.35% of the invoice value (if settlement through Foreign
+[1432] Currency A/C)
+[1433] Minimum USD 45
+[1434] 2,0000.35% or Min USD 45USD 20
+[1435] 4.1.8.1.3DA bill paymentN/A2,000N/AUSD 20
+[1436] # Confidential-External
+[1437] 
+[1438] 4.1.8.1.4Avalization
+[1439] 4% of the invoice value (if settlement by converting LKR
+[1440] into Foreign Currency and settlement through LKR A/C)
+[1441] Minimum Rs 10,000/-
+[1442] 0.35% of the invoice value (if settlement through Foreign
+[1443] Currency A/C)
+[1444] Minimum USD 45
+[1445] 2,000
+[1446] 0.6% per quarter or part thereof
+[1447] minimum USD 30
+[1448] USD 20
+[1449] 4.1.8.1.5Avalization bill paymentN/A2,000N/AUSD 20
+[1450] 4.1.8.2
+[1451] Documents Against Acceptance (DA) - Extensions
+[1452] 4.1.8.2.1Charges on drawee2,0002,000USD 20USD 20
+[1453] 4.1.8.2.2Charges on principle
+[1454] 0.4%
+[1455] minimum USD 40
+[1456] USD 20
+[1457] 0.4%
+[1458] minimum USD 40
+[1459] USD 20
+[1460] 4.1.8.2.3Handling fee of direct DA documents3,000N/AUSD 30N/A
+[1461] 4.1.8.2.4Amendments to direct DA/DP documents2,500N/AUSD 25N/A
+[1462] 4.1.8.3Closure of DA Bills - Handling Charge
+[1463] 4.1.8.3.1Charges on drawee2,0002,000USD 20USD 20
+[1464] 4.1.8.3.2Charges on principleUSD 100USD 20USD 100USD 20
+[1465] 4.1.8.4
+[1466] Holding Unpaid Matured DA Bills - After 3 months maturity
+[1467] 4.1.8.4.1Charges on drawee3000 per monthUSD 20USD 20 per monthUSD 20
+[1468] 4.1.8.4.2Charges on principleUSD 25 per monthUSD 20USD 25 per monthUSD 20
+[1469] 4.1.8.5Part Settlement of DA Bills
+[1470] 4.1.8.5.1Charges on drawee2,000 per part paymentN/AUSD 20N/A
+[1471] 4.1.8.5.2Charges on PrincipalUSD 20 per part paymentUSD 20USD 20USD 20
+[1472] 4.1.8.6
+[1473] Documents Released Free of Payment - Handling Charge
+[1474] 4.1.8.6.1Charges on drawee3,000N/AUSD 30N/A
+[1475] 4.1.8.6.2Charges on PrincipalUSD 50N/AUSD 50N/A
+[1476] 4.1.8.6.3Assignment of proceedsUSD 100N/AUSD 100N/A
+[1477] 4.1.8.6.4Non submission of original DA accepted draft1,000 per weekN/AUSD 10 per weekN/A
+[1478] 4.1.9Issuance of Shipping Guarantees
+[1479] 4.1.9.1Upto 1 month from the date of issuance - LC/DP/DA
+[1480] 0.35%
+[1481] minimum 5000 + VAT
+[1482] N/A
+[1483] 0.35%
+[1484] minimum USD 50
+[1485] N/A
+[1486] 4.1.9.2After 1 month until cancellation2,500 per monthN/AUSD 25 per monthN/A
+[1487] # Confidential-External
+[1488] 
+[1489] 4.1.10Endorsement of the 1/3 of the Bill of Lading
+[1490] 4.1.10.1Upto 1 month7500N/AUSD 40N/A
+[1491] 4.1.10.2After 1 month until cancellation2,500 per monthN/AUSD 25 per monthN/A
+[1492] 4.1.11
+[1493] Endorsement of invoices and airway bill for customs purposes
+[1494] 4.1.11.1Bill of lading surrender7500N/AUSD 40N/A
+[1495] 4.1.11.2After 1 month until cancellation2,500 per monthN/AUSD 25 per monthN/A
+[1496] 4.1.12Miscellaneous
+[1497] 4.1.12.1
+[1498] Any Additional SWIFT Messages on Customer Request
+[1499] 4.1.12.1.1Charges on customer20002,000USD 20USD 20
+[1500] 4.1.12.1.2Charges on beneficiary/ PrincipalUSD 20USD 20USD 20USD 20
+[1501] 4.1.12.1.3
+[1502] Reply to SWIFT messages (only if charges can be recovered from
+[1503] proceeds)
+[1504] USD 20USD 25USD 25USD 25
+[1505] 4.1.12.1.4Remitting foreign bank charges20002,000USD 20USD 20
+[1506] 4.1.12.1.5Issuing of additional LC and amendment copies500 per copyN/AUSD 5 per copyN/A
+[1507] 4.1.12.1.6
+[1508] Professional Charges
+[1509] 3000N/A3000N/A
+[1510] Where unspecified, the normal tariff shall apply to premier customers
+[1511] Where specified 18% VAT shall apply
+[1512] # Confidential-External
+[1513] 
+[1514] COMMISSIONSWIFTCOMMISSIONSWIFT
+[1515] 4.2Exports
+[1516] 4.2.1Documentary Credit
+[1517] 4.2.1.1Advice of Documentary Credit
+[1518] 4.2.1.1.1Pre advice - charges on beneficiary - customer2,000N/AUSD 20N/A
+[1519] 4.2.1.1.2Pre advice - charges on beneficiary - non customer3,000N/AUSD 30N/A
+[1520] 4.2.1.1.3Pre advice - charges on issuing bankUSD 25N/AUSD 25N/A
+[1521] 4.2.1.2Operating Mail/Telex/SWIFT Advice
+[1522] 4.2.1.2.1Charges on beneficiary - customer4,000N/AUSD 40N/A
+[1523] 4.2.1.2.2Charges on beneficiary - non customer7,500N/AUSD 50N/A
+[1524] 4.2.1.2.3Charges on foreign issuing bankUSD 70N/AUSD 70N/A
+[1525] 4.2.1.2.4Charges on local issuing bank7,000N/AUSD 70N/A
+[1526] 4.2.1.3Advice of Amendments to a Documentary Credit
+[1527] 4.2.1.3.1Charges on beneficiary - customer3,000N/AUSD 30N/A
+[1528] 4.2.1.3.2Charges on beneficiary - non customer5,000N/AUSD 50N/A
+[1529] 4.2.1.3.3Charges on foreign issuing bankUSD 50N/AUSD 50N/A
+[1530] 4.2.1.3.4Charges on local issuing bank5,000N/AUSD 50N/A
+[1531] 4.2.1.4Cancellation before the Expiry
+[1532] 4.2.1.4.1Charges on beneficiary - customer2,5002,000USD 25USD 20
+[1533] 4.2.1.4.2Charges on beneficiary - non customer3,0002,000USD 30USD 20
+[1534] 4.2.1.4.3Charges on foreign issuing bankUSD 752,000USD 75USD 20
+[1535] 4.2.1.5Confirmation on Documentary Credits
+[1536] 4.2.1.5.1Adding confirmation
+[1537] 0.25% to 2% per quarter or
+[1538] part thereof based on the
+[1539] country and bank risk
+[1540] subject to a Min. 5,000
+[1541] 2,000 where applicable
+[1542] 0.25% to 2% per quarter or
+[1543] part thereof based on the
+[1544] country and bank risk
+[1545] subject to a Min.USD 50
+[1546] USD 20 where applicable
+[1547] 4.2.1.6Transfer of Documentary Credit
+[1548] 4.2.1.6.1Transfer of Documentary Credit - 1st Beneficiary
+[1549] 4.2.1.6.2Transfer of Documentary Credit - 2nd Beneficiary
+[1550] NO.DESCRIPTION
+[1551] 10,000 per transfer USD 100 per transfer
+[1552] Exports
+[1553] DBU - LKR
+[1554] FCBU/DBU - FCY
+[1555] 7,500 per transfer USD 75 per transfer
+[1556] # Confidential-External
+[1557] 
+[1558] 4.2.1.6.3Charges on issuing bank
+[1559] 4.2.1.7Transfer of Amendments
+[1560] 4.2.1.7.1Charges on transferor/transferee
+[1561] 4.2.1.7.2Charges on issuing bank
+[1562] 4.2.1.8Cancellation of a Transfer
+[1563] 4.2.1.8.1Charges on transferor/transferee
+[1564] 4.2.1.8.2Charges on issuing bank
+[1565] 4.2.2Export Bills
+[1566] 4.2.2.1Negotiation of Bills under LC or Purchase of DP
+[1567] 4.2.2.1.1Exchange income earned
+[1568] 0.2% of the bill value
+[1569] minimum 4000
+[1570] N/A
+[1571] 0.2% of the bill value
+[1572] minimum USD 40
+[1573] N/A
+[1574] 4.2.2.1.2No exchange income earned
+[1575] 0.25% of the document
+[1576] value
+[1577] minimum 4,500
+[1578] N/A
+[1579] 0.25% of the document
+[1580] value
+[1581] minimum USD 45
+[1582] N/A
+[1583] 4.2.2.1.3Handling fee for discrepant documents - per bill
+[1584] 6,000N/AUSD 30
+[1585] N/A
+[1586] 4.2.2.1.4Due date extension 2,000 per bill2,000USD 20 per billUSD 20
+[1587] 4.2.2.1.5Local bills denominated in LKR
+[1588] 5,000N/AUSD 50
+[1589] N/A
+[1590] 4.2.2.1.6Local bills denominated in other currencies
+[1591] 4.2.2.1.1 - 4.2.2.1.4
+[1592] either shall apply
+[1593] N/A
+[1594] 4.2.2.1.1 - 4.2.2.1.4
+[1595] either shall apply
+[1596] N/A
+[1597] 4.2.2.2Purchasing of DA and Open Account Documents
+[1598] 4.2.2.2.1Exchange income earned
+[1599] 0.2% of the bill value
+[1600] minimum
+[1601] 4500
+[1602] N/A
+[1603] 0.2% of the bill value
+[1604] minimum
+[1605] USD 45
+[1606] N/A
+[1607] USD 75USD 75
+[1608] 4,000USD 40
+[1609] USD 75USD 75
+[1610] USD 90 + SWIFT Cost USD
+[1611] 30
+[1612] USD 90 + SWIFT Cost USD
+[1613] 30
+[1614] 3,500USD 35
+[1615] # Confidential-External
+[1616] 
+[1617] COMMISSIONSWIFTCOMMISSIONSWIFT
+[1618] 4.2.2.2.2No exchange income earned
+[1619] 0.25% of the document
+[1620] value
+[1621] minimum 4500
+[1622] N/A
+[1623] 0.25% of the document
+[1624] value
+[1625] minimum USD 45
+[1626] N/A
+[1627] 4.2.2.2.3Due date extension
+[1628] 2,000 per bill2,000USD 20 per bill
+[1629] USD 20
+[1630] 4.2.2.2.4Local bills denominated in LKR
+[1631] 5,000N/AUSD 50
+[1632] N/A
+[1633] 4.2.2.2.5Local bills denominated in other currencies
+[1634] 4.2.2.1.- 4.2.2.3
+[1635] either shall apply
+[1636] N/A
+[1637] 4.2.2.1.- 4.2.2.3
+[1638] either shall apply
+[1639] N/A
+[1640] 4.2.2.3Bills Sent on Collection without Negotiation or DA/DP without purchase
+[1641] 4.2.2.3.1Exchange income earned
+[1642] 5,000
+[1643] N/A
+[1644] USD 30
+[1645] N/A
+[1646] 4.2.2.3.2No exchange income earned
+[1647] 7,000
+[1648] N/A
+[1649] USD 50
+[1650] N/A
+[1651] 4.2.2.3.3Due date extension
+[1652] 2,000 per bill2,000USD 20 per bill
+[1653] USD 20
+[1654] 4.2.2.3.4Local bills denominated in LKR
+[1655] 5,000
+[1656] N/A
+[1657] USD 50
+[1658] N/A
+[1659] 4.2.2.3.5Local bills denominated in other currencies
+[1660] 4.2.2.2.1 - 4.2.2.2.2
+[1661] either shall apply
+[1662] N/A
+[1663] 4.2.2.2.1 - 4.2.2.2.2
+[1664] either shall apply
+[1665] N/A
+[1666] 4.2.3Miscellaneous
+[1667] 4.2.3.1Local Courier Charges2,000N/AUSD 10N/A
+[1668] 4.2.3.2International Courier Charges
+[1669] USD 35 or actual charge if
+[1670] higher
+[1671] N/A
+[1672] USD 35 or actual charge if
+[1673] higher
+[1674] N/A
+[1675] 4.2.3.3SWIFT charges - General 2,000N/AUSD 20N/A
+[1676] 4.2.3.4Professional Charge 3000N/A3000N/A
+[1677] 4.2.4Handling Charges on Overdue Bills
+[1678] 4.2.4.1Sight Bills/Usance 2,000 per month2,000 where applicableUSD 10 per monthUSD 20 where applicable
+[1679] 4.2.4.2Bills returned unpaid2000 per bill2,000 where applicableUSD 15 per billUSD 20 where applicable
+[1680] Where unspecified, the normal tariff shall apply.
+[1681] Where specified 18% VAT shall apply
+[1682] Exports
+[1683] DBU - LKRFCBU
+[1684] NO.DESCRIPTION
+[1685] # Confidential-External
+[1686] 
+[1687] COMMERCIAL LIMITSTERM LOANSREFINANCED LOANSCOMMERCIAL LIMITSTERM LOANSREFINANCED LOANS
+[1688] 5.1Facility Processing Fees - Other than PFS Facilities
+[1689] 5.1.1New Facilities - equivalent in FCY
+[1690] 5.1.1.2Upto LKR 250,0002,250N/A
+[1691] 5.1.1.3LKR 250,001 - LKR 500,0003,500N/A
+[1692] 5.1.1.4LKR 500,001 - LKR 1,000,0006,000N/A
+[1693] 5.1.1.5LKR 1,000,001 - LKR 10,000,00010,000+0.1%N/A
+[1694] 5.1.1.6LKR 10,000,001 - LKR 25,000,0000.20%N/A
+[1695] 5.1.1.7LKR 25,000,001 - LKR 50,000,00050,000N/A
+[1696] 5.1.1.8LKR 50,000,001 - LKR 100,000,0000.10%N/A
+[1697] 5.1.1.9LKR 100,000,001 and above0.10%N/A
+[1698] 5.1.1.10For corporate clients LKR 50,000,000 and above0.10%N/A
+[1699] 5.1.2Renewal of Facilities - equivalent in FCY
+[1700] 5.1.2.1Upto LKR 250,000N/AN/AN/AN/A
+[1701] 5.1.2.2LKR 250,001 - LKR 500,000N/AN/AN/AN/A
+[1702] 5.1.2.3LKR 500,001 - LKR 1,000,000N/AN/AN/AN/A
+[1703] 5.1.2.4LKR 1,000,001 - LKR 5,000,000N/AN/AN/AN/A
+[1704] 5.1.2.5LKR 5,000,001 - LKR 10,000,000N/AN/AN/AN/A
+[1705] 5.1.2.6LKR 10,000,001 - LKR 25,000,000N/AN/AN/AN/A
+[1706] 5.1.2.7LKR 25,000,001 - LKR 50,000,000N/AN/AN/AN/A
+[1707] 5.1.2.8LKR 50,000,001 - LKR 100,000,000N/AN/AN/AN/A
+[1708] 5.1.2.9LKR 100,000,001 - LKR 500,000,000N/AN/AN/AN/A
+[1709] 5.1.2.10LKR 500,000,001 - LKR 1,000,000,000N/AN/AN/AN/A
+[1710] 5.1.2.11LKR 1,000,000,001 - LKR 2,000,000,000N/AN/AN/AN/A
+[1711] 5.1.2.12LKR 2,000,000,001 - LKR 3,000,000,000N/AN/AN/AN/A
+[1712] 5.1.2.13LKR 3,000,000,001 and aboveN/AN/AN/AN/A
+[1713] 5.1.2.14For corporate clients LKR 2,000,000,000 and aboveN/AN/AN/AN/A
+[1714] NO.DESCRIPTION
+[1715] 0.25% of the
+[1716] limit amount
+[1717] subject to
+[1718] minimum of Rs.
+[1719] 10,000 and
+[1720] Max. of 500,000
+[1721] 0.35% of the limit amount
+[1722] subject to
+[1723] minimum of Rs. 7,500 and
+[1724] Max. of
+[1725] 150,000
+[1726] 0.50% of the
+[1727] loan amount
+[1728] subject to
+[1729] minimum of Rs.
+[1730] 10,000 and
+[1731] Max. of 500,000
+[1732] 0.15% of the limit amount subject to
+[1733] minimum of USD 30 and Max. of USD
+[1734] 1,000/-
+[1735] 0.25% of the loan/limit amount
+[1736] subject to minimum of USD 50 and
+[1737] Max. of USD 1,500/
+[1738] Per FacilityPer Facility
+[1739] LKRFCY
+[1740] Per FacilityPer Facility
+[1741] # Confidential-External
+[1742] 
+[1743] 5.1.3Housing Loan All Categories
+[1744] 5.1.3.1Up to Rs.3,000,00020,000N/AN/AN/AN/AN/A
+[1745] 5.1.3.2Rs.3,000,001 - 10,000,000 30,000N/AN/AN/AN/AN/A
+[1746] 5.1.3.3Rs.10,000,001- 30,000,00035,000N/AN/AN/AN/AN/A
+[1747] 5.1.3.4Rs 30,000,001- 50,000,00040,000N/AN/AN/AN/AN/A
+[1748] 5.1.3.5Rs.50,000,001- 100,000,000 50,000N/AN/AN/AN/AN/A
+[1749] 5.1.3.6Over Rs.100 Mn 75,000N/AN/AN/AN/AN/A
+[1750] 5.1.3Rescheduling Fee
+[1751] 5.1.3.1Up to Rs.5,000,00010,00010,00010,000USD 75USD 75USD 75
+[1752] 5.1.3.2LKR 5,000,000-30,000,000 15,00015,00015,000USD 150USD 150USD 150
+[1753] 5.1.3.3LKR 30,000,001 - 50,000,000 20,00020,00020,000USD 150USD 150USD 150
+[1754] 5.1.3.4LKR 50,000,001- 100,000,000
+[1755] 30,00030,00030,000USD 500USD 500USD 500
+[1756] 5.1.3.5Over Rs.100 Mn
+[1757] 40,00040,00040,000USD 500USD 500USD 500
+[1758] 5.1.4Miscellaneous
+[1759] 5.1.4.1Switching Cost - Changing the interest rate basis from Fixed to Floating and vice versa1 % of the loan outstanding1 % of the loan outstandingN/A2 % of the loan outstanding2 % of the loan outstanding2 % of the loan outstanding
+[1760] 5.2PFS Facilities
+[1761] 5.2.1New Facilities
+[1762] 5.2.1.1DFCC Personal Loan
+[1763] 5.2.1.1.1Up to Rs.500,000N/A7,500
+[1764] N/A
+[1765] N/A
+[1766] Equivalent FCY value to LKR
+[1767] fee
+[1768] N/A
+[1769] 5.2.1.1.2 LKR 5,00,001- 2,000,000 N/A10,000
+[1770] N/A
+[1771] N/A
+[1772] Equivalent FCY value to LKR
+[1773] fee
+[1774] N/A
+[1775] 5.2.1.1.3LKR .2,000,001 - 5,000,000 N/A15,000
+[1776] N/A
+[1777] N/A
+[1778] Equivalent FCY value to LKR
+[1779] fee
+[1780] N/A
+[1781] 5.2.1.1.4LKR .5,000,001- 50,000,000N/A30,000
+[1782] N/A
+[1783] N/A
+[1784] Equivalent FCY value to LKR
+[1785] fee
+[1786] N/A
+[1787] 5.2.1.1.5Over Rs.50 MnN/A75,000
+[1788] N/A
+[1789] N/A
+[1790] Equivalent FCY value to LKR
+[1791] fee
+[1792] N/A
+[1793] 5.2.1.2Professional
+[1794] 5.2.1.2.1Up to Rs.500,000N/A7,500
+[1795] N/A
+[1796] N/A
+[1797] Equivalent FCY value to LKR
+[1798] fee
+[1799] N/A
+[1800] 5.2.1.2.2 LKR 5,00,001- 2,000,000 N/A10,000
+[1801] N/A
+[1802] N/A
+[1803] Equivalent FCY value to LKR
+[1804] fee
+[1805] N/A
+[1806] Per FacilityPer Facility
+[1807] * If a facility has a enhancement with a renewal, the total facility amout should be considered as one new facility and fees will be applicable as per 5.1.1
+[1808] # Confidential-External
+[1809] 
+[1810] 5.2.1.2.3LKR .2,000,001 - 5,000,000 N/A15,000
+[1811] N/A
+[1812] N/A
+[1813] Equivalent FCY value to LKR
+[1814] fee
+[1815] N/A
+[1816] 5.2.1.2.4LKR .5,000,001- 50,000,000N/A30,000
+[1817] N/A
+[1818] N/A
+[1819] Equivalent FCY value to LKR
+[1820] fee
+[1821] N/A
+[1822] 5.2.1.2.5Over Rs.50 MnN/A75,000
+[1823] N/A
+[1824] N/A
+[1825] Equivalent FCY value to LKR
+[1826] fee
+[1827] N/A
+[1828] 5.2.1.3Pinnacle
+[1829] 5.2.1.3.1Up to Rs.500,000N/A7,500
+[1830] N/A
+[1831] N/A
+[1832] Equivalent FCY value to LKR
+[1833] fee
+[1834] N/A
+[1835] 5.2.1.3.2 LKR 5,00,001- 2,000,000 N/A10,000
+[1836] N/A
+[1837] N/A
+[1838] Equivalent FCY value to LKR
+[1839] fee
+[1840] N/A
+[1841] 5.2.1.3.3LKR .2,000,001 - 5,000,000 N/A15,000
+[1842] N/A
+[1843] N/A
+[1844] Equivalent FCY value to LKR
+[1845] fee
+[1846] N/A
+[1847] 5.2.1.3.4LKR .5,000,001- 50,000,000N/A30,000
+[1848] N/A
+[1849] N/A
+[1850] Equivalent FCY value to LKR
+[1851] fee
+[1852] N/A
+[1853] 5.2.1.3.5Over Rs.50 MnN/A75,000
+[1854] N/A
+[1855] N/A
+[1856] Equivalent FCY value to LKR
+[1857] fee
+[1858] N/A
+[1859] 5.2.1.4Garusaru
+[1860] 5.2.1.4.1Irrespective of the loan amountN/A2,500
+[1861] N/A
+[1862] N/A
+[1863] Equivalent FCY value to LKR
+[1864] fee
+[1865] N/A
+[1866] 5.2.1.5Education Loan
+[1867] 5.2.1.5.1Up to Rs.500,000N/A7,500
+[1868] N/A
+[1869] N/A
+[1870] Equivalent FCY value to LKR
+[1871] fee
+[1872] N/A
+[1873] 5.2.1.5.2 LKR 5,00,001- 2,000,000 N/A10,000
+[1874] N/A
+[1875] N/A
+[1876] Equivalent FCY value to LKR
+[1877] fee
+[1878] N/A
+[1879] 5.2.1.5.3LKR .2,000,001 - 5,000,000 N/A15,000
+[1880] N/A
+[1881] N/A
+[1882] Equivalent FCY value to LKR
+[1883] fee
+[1884] N/A
+[1885] 5.2.1.5.4LKR .5,000,001- 50,000,000N/A30,000
+[1886] N/A
+[1887] N/A
+[1888] Equivalent FCY value to LKR
+[1889] fee
+[1890] N/A
+[1891] 5.2.1.5.5Over Rs.50 MnN/A75,000
+[1892] N/A
+[1893] N/A
+[1894] Equivalent FCY value to LKR
+[1895] fee
+[1896] N/A
+[1897] 5.2.1.6One Loan
+[1898] 5.2.1.6.1Up to Rs.500,000N/A7,500
+[1899] N/A
+[1900] N/A
+[1901] Equivalent FCY value to LKR
+[1902] fee
+[1903] N/A
+[1904] 5.2.1.6.2 LKR 5,00,001- 2,000,000 N/A10,000
+[1905] N/A
+[1906] N/A
+[1907] Equivalent FCY value to LKR
+[1908] fee
+[1909] N/A
+[1910] 5.2.1.6.3LKR .2,000,001 - 5,000,000 N/A15,000
+[1911] N/A
+[1912] N/A
+[1913] Equivalent FCY value to LKR
+[1914] fee
+[1915] N/A
+[1916] 5.2.1.6.4LKR .5,000,001- 50,000,000N/A30,000
+[1917] N/A
+[1918] N/A
+[1919] Equivalent FCY value to LKR
+[1920] fee
+[1921] N/A
+[1922] 5.2.1.6.5Over Rs.50 MnN/A75,000
+[1923] N/A
+[1924] N/A
+[1925] Equivalent FCY value to LKR
+[1926] fee
+[1927] N/A
+[1928] 5.2.1.7Solar Loan
+[1929] 5.2.1.7.1Up to Rs.500,000N/A7,500
+[1930] N/A
+[1931] N/A
+[1932] Equivalent FCY value to LKR
+[1933] fee
+[1934] N/A
+[1935] 5.2.1.7.2 LKR 5,00,001- 2,000,000 N/A10,000
+[1936] N/A
+[1937] N/A
+[1938] Equivalent FCY value to LKR
+[1939] fee
+[1940] N/A
+[1941] 5.2.1.7.3LKR .2,000,001 - 5,000,000 N/A15,000
+[1942] N/A
+[1943] N/A
+[1944] Equivalent FCY value to LKR
+[1945] fee
+[1946] N/A
+[1947] 5.2.1.7.4LKR .5,000,001- 50,000,000N/A30,000
+[1948] N/A
+[1949] N/A
+[1950] Equivalent FCY value to LKR
+[1951] fee
+[1952] N/A
+[1953] 5.2.1.7.5Over Rs.50 MnN/A75,000
+[1954] N/A
+[1955] N/A
+[1956] Equivalent FCY value to LKR
+[1957] fee
+[1958] N/A
+[1959] 5.2.1.7.6Any other product defined by PFSN/A
+[1960] Respective processing fees
+[1961] will be applicable
+[1962] N/AN/A
+[1963] Respective processing fees
+[1964] will be applicable
+[1965] N/A
+[1966] 5.2.1.8Aloka
+[1967] 5.2.1.8.1Aloka - Upto LKR 1,000,000N/A5,000
+[1968] N/A
+[1969] N/AN/A
+[1970] N/A
+[1971] # Confidential-External
+[1972] 
+[1973] 5.2.1.8.2Aloka - LKR 1,000,001 and aboveN/A8,000N/AN/AN/AN/A
+[1974] 5.2.1.9Armed Forced Loan
+[1975] 5.2.1.9.1Up to Rs.500,000N/A7,500
+[1976] N/A
+[1977] N/A
+[1978] Equivalent FCY value to LKR
+[1979] fee
+[1980] N/A
+[1981] 5.2.1.9.2 LKR 5,00,001- 2,000,000 N/A10,000
+[1982] N/A
+[1983] N/A
+[1984] Equivalent FCY value to LKR
+[1985] fee
+[1986] N/A
+[1987] 5.2.1.9.3LKR .2,000,001 - 5,000,000 N/A15,000
+[1988] N/A
+[1989] N/A
+[1990] Equivalent FCY value to LKR
+[1991] fee
+[1992] N/A
+[1993] 5.2.1.9.4LKR .5,000,001- 50,000,000N/A30,000
+[1994] N/A
+[1995] N/A
+[1996] Equivalent FCY value to LKR
+[1997] fee
+[1998] N/A
+[1999] 5.2.1.9.5Over Rs.50 MnN/A75,000
+[2000] N/A
+[2001] N/A
+[2002] Equivalent FCY value to LKR
+[2003] fee
+[2004] N/A
+[2005] 5.2.1.10Auto Loan
+[2006] 5.2.1.10.1Up to Rs.500,000N/A7,500
+[2007] N/A
+[2008] N/A
+[2009] Equivalent FCY value to LKR
+[2010] fee
+[2011] N/A
+[2012] 5.2.1.10.2 LKR 5,00,001- 2,000,000 N/A10,000
+[2013] N/A
+[2014] N/A
+[2015] Equivalent FCY value to LKR
+[2016] fee
+[2017] N/A
+[2018] 5.2.1.10.3LKR .2,000,001 - 5,000,000 N/A15,000
+[2019] N/A
+[2020] N/A
+[2021] Equivalent FCY value to LKR
+[2022] fee
+[2023] N/A
+[2024] 5.2.1.10.4LKR .5,000,001- 50,000,000N/A30,000
+[2025] N/A
+[2026] N/A
+[2027] Equivalent FCY value to LKR
+[2028] fee
+[2029] N/A
+[2030] 5.2.1.10.5Over Rs.50 MnN/A75,000
+[2031] N/A
+[2032] N/A
+[2033] Equivalent FCY value to LKR
+[2034] fee
+[2035] N/A
+[2036] 5.2.1.11Teacher's Loan
+[2037] 5.2.1.11.1Up to Rs.500,000N/A7,500
+[2038] N/A
+[2039] N/A
+[2040] Equivalent FCY value to LKR
+[2041] fee
+[2042] N/A
+[2043] 5.2.1.11.2 LKR 5,00,001- 2,000,000 N/A10,000
+[2044] N/A
+[2045] N/A
+[2046] Equivalent FCY value to LKR
+[2047] fee
+[2048] N/A
+[2049] 5.2.1.11.3LKR .2,000,001 - 5,000,000 N/A15,000
+[2050] N/A
+[2051] N/A
+[2052] Equivalent FCY value to LKR
+[2053] fee
+[2054] N/A
+[2055] 5.2.1.11.4LKR .5,000,001- 50,000,000N/A30,000
+[2056] N/A
+[2057] N/A
+[2058] Equivalent FCY value to LKR
+[2059] fee
+[2060] N/A
+[2061] 5.2.1.11.5Over Rs.50 MnN/A75,000
+[2062] N/A
+[2063] N/A
+[2064] Equivalent FCY value to LKR
+[2065] fee
+[2066] N/A
+[2067] 5.2.2Top Up Charges
+[2068] 5.2.2.1Any FacilityN/A
+[2069] 75% of the above proposed
+[2070] fees
+[2071] N/AN/A
+[2072] Equivalent FCY value to LKR
+[2073] fee
+[2074] N/A
+[2075] 5.3Facilities Secured by Cash
+[2076] 5.3.1New Facilities / Limit Enhancements
+[2077] 5.3.1.1Any facility secured by cash collateral3,0003,000N/AUSD 15USD 15N/A
+[2078] 5.3.2Renewal of Facilities
+[2079] 5.3.2.1Any facility secured by cash collateral2,0002,000N/AUSD 8USD 8N/A
+[2080] Per Facility / LimitPer Facility / Limit
+[2081] Stamp Duty on the Demand Promissory Note will be applicable where necessary
+[2082] Per FacilityPer Facility
+[2083] Per Facility / LimitPer Facility / Limit
+[2084] # Confidential-External
+[2085] 
+[2086] 5.3.3Change of Cash Collateral
+[2087] 5.3.3.1Security change on maturity date2,5002,500N/AUSD 10USD 10N/A
+[2088] 5.3.3.2Security change prior to maturity date2,5002,500N/AUSD 10USD 10N/A
+[2089] 5.3.3.3Security change from savings to FD2,5002,500N/AUSD 10USD 10N/A
+[2090] 5.3.3.4
+[2091] If a LKR facility backed from FCY collateral and if client requests to reduce the LKR facility
+[2092] exposure when exchange rate increase.
+[2093] N/AN/AN/AUSD 10USD 10N/A
+[2094] 5.4Temporary Facilities - equivalent in FCY
+[2095] 5.4.1Up to Rs.1,000,000 10,00010,000N/AUSD 30USD 30N/A
+[2096] 5.4.2LKR 1,000,001 - 10,000,00020,00020,000N/AUSD 60USD 60N/A
+[2097] 5.4.3LKR 10,000,001- 25,000,00030,00030,000N/AUSD 100USD 100N/A
+[2098] 5.4.4LKR 25,000,001- 100,000,00050,00050,000N/AUSD 150USD 150N/A
+[2099] 5.4.5Over Rs.100 Mn 100,000100,000N/AUSD 350USD 350N/A
+[2100] 5.4.6Every 25Mn0.05%0.05%N/AN/AN/AN/A
+[2101] 5.4.11For corporate banking clients
+[2102] 0.1% of the facility value
+[2103] subject to a Min of 25,000
+[2104] N/AN/AN/AN/AN/A
+[2105] *If the temporary facility is indirect, setting up charge to be a maximum of LKR125,000 as per section 5.1.2
+[2106] Per Facility / LimitPer Facility / Limit
+[2107] Per FacilityPer Facility
+[2108] # Confidential-External
+[2109] 
+[2110] 5.5Legal Fees
+[2111] 5.5.1Title Report - equivalent in FCY
+[2112] 5.5.1.1Upto LKR 3,000,0006,000 + VAT6,000 + VATN/A
+[2113] Or equivalent amount in any foreign
+[2114] currency
+[2115] Or equivalent amount in
+[2116] any foreign currency
+[2117] N/A
+[2118] 5.5.1.3LKR .3,000,001 - 25,000,00010,000 + VAT10,000 + VATN/A
+[2119] Or equivalent amount in any foreign
+[2120] currency
+[2121] Or equivalent amount in
+[2122] any foreign currency
+[2123] N/A
+[2124] 5.5.1.4Over Rs.25 Mn 15,000+VAT15,000+VATN/A
+[2125] Or equivalent amount in any foreign
+[2126] currency
+[2127] Or equivalent amount in
+[2128] any foreign currency
+[2129] 5.5.2
+[2130] Consideration of Mortgage Bond and Negative pledges
+[2131] - Movable and Immovable - Equivalent in FCY"
+[2132] 5.5.2.1Upto LKR 1,000,000Rs.10,000 + VATRs.10,000 + VATN/ARs.10,000 + VATRs.10,000 + VATN/A
+[2133] 5.5.2.2LKR 1,000,001 - LKR 5,000,000
+[2134] 0.75% + VAT
+[2135] minimum of Rs 15,000/- +
+[2136] VAT
+[2137] 0.75% + VAT
+[2138] minimum of Rs 15,000/- +
+[2139] VAT
+[2140] N/A
+[2141] 0.75% + VAT
+[2142] minimum of Rs 15,000/- + VAT
+[2143] 0.75% + VAT
+[2144] minimum of Rs 15,000/- +
+[2145] VAT
+[2146] N/A
+[2147] 5.5.2.3LKR 5,000,001 - LKR 10,000,000
+[2148] 0.6% +VAT
+[2149] minimum of Rs. 40,000/-
+[2150] 0.6% +VAT
+[2151] minimum of Rs. 40,000/-
+[2152] N/A
+[2153] 0.6% +VAT
+[2154] minimum of Rs. 40,000/-
+[2155] 0.6% +VAT
+[2156] minimum of Rs. 40,000/-
+[2157] N/A
+[2158] 5.5.2.4LKR 10,000,001 - LKR 20,000,0000.7%+VAT0.7%+VATN/A0.7%+VAT0.7%+VATN/A
+[2159] 5.5.2.5LKR 20,000,001 – Rs.50,000,0000.5%+VAT0.5%+VATN/A0.5%+VAT0.5%+VATN/A
+[2160] 5.5.2.6LKR 50,000,001 - LKR 100,000,0000.3%+VAT0.3%+VATN/A0.3%+VAT0.3%+VATN/A
+[2161] ** If the temporary facility is a bridging facility and same is converted to a permanent limit within 6 months from granting, such fee collected in view of the temporary bridging facility may be deducted from the fee applicable on the corresponding permanent facility with the
+[2162] approval of the relevant approving authority
+[2163] Per ReportPer Report
+[2164] # Confidential-External
+[2165] 
+[2166] 5.5.2.7LKR 100,000,001 and above
+[2167] 0.2%+VAT
+[2168] Max. of Rs.450,000
+[2169] 0.2%+VAT
+[2170] Max. of Rs.450,000
+[2171] N/A
+[2172] 0.2%+VAT
+[2173] Max. of Rs.450,000
+[2174] 0.2%+VAT
+[2175] Max. of Rs.450,000
+[2176] N/A
+[2177] 5.5.3Processing Fee for Facilities Secured by Existing Mortgages - equivalent in FCY
+[2178] 5.5.3.1Upto LKR 10,000,000
+[2179] 0.25% of the loan amount
+[2180] subject to a Min. of 5,000
+[2181] 0.25% of the loan amount
+[2182] subject to a Min. of 5,000
+[2183] N/A
+[2184] 0.25% of the loan amount subject to a
+[2185] Min. of USD 30
+[2186] 0.25% of the loan amount
+[2187] subject to a Min. of USD 30
+[2188] N/A
+[2189] 5.5.3.2LKR 10,000,001 and above
+[2190] 25,000 + 0.125% of the
+[2191] consideration in excess of
+[2192] 10,000,000 subject to a
+[2193] Max. of 100,000
+[2194] 25,000 + 0.125% of the
+[2195] consideration in excess of
+[2196] 10,000,000 subject to a
+[2197] Max. of 100,000
+[2198] N/A
+[2199] 25,000 + 0.125% of the consideration
+[2200] in excess of equivalent in USD
+[2201] 100,000 subject to a Max. of USD 75
+[2202] 25,000 + 0.125% of the
+[2203] consideration in excess of
+[2204] equivalent in USD 100,000
+[2205] subject to a Max. of USD 75
+[2206] N/A
+[2207] 5.6Margin Trading Facility Processing Fees - equivalent in FCY
+[2208] 5.6.1Up to Rs.300Mn40,000N/AN/AN/AN/AN/A
+[2209] 5.6.2LKR 300,000,001- 500,000,000 60,000N/AN/AN/AN/AN/A
+[2210] 5.6.3Over LKR Rs.500,000,001 Mn100,000N/AN/AN/AN/AN/A
+[2211] 5.7
+[2212] Consideration of Personal/Corporate Guarantees - Excluding PFS Facilities - equivalent in FCY
+[2213] 5.7.1Upto LKR 1,000,00010,000 + VAT10,000 + VATN/AUSD 50 + VATUSD 50 + VATN/A
+[2214] 5.7.2LKR 1,000,001- 10,000,00015,000 + VAT15,000 + VATN/AUSD 75 + VATUSD 75 + VATN/A
+[2215] 5.7.3LKR 10,000,001 -50,000,00025,000 + VAT25,000 + VATN/AUSD 100 + VATUSD 100 + VATN/A
+[2216] 5.7.4LKR 50,000,0001 and above35,000 + VAT35,000 + VATN/AUSD 150 + VATUSD 150 + VATN/A
+[2217] 5.8Other Charges Related to Mortgages
+[2218] 5.8.1Deed of release (unless the amount is specified in the terms and conditions)15,000 + VAT15,000 + VATN/A
+[2219] Or equivalent amount in any foreign
+[2220] currency
+[2221] Or equivalent amount in
+[2222] any foreign currency
+[2223] N/A
+[2224] 5.8.2Deed of discharge15,000 + VAT15,000 + VATN/A
+[2225] Or equivalent amount in any foreign
+[2226] currency
+[2227] Or equivalent amount in
+[2228] any foreign currency
+[2229] N/A
+[2230] 5.8.5Execution of 47A declaration4,000 + VAT4,000 + VATN/A
+[2231] Or equivalent amount in any foreign
+[2232] currency
+[2233] Or equivalent amount in
+[2234] any foreign currency
+[2235] N/A
+[2236] 5.8.6Condominium tripartite agreement - buyer
+[2237] 100% of the mortgage value
+[2238] when executing the
+[2239] tripartite agreement and to
+[2240] charge Rs. 30,000/- when
+[2241] the mortgage bond is being
+[2242] executed
+[2243] 100% of the mortgage value
+[2244] when executing the
+[2245] tripartite agreement and to
+[2246] charge Rs. 30,000/- when
+[2247] the mortgage bond is being
+[2248] executed
+[2249] N/A
+[2250] 100% of the mortgage value when
+[2251] executing the tripartite agreement
+[2252] and to charge Rs. 30,000/- when the
+[2253] mortgage bond is being executed
+[2254] 100% of the mortgage value
+[2255] when executing the
+[2256] tripartite agreement and to
+[2257] charge Rs. 30,000/- when
+[2258] the mortgage bond is being
+[2259] executed
+[2260] N/A
+[2261] 5.8.7Condominium tripartite agreement - developer50,000 + VAT50,000 + VATN/AUSD 500 + VATUSD 500 + VATN/A
+[2262] 5.8.8Site inspection charges50 per km50 per kmN/AUSD 5 per kmUSD 5 per kmN/A
+[2263] 5.8.9
+[2264] Any other deed/document (supplementary agreement/deed of cancellation/additional
+[2265] mortgage/deed of declaration/deed of rectification/deed of confirmation/deed of
+[2266] postponement/addendum/instrument of cancellation of mortgage AND etc")
+[2267] 15000 + VAT15,000 + VATN/A
+[2268] Or equivalent amount in any foreign
+[2269] currency
+[2270] Or equivalent amount in
+[2271] any foreign currency
+[2272] N/A
+[2273] # Confidential-External
+[2274] 
+[2275] 5.9Revolving Facility Charges
+[2276] 5.9.1Disbursement fees1000 per loan/guarantee1000 per loan/guaranteeN/AUSD 10 per loan/guaranteeUSD 10 per loan/guaranteeN/A
+[2277] 5.1Loan Extension
+[2278] 5.10.1Extension5,000 per loan5,000 per loanN/AUSD 30 per loanUSD 30 per loanN/A
+[2279] 5.11Late Payment Fee
+[2280] 5.11.1PFS loans - to be charged after 21 day has lapsed since the due dateN/A500 per monthN/AN/AUSD 5 per monthN/A
+[2281] 5.11.2Commercial loans - to be charged after 21 day has lapsed since the due date500 per monthN/AN/AUSD 5 per monthN/AN/A
+[2282] 5.11.3Unsettled casual overdrafts - from 30 days to 60 days since utilisation500 per monthN/AN/AUSD 5 per monthN/AN/A
+[2283] 5.12Temporary Excess Charge
+[2284] 5.12.1Excess charge
+[2285] 0.25% of the excess amount
+[2286] subject to a Min. 1,000
+[2287] N/AN/A
+[2288] 0.25% of the excess amount subject
+[2289] to a Min. USD 10
+[2290] N/AN/A
+[2291] 5.13Bank Guarantees
+[2292] 5.13.1Guarantee Issuance
+[2293] 5.13.1.1Backed by cash margin - non interest bearing deposits
+[2294] 1% per annum or 0.25% per
+[2295] quarter or part thereof
+[2296] subject to a Min.of 2,000 +
+[2297] VAT
+[2298] 1% per annum or 0.25% per
+[2299] quarter or part thereof
+[2300] subject to a Min.of 2,000 +
+[2301] VAT
+[2302] N/A
+[2303] 1% per annum or 0.25% per quarter
+[2304] or part thereof subject to a Min.of
+[2305] 2,000 + VAT
+[2306] 1% per annum or 0.25% per
+[2307] quarter or part thereof
+[2308] subject to a Min.of 2,000 +
+[2309] VAT
+[2310] N/A
+[2311] 5.13.1.2Backed by cash - interest bearing deposits
+[2312] 2% per annum or 0.5% per
+[2313] quarter or part thereof
+[2314] subject to a Min.of 2,000 +
+[2315] VAT
+[2316] 2% per annum or 0.5% per
+[2317] quarter or part thereof
+[2318] subject to a Min.of 2,000 +
+[2319] VAT
+[2320] N/A
+[2321] 2% per annum or 0.5% per quarter or
+[2322] part thereof subject to a Min.of 2,000
+[2323] + VAT
+[2324] 2% per annum or 0.5% per
+[2325] quarter or part thereof
+[2326] subject to a Min.of 2,000 +
+[2327] VAT
+[2328] N/A
+[2329] 5.13.1.3Other securities including mortgages
+[2330] 3% per annum or 0.75% per
+[2331] quarter or part thereof
+[2332] subject to a Min.of 2,000 +
+[2333] VAT
+[2334] 3% per annum or 0.75% per
+[2335] quarter or part thereof
+[2336] subject to a Min.of 2,000 +
+[2337] VAT
+[2338] N/A
+[2339] 3% per annum or 0.75% per quarter
+[2340] or part thereof subject to a Min.of
+[2341] 2,000 + VAT
+[2342] 3% per annum or 0.75% per
+[2343] quarter or part thereof
+[2344] subject to a Min.of 2,000 +
+[2345] VAT
+[2346] N/A
+[2347] 5.13.1.4Guarantees issued at the request of foreign banks against their counter guarantees
+[2348] 1%-2% per annum or 0.5%
+[2349] per quarter or part thereof
+[2350] based on the country and
+[2351] the bank risk subject to a
+[2352] Min.2000 + VAT(within
+[2353] market rates),
+[2354] SWIFT charges LKR
+[2355] 2,000 or USD 20 on
+[2356] counter guarantees
+[2357] 1%-2% per annum or 0.5%
+[2358] per quarter or part thereof
+[2359] based on the country and
+[2360] the bank risk subject to a
+[2361] Min.2000 + VAT(within
+[2362] market rates),
+[2363] SWIFT charges LKR
+[2364] 2,000 or USD 20 on
+[2365] counter guarantees
+[2366] N/A
+[2367] 1%-2% per annum or 0.5% per
+[2368] quarter or part thereof based on the
+[2369] country and the bank risk subject to a
+[2370] Min.2000 + VAT(within market rates),
+[2371] SWIFT charges LKR
+[2372] 2,000 or USD 20 on
+[2373] counter guarantees
+[2374] 1%-2% per annum or 0.5%
+[2375] per quarter or part thereof
+[2376] based on the country and
+[2377] the bank risk subject to a
+[2378] Min.2000 + VAT(within
+[2379] market rates),
+[2380] SWIFT charges LKR
+[2381] 2,000 or USD 20 on
+[2382] counter guarantees
+[2383] N/A
+[2384] 5.13.2Amendments to Guarantees
+[2385] 5.13.2.1Value enhancement or validity extension - within the same quarter1,5001,500N/AUSD 151,500N/A
+[2386] 5.13.2.2Value enhancement or validity extension - exceeding the quarter
+[2387] 5.13.1.1 - 5.13.1.3
+[2388] shall apply
+[2389] 5.13.1.1 - 5.13.1.3
+[2390] shall apply
+[2391] N/A
+[2392] 5.13.1.1 - 5.13.1.3
+[2393] shall apply
+[2394] 5.13.1.1 - 5.13.1.3
+[2395] shall apply
+[2396] N/A
+[2397] 5.13.2.3
+[2398] Amendments to guarantees issued at the request of foreign banks against their counter
+[2399] guarantees
+[2400] Minimum USD 50 +VATMinimum USD 50 +VATN/AMinimum USD 50 +VATMinimum USD 50 +VATN/A
+[2401] # Confidential-External
+[2402] 
+[2403] 5.13.2.4Other amendments1,5001,500N/AUSD 151,500N/A
+[2404] 5.13.2.5Amendments to guarantees - on guarantee issuing bankUSD 40 +VATUSD 40 +VATN/AUSD 40 +VATUSD 40 +VATN/A
+[2405] 5.13.3Guarantee Advising
+[2406] 5.13.3.1Advising of guarantees issued by other banks - on beneficiary (our customer)2,5002,500N/AUSD 25USD 25N/A
+[2407] 5.13.3.2Advising of guarantees issued by other banks - on guarantee issuing bankUSD 50 +VATUSD 50 +VATN/AUSD 50 +VATUSD 50 +VATN/A
+[2408] 5.13.4Cancellation of Guarantees
+[2409] 5.13.4.1
+[2410] Cancellation of guarantees
+[2411] - submission of original guarantee
+[2412] FreeFreeN/AFreeFreeN/A
+[2413] 5.13.4.2
+[2414] Cancellation of guarantees
+[2415] - non submission of original guarantee
+[2416] 2,5002,500N/AUSD 25USD 25N/A
+[2417] 5.13.5Miscellaneous
+[2418] 5.13.5.1Special format1,0001,000N/AUSD 10USD 10N/A
+[2419] 5.13.6Duplicate Deletion Letters
+[2420] 5.13.5.1Issuance of duplicate deletion letters3,0003,0003,000N/AN/AN/A
+[2421] Where unspecified, the normal tariff shall apply.
+[2422] Where specified 18% VAT shall apply
+[2423] # Confidential-External
+[2424] 
+[2425] NO.DESCRIPTION LKR
+[2426] 6.1Single Lease Facilities
+[2427] 6.1.1Upto LKR 1,500,0009,500
+[2428] 6.1.2LKR 1,500,001 - LKR 2,500,00011,000
+[2429] 6.1.3LKR 2,500,001 - LKR 10,000,00018,500
+[2430] 6.1.4LKR 10,000,001 - LKR 15,000,00022,500
+[2431] 6.1.5LKR 15,000,001 - LKR 40,000,00032,500
+[2432] 6.1.6LKR 40,000,001 and above 52,500
+[2433] 6.2Bulk Lease Facilities
+[2434] 6.2.1Bulk lease facility fee
+[2435] Same as 6.1 + 1,000 per trial
+[2436] calculation
+[2437] 6.3Lease Termination Fee
+[2438] 6.3.1Termination of any lease facility100 + VAT
+[2439] 6.3.2Addendum to the lease indenture 7,500 + VAT
+[2440] 6.4Duplicate deletion letters
+[2441] 6.4.1Issuance of duplicate deletion letters3,000
+[2442] Where unspecified, the normal tariff shall apply.
+[2443] Where specified 18% VAT shall apply
+[2444] Leasing
+[2445] # Confidential-External
+[2446] 
+[2447] 7.1Visa Pinnacle (Proposition)
+[2448] 7.2Visa Infinite
+[2449] 7.3Visa Signature Prestige (Proposition)
+[2450] 7.4Visa Signature
+[2451] 7.5Visa Platinum Salary Partner (Proposition)
+[2452] 7.6Platinum
+[2453] 7.7Gold
+[2454] 7.8Corporate
+[2455] 7.9Affinity Products
+[2456] 7.1DFCC Aloka
+[2457] 7.11Mastercard World
+[2458] GOLD (LKR)PLATINUM (LKR)
+[2459] CLASSIC / GOLD /
+[2460] PLATINUM (LKR)
+[2461] MASTERCARD
+[2462] CUSTOMERCUSTOMERSALARY PLUSCUSTOMERPRESTIGECUSTOMERPINNACLEWORLDFREELANCE R WORLDPINNACLE WORLD
+[2463] 7.12Cash advance fee
+[2464] 5% of billed amount
+[2465] or minimum Rs.1,250
+[2466] 5% of billed amount
+[2467] or minimum Rs.1,250
+[2468] 5% of billed amount
+[2469] or minimum Rs.1,250
+[2470] 5% of billed amount
+[2471] or minimum Rs.1,250
+[2472] 5% of billed amount
+[2473] or minimum Rs.1,250
+[2474] 5% of billed amount
+[2475] or minimum Rs.1,250
+[2476] 5% of billed amount
+[2477] or minimum Rs.1,250
+[2478] 5% of billed amount
+[2479] or minimum Rs.1,250
+[2480] 5% of billed amount
+[2481] or minimum Rs.1,250
+[2482] 5% of billed amount
+[2483] or minimum Rs.1,250
+[2484] 5% of billed amount
+[2485] or minimum Rs.1,250
+[2486] 5% of billed amount
+[2487] or minimum Rs.1,250
+[2488] 5% of billed amount
+[2489] or minimum Rs.1,250
+[2490] 7.13Late payment fee1,9001,9001,9501,9001,9501,9001,9501,9001,9001,9001,9001,9502500
+[2491] 7.14Over limit fee1,5001,5001,5001,5001,5001,5001,5001,5001,5001,5001,5001,5001750
+[2492] 7.15Voucher retrieval fee300300300300300300300300300300300300300
+[2493] 7.16Exchange fee for overseas transactions3.50%3.50%3.50%3.50%3.50%3.50%3.50%3.50%3.50%3.50%3.50%3.50%5.50%
+[2494] 7.17Fuel surcharge1%1%1%1%1%1%1%1%1%1%1%1%N/A
+[2495] 7.18Replacement Fee1,2001,2001,2001,2001,2001,2001,2001,2001,2001,2001,2001,2001,500
+[2496] 7.19Limit Change Fee (Requested byCustomer)1,2001,2001,2001,2001,2001,2001,2001,2001,2001,2001,2001,200
+[2497] Rs.1 500 for
+[2498] establishment and
+[2499] 7.20Limit Change Fee (Within 24 hours)1,2001,2001,2001,2001,2001,2001,2001,2001,2001,2001,2001,200
+[2500] Rs.1 500 for
+[2501] establishment and
+[2502] 7.21Cheque Return Charges3,0003,0003,0003,0003,0003,0003,0003,0003,0003,0003,0003,0003,000
+[2503] 7.22
+[2504] Copies of Statement (within last three
+[2505] statements)
+[2506] 350350350350350350350350350350350350Free
+[2507] 7.23
+[2508] VISA Letter/Limit/Interest Confirmation
+[2509] Letters
+[2510] 1,5001,5001,5001,5001,5001,5001,5001,5001,5001,5001,5001,5001,750
+[2511] 7.24
+[2512] Copy of Sale Voucher - (up to a maximum
+[2513] of 3 months from transaction date)
+[2514] 250250250250250250250250250250250250Free
+[2515] 7.25Early Renewal Processing Fee1,2001,2001,2001,2001,2001,2001,2001,2001,2001,2001,2001,2001,500
+[2516] 7.26Overseas Courier Fee4,0004,0004,0004,0004,0004,0004,0004,0004,0004,0004,0004,000Free
+[2517] 7.27PIN Replacement Fee (PIN mailer)350350350350350350350350350350350350Free
+[2518] 7.28Paper Statement Fee
+[2519] Rs.250/- per
+[2520] statement cycle
+[2521] Rs.250/- per
+[2522] statement cycle
+[2523] Rs.250/- per
+[2524] statement cycle
+[2525] Rs.250/- per
+[2526] statement cycle
+[2527] Rs.250/- per
+[2528] statement cycle
+[2529] Rs.250/- per
+[2530] statement cycle
+[2531] Rs.250/- per
+[2532] statement cycle
+[2533] Rs.250/- per
+[2534] statement cycle
+[2535] Rs.250/- per
+[2536] statement cycle
+[2537] Rs.250/- per
+[2538] statement cycle
+[2539] Rs.250/- per
+[2540] statement cycle
+[2541] Rs.250/- per
+[2542] statement cycle
+[2543] Rs.250/- per
+[2544] statement cycle
+[2545] 7.29Billing Cycle Change250250250250250250250250250250250250Free
+[2546] 7.30Re-couriering of card250250250250250250250250250250250250Free
+[2547] 7.31Standing Instruction Changing Fee250250250250250250250250250250250250500
+[2548] 7.32Card Upgrade/ Downgarde Processing Fee1,0001,0001,0001,0001,0001,0001,0001,0001,0001,0001,0001,000N/A
+[2549] 7.33Pay order/Cashiers order fee200200200200200200200200200200200200Free
+[2550] 7.34Card reactivation fee for blocked cards750750750750750750750750750750750750850
+[2551] 7.35Cash back account number changes fee250250250250250250250200200200200200Free
+[2552] 7.36
+[2553] Excess payment reversal to Bank account
+[2554] fees
+[2555] 250250250250250250250250250250250250Free
+[2556] 7.37DCC Processing Fee4.50%4.50%4.50%4.50%4.50%4.50%4.50%4.50%4.50%4.50%4.50%4.50%4.50%
+[2557] 7.38ABS set up fee500500500500500500500500500500500500Free
+[2558] 7.39Unsuccessful Dispute Fee1,0001,0001,0001,0001,0001,0001,0001,0001,0001,0001,0001,0001,500
+[2559] 7.40Stamp duty
+[2560] 7.41Card Maintainance Fee300300300300300300300300300300300300400
+[2561] NO.DESCRIPTION 03 MONTHS06 MONTHS07 MONTHS09 MONTHS12 MONTHS
+[2562] 7.41Easy Payment Plan
+[2563] 7.41.1Minimum plan amount 10,00010,00010,00010,00010,000
+[2564] Joining FeeAnnual Fee
+[2565] New TariffNew Tariff
+[2566] PrimarySupplementaryPrimarySupplementary
+[2567] FreeFreeFreeFree
+[2568] 5002507,0003,500
+[2569] FreeFreeFreeFree
+[2570] 5002505,0003,000
+[2571] FreeFreeFreeFree
+[2572] 5002503,5002,500
+[2573] 5002502,5001,250
+[2574] 5002504,500N/A
+[2575] 2503,5002,500
+[2576] 5002503,5002,500
+[2577] LKR 25 for each LKR 1,000 spent or part thereof for all transactions performed at overseas merchants
+[2578] NO.DESCRIPTION
+[2579] VISA PLATINUM
+[2580] AFFINITY CARD
+[2581] VISA PLATINUM
+[2582] ALOKA CARD
+[2583] Corporate Cards
+[2584] 5002506,0003,000
+[2585] SIGNATURE (LKR)INFINITE (LKR)
+[2586] 500
+[2587] # Confidential-External
+[2588] 
+[2589] 7.41.2Balance build up setup fee1,5001,5001,5001,5001,500
+[2590] 7.41.3Processing fee
+[2591] 9.00%10.75%11.00%12.00%15.50%
+[2592] Where unspecified, the normal tariff shall apply.
+[2593] Where specified 18% VAT shall apply
+[2594] # Confidential-External
+[2595] 
+[2596] LKRFCYLKRFCYLKRFCYLKRFCYLKRFCY
+[2597] 8.1Service Charges
+[2598] 8.1.1Setup feeFreeFreeFreeFreeFreeFreeFreeFreeFreeFree
+[2599] 8.1.2
+[2600] Annual fee (1st Year Free)
+[2601] 500
+[2602] Free for Aloka product
+[2603] USD 5 or equivalent in any other
+[2604] authorised FCY
+[2605] 500
+[2606] Free for Aloka product
+[2607] USD 5 or equivalent in any
+[2608] other authorised FCY
+[2609] 500
+[2610] Free for Aloka product
+[2611] USD 5 or equivalent in any other
+[2612] authorised FCY
+[2613] FreeFreeFreeFree
+[2614] 8.2Fund Transfers
+[2615] 8.2.1
+[2616] DFCC Bank - Internal transfers FreeFreeFreeFreeFreeFreeFreeFreeFreeFree
+[2617] 8.2.2
+[2618] Other Banks - SLIPS
+[2619] 50N/A50N/A50N/A50N/A
+[2620] FreeN/A
+[2621] 8.2.3
+[2622] Other Banks - CEFTS
+[2623] 25N/A25N/A25N/A25
+[2624] N/AFreeN/A
+[2625] 8.2.4
+[2626] Government Payments - CEFT
+[2627] (Gov Pay through DFCC Online
+[2628] Banking)
+[2629] 15N/A15N/A15N/A15N/A15N/A
+[2630] 8.3Standing Orders
+[2631] 8.3.1Set up
+[2632] 250
+[2633] USD 2.50 or equivalent in any other
+[2634] authorised FCY
+[2635] 250
+[2636] USD 2.50 or equivalent in
+[2637] any other authorised FCY
+[2638] FreeFreeFreeFreeFreeFree
+[2639] 8.3.2Cancellation
+[2640] 100
+[2641] USD 1 or equivalent in any other
+[2642] authorised FCY
+[2643] 100
+[2644] USD 1.00 or equivalent in
+[2645] any other authorised FCY
+[2646] FreeFreeFreeFreeFreeFree
+[2647] 8.3.3Amendment
+[2648] 250
+[2649] USD 3 or equivalent in any other
+[2650] authorised FCY
+[2651] 250
+[2652] USD 3 or equivalent in any
+[2653] other authorised FCY
+[2654] FreeFreeFreeFreeFreeFree
+[2655] 8.4Stop Payments
+[2656] 8.4.2With funds2,000N/A2,000N/A2,000N/A2,000N/A2,000N/A
+[2657] 8.5Issuance of Cheque Books
+[2658] 8.5.1Cheque books
+[2659] 22 per leaf + Postage where
+[2660] applicable
+[2661] N/A22 per leaf + Postage where
+[2662] applicable
+[2663] N/A1st cheque book (25 leaves)
+[2664] request via Counter or Online
+[2665] Banking is free
+[2666] N/A1st cheque book (25 leaves)
+[2667] request via Counter or Online
+[2668] Banking is free
+[2669] N/AFreeN/A
+[2670] 8.6Bill Payments
+[2671] 8.6.1
+[2672] Any utility bill paymentFreeFreeFreeFreeFreeFreeFreeFreeFreeFree
+[2673] Where unspecified, the normal tariff shall apply.
+[2674] Where specified 18% VAT shall apply
+[2675] PERSONAL ONLINE BANKING
+[2676] NORMALSALARY PLUSSALARY PARTNERPRESTIGEPINNACLE
+[2677] NO.DESCRIPTION
+[2678] # Confidential-External
+[2679] 
+[2680] 9.1DFCC iConnect
+[2681] 9.1.1Setup, installation and trainingPricing to be negotiated
+[2682] 9.1.2Monthly rentals - main profile Pricing to be negotiated
+[2683] 9.1.3Monthly rental - associate profiles Pricing to be negotiated
+[2684] 9.1.4Digital Deposit Account
+[2685] 9.1.4.1Digital Deposit Account - Annual Service ChargePricing to be negotiated
+[2686] 9.2Cheque Outsourcing Service
+[2687] 9.2.1Setup, installation and trainingPricing to be negotiated
+[2688] 9.2.2Monthly rentalsPricing to be negotiated
+[2689] 9.2.3Instrument Charge - per company cheque Pricing to be negotiated
+[2690] 9.2.4Instrument Charge - per pay order Pricing to be negotiated
+[2691] 9.2.5Postage/courier Pricing to be negotiated
+[2692] 9.3Payments
+[2693] 9.3.1Local Fund Transfers
+[2694] 9.3.1.1Supplier payments - per transaction LKR 50
+[2695] 9.3.1.2Employee salary, bonus payments etc A per batch pricing to be negotiated
+[2696] 9.3.1.3RTGS LKR 1,000
+[2697] 9.3.1.4CEFTSLKR 30
+[2698] 9.3.2Telegraphic Transfers
+[2699] 9.3.2.1Outward telegraphic transfers USD 40
+[2700] 9.3.2.2Inward remittances USD 3
+[2701] Where unspecified, the normal tariff shall apply.
+[2702] Where specified 18% VAT shall apply
+[2703] Payment & Cash Management
+[2704] NO.DESCRIPTIONPRICING
+[2705] # Confidential-External
+[2706] 
+[2707] NO.DESCRIPTION
+[2708] 10.1Loan Slab12345
+[2709] 10.1.10 - 100,0001,4001,8002,200N/AN/A
+[2710] 10.1.2100,001 - 200,0002,0002,6003,400N/AN/A
+[2711] 10.1.3200,001 - 300,0002,2002,6003,4004,2005,000
+[2712] 10.1.4300,001 - 500,0002,8003,8005,0006,4007,800
+[2713] 10.1.5500,001 - 700.0003,4005,0006,0008,40010,600
+[2714] 10.1.6700,001 - 1,000,0004,6006,8009,20011,80014,600
+[2715] MSME
+[2716] LOAN TENOR (YEARS) AND THE PREMIUM (LKR)
+[2717] Where unspecified, the normal tariff shall apply.
+[2718] Where specified 18% VAT shall apply
+[2719] # Confidential-External

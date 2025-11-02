@@ -1,0 +1,32 @@
+[p1][1] - Facility Amount
+[p1][2] - Tenure
+[p1][3] - Security / Collateral / Support type
+[p1][4] - Asset type
+[p1][5] - Credit Risk Assessment of the client
+[p1][6] * The final pricing will be decided on the following factors
+[p1][7] Investment Financing LKR 15,000/ -
+[p1][8] Entrepreneur Financing
+[p1][9] LKR 1,250/ - to LKR 7,000/ -
+[p1][10] Small Asset /Education /Travel / Solar /Women
+[p1][11] Home Financing LKR 2,500/ - to LKR 35,000/ -
+[p1][12] Vehicle Financing LKR 2,500/ - to LKR 30,000/ -
+[p1][13] Document / Processing Charges Rs.
+[p1][14] Relationship Manager
+[p1][15] For SME Financing Pricings please contact the Branch Manager of Customer
+[p1][16] www.amanabank.lk/#financing - support
+[p1][17] To Calculate Retail Financing Instalments based on the latest pricing visit
+[p1][18] Gold Certificate Financing 11.75% - 12.25%
+[p1][19] Investment Financing 13.50% - 15.50%
+[p1][20] Women Entrepreneur Financing 12.50% - 16.50%
+[p1][21] Solar Financing 11.50% - 16.50%
+[p1][22] Travel Financing 12.50% - 16.50%
+[p1][23] Education Financing 12.50% - 16.50%
+[p1][24] Small Asset Financing / Easy Payment Plan 13.50% - 17.50%
+[p1][25] 3 Wheelers, Motor Bikes, Machinery Financing 17.50% - 24.50%
+[p1][26] Home Financing 11.75% - 13.50%
+[p1][27] Vehicle Financing 11.25% - 17.00%
+[p1][28] Pricing Range
+[p1][29] Product Type
+[p1][30] Financing
+[p1][31] November 2024
+[p1][32] Consumer / Business Banking Financing Rates

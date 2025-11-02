@@ -1,0 +1,27 @@
+@import "tailwindcss";
+/* Ensure dropdown options stay visible on dark themes */
+select.select-light,
+select.select-light option {
+  color: #000;
+  background: #fff;
+}
+/* Make native <select> options readable on dark themes */
+.select-light,
+.select-light option {
+  color: #111827 !important;   /* text: near-black */
+  background: #ffffff !important;
+}
+
+/* On Windows/Firefox sometimes the dropdown inherits dark BG ? force it */
+select.select-light:-internal-list-box,
+select.select-light:focus {
+  background: #ffffff !important;
+  color: #111827 !important;
+  outline: none;
+}
+
+/* Gold focus ring for interactive controls */
+*:focus-visible {
+  outline: 2px solid rgba(242, 185, 15, 0.6);
+  outline-offset: 2px;
+}

@@ -1,0 +1,29 @@
+{
+  "name": "ub-scraper",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "dev": "ts-node -T src/server.ts",
+    "start": "ts-node -T src/server.ts",
+    "playwright-install": "playwright install chromium",
+    "test:tariff": "ts-node -T src/tariff/normalize.run.ts"
+  },
+  "dependencies": {
+    "canvas": "2.11.2",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "fast-xml-parser": "^4.5.0",
+    "jsdom": "^27.0.0",
+    "node-fetch": "^3.3.2",
+    "pdf-parse": "^1.1.1",
+    "pdfjs-dist": "^5.4.296",
+    "playwright": "^1.47.2",
+    "tesseract.js": "^6.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.6.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  }
+}

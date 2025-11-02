@@ -1,0 +1,72 @@
+[p1][1] Resale Endorsement 0.5% of the purchase value (Maximum 500,000/= )
+[p1][2] 500,000/ - )
+[p1][3] Issuing of Certificate of Sale
+[p1][4] 0.5% of the value of the certificate of sale (Maximum
+[p1][5] Rate / Fee (Rs.)
+[p1][6] Certificate of Sale / Resale Endorsements/ Deeds of Cancellations and Deeds of Release
+[p1][7] Above Rs. 3,000,000/ - Fixed rate of Rs. 50,000/ -
+[p1][8] ( Minimum Rs. 7,500/ - )
+[p1][9] 500,001/ - to 3,000,000/ -
+[p1][10] 1.5% of the value of the mortgage bond
+[p1][11] Up to Rs. 500,000/ - 5,000/ -
+[p1][12] Rate / Fee (Rs.)
+[p1][13] Legal charges for mortgage bonds executed in respect of movable properties
+[p1][14] bonds
+[p1][15] As per the above legal charges
+[p1][16] Legal charges for piusing (subsequent) mortgage
+[p1][17] For obtaining any Land Registry extract(per extract) 1,000/ -
+[p1][18] For obtaining land registry extracts 1,500/ -
+[p1][19] Above Rs. 500,000/ - 4,500/ -
+[p1][20] Up to Rs. 500,000/ - 2,500/ -
+[p1][21] For Examination of Title
+[p1][22] Preparation and registration of priority notice 1,500/ -
+[p1][23] Rate / Fee (Rs.)
+[p1][24] Examination of Title for customers
+[p1][25] Examination of Title for staff loans 1,000/ -
+[p1][26] Preparation and registration of priority notice 1,500/ -
+[p1][27] Above Rs. 100,000,000/ - 0.25 %
+[p1][28] Rs. 75,000,001/ - to 100,000,000/ - 0.5 %
+[p1][29] Rs. 50,000,001/ - to 75,000,000/ - 0.75 %
+[p1][30] Rs. 25,000,001/ - to 50,000,000/ - 0.8 %
+[p1][31] Rs. 1,000,001/ - to 25,000,000/ - 1.0 %
+[p1][32] Up to Rs. 1,000,000/ - 1.25 %
+[p1][33] Rate / Fee (Rs.)
+[p1][34] Legal Charges for mortgage bonds prepared by the Law Officers of the Bank
+[p1][35] Legal Charges
+[p2][36] For perusing any other document 750/ -
+[p2][37] For preparing & attesting Supplementary Mortgage Bonds 5,000/ -
+[p2][38] For preparing & attesting Branch Leases 5,000/ -
+[p2][39] For perusing Power of Attorney 250/ -
+[p2][40] Rate / Fee (Rs.)
+[p2][41] Legal charges for specified services
+[p2][42] For each appearance 2,500/ -
+[p2][43] Above Rs.1,000,000/= 25,000/ -
+[p2][44] Rs. 250,001/= to Rs.1,000,000/= 10,000/ -
+[p2][45] Rs. 50,001/= to Rs.250,000/= 5,000/ -
+[p2][46] Up to Rs. 50,000/= 3,500/ -
+[p2][47] Rate / Fee (Rs.)
+[p2][48] Amount to be recovered
+[p2][49] Legal Charges for filing other recovery actions
+[p2][50] For every appearances 2,500/ -
+[p2][51] Obtaining order absolute 15,000/ -
+[p2][52] Serving Nisi Orders 10,000/ -
+[p2][53] Drafting plaints/ answers and any other relevant documents 15,000/ -
+[p2][54] Rate / Fee (Rs.)
+[p2][55] Legal charges applicable for DR Matters
+[p2][56] the Law Officers when required
+[p2][57] 7,500/ -
+[p2][58] For obtaining of extracts after doing the Land Registry search personally by
+[p2][59] customer (Reschedule/restructure etc.)
+[p2][60] 3,000/ -
+[p2][61] For execution of any agreement by the Bank upon the request of the
+[p2][62] misplaced by the customer after handing over to the customer
+[p2][63] cancellation stamp or Deed of Cancellation or Deed of Release is 3,000/ -
+[p2][64] For issue a certified copy, if any of the original Mortgage Bond bearing
+[p2][65] original Mortgage Bond / Deed/Deed Volume is misplaced in the Branch
+[p2][66] Free
+[p2][67] For any Deed attested by the Bank to cancel or to rectify the same, if the
+[p2][68] Deed of Releases
+[p2][69] 5,000/=
+[p2][70] For Cancellation of Mortgage Bonds or Certificate of Sale and executing
+[p2][71] Rate / Fee (Rs.)
+[p2][72] Cancellation / Release / Agreement

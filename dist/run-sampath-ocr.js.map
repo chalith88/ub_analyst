@@ -1,0 +1,1 @@
+{"version":3,"file":"run-sampath-ocr.js","sourceRoot":"","sources":["../src/run-sampath-ocr.ts"],"names":[],"mappings":";;;;;AAAA,wDAA2D;AAC3D,gDAAwB;AAExB,CAAC,KAAK,IAAI,EAAE;IACV,MAAM,GAAG,GAAG,yEAAyE,CAAC;IACtF,MAAM,GAAG,GAAG,cAAI,CAAC,IAAI,CAAC,OAAO,CAAC,GAAG,EAAE,EAAE,QAAQ,EAAE,cAAc,CAAC,CAAC;IAC/D,MAAM,IAAA,+BAAiB,EAAC,GAAG,EAAE,GAAG,CAAC,CAAC;AACpC,CAAC,CAAC,EAAE,CAAC"}

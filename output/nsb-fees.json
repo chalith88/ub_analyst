@@ -1,0 +1,1028 @@
+[
+  {
+    "bank": "NSB",
+    "product": "Home Loan",
+    "feeType": "Legal Fees - Rental / Lease Agreement",
+    "description": "Legal fees for Rental / Lease Agreement of Buildings for the Bank (To be charged from the",
+    "amount": "4 5 Rs. 5,000 / -",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Home Loan",
+    "feeType": "Legal Fees - Deed of Postponement",
+    "description": "Deed of Postponement (To be charged from the",
+    "amount": "4 6 Building Owner at the time of postponing/signing Rs. 2,500/ -",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Home Loan",
+    "feeType": "Legal Fees - Issuance of a duplicate receipt for the loan",
+    "description": "Issuance of a duplicate receipt for the loan",
+    "amount": "4 8 No Charges",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Home Loan",
+    "feeType": "Legal Fees - Issuance of a letter confirming loan balances or",
+    "description": "Issuance of a letter confirming loan balances or",
+    "amount": "50 Rs. 200/ -",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Home Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "52 Rs. 3,000/ per year",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Home Loan",
+    "feeType": "Uncategorized",
+    "description": "months",
+    "amount": "5 3 Not obtaining loan in full (to limit the Loan) Rs. 2,500/ -",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Home Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "Loan Balance upto Rs. 1 Mn Rs. 4,500/,",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Home Loan",
+    "feeType": "4 Deed of Release",
+    "description": "-",
+    "amount": "Loan balance above Rs. 1 Mn Rs. 9,000/ -",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Home Loan",
+    "feeType": "4 Deed of Release",
+    "description": "-",
+    "amount": "5 5 Top Up Charges Rs. 7,500/ + All incurred costs",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Home Loan",
+    "feeType": "4 Deed of Release",
+    "description": "-",
+    "amount": "5 6 Issuance of a Letter of No Objection Rs. 500/ -",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Home Loan",
+    "feeType": "4 Deed of Release",
+    "description": "5 7 Obtaining copies of following documents",
+    "amount": "57.1 Set of Deeds Rs. 500/ per Deed",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Home Loan",
+    "feeType": "4 Deed of Release",
+    "description": "-",
+    "amount": "57.2 Survey Plan Rs. 200/ -",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Home Loan",
+    "feeType": "3 Copies of Mortgage Bond Rs. 1,000/ -",
+    "description": "57. 4 Building Plan (if the copies issued by the",
+    "amount": "Rs. 1,000/ -",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Home Loan",
+    "feeType": "3 Copies of Mortgage Bond Rs. 1,000/ -",
+    "description": "Bank)",
+    "amount": "57.5 Letter of No Objection Rs. 500/ -",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Home Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "Upto Rs. 2,500,000/ Actual Cost",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Home Loan",
+    "feeType": "Uncategorized",
+    "description": "amount",
+    "amount": "60 Obtaining a copy of the survey plan Rs. 150/ per page",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Home Loan",
+    "feeType": "Uncategorized",
+    "description": "File Cancellation (withdrawn by the customer /",
+    "amount": "61 Rs. 2,500/ -",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Home Loan",
+    "feeType": "Cancellation of Mortgage bond (misplaced by the",
+    "description": "-",
+    "amount": "6 2 Rs. 3,000/ -",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Home Loan",
+    "feeType": "Cancellation of Mortgage bond (misplaced by the",
+    "description": "customer)",
+    "amount": "4 days Rs. 50,000/ -",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Home Loan",
+    "feeType": "Cancellation of Mortgage bond (misplaced by the",
+    "description": "-",
+    "amount": "6 3 Express Service Charges",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Home Loan",
+    "feeType": "Cancellation of Mortgage bond (misplaced by the",
+    "description": "-",
+    "amount": "10 days Rs. 20,000/ -",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "Upto Rs. 1 Mn Rs. 5,000/ -",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "from Rs. 1,000,001 to Rs. 3 Mn Rs. 8,500/ -",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "6 4 CRIB charges for Applicant+Joint Applicants+2",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "Above Rs. 3,000,001 Rs. 10,000/ -",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "Gurantors",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "+ Any additional CRIB Rs. 250/ -",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "RDA vehicle loan",
+    "amount": "6 5 a) Non Permit Holders",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "No Charge",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "b) Permit Holders",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "6 6 Actual Cost + 500/ -",
+    "amount": "Customers request)",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "Pawning related",
+    "amount": "6 7 Handling charges for loss of a Pawning Ticket Rs. 500/ -",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "Handling charges Third Party Redemtion of",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "6 8 Rs. 250/ -",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "1st Reminder 100/ , 2nd Reminder 200/ , 3rd",
+    "amount": "6 9 Reminders 1st,2nd & 3rd",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "Reminder 300/ (including Postage )",
+    "amount": "70 Pawning Auction handling charges Rs. 1,5 00/ per customer",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "Loan Against Deposits related",
+    "amount": "7 1 Service charges for Loans against Deposits Rs. 350/ -",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "7 2 Same day loan against FD Rs. 1,000/ -",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "(when granting an LFD on the same day,",
+    "amount": "Rs. 350/ shall be charged additionally )",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "Rs. 500/ for each reminder after expiring the",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "7 3 Expired LFD Reminders",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "Bank Gu a rantees related",
+    "amount": "7 4 Amendment of Bank Guarantee No Charges ( Amendments cannot be made )",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "7 5 Renewal of Bank Guarantee Commission charges + Rs. 500/ -",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "7 6 Bank Gu a rantee issued under special format Rs. 2,000/ -",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "7 7 Bank Gu a rantee claim handling Charges Rs. 1,000/ -",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "Minimum Charges Rs. 1,000/ -",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "Gu a rantee Amount Commission (%)",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "78 Issuance of Bank Guarantee",
+    "amount": "Up to Rs. 1,000,000/ 1.5%",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "Above Rs. 1,000,000/ 2.0%",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "C) Foreign Inward / Outward Remittances",
+    "amount": "No. Description New Fee / Charges",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "Draft issued by Exchange Companies in FC to the",
+    "amount": "No Special Charges (only the actual Bank",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "7 9 credit of NSB FC accounts",
+    "amount": "Charges )",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "(USD/EUR/GBP/AUD)",
+    "amount": "Draft issued by Exchange Companies in LKR",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "to the credit of NSB LKR accounts",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "a) upto LKR 5,000/ No Special Charges + Actual Bank Charges",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "80",
+    "amount": "b) from LKR 5,001/ to LKR 10,000/ Rs. 100/ + Actual Bank Charges",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "c) from LKR 10,001/ to LKR 100,000/ Rs. 250/ + Actual Bank Charges",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "d) LKR 100,001/ and Above Rs. 500/ + Actual Bank Charges",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "1 Unit of Each Issuing Currency + Collection",
+    "amount": "81 Credit of NSB FC/LKR accounts above 100 units",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "Charges",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "in each currency",
+    "amount": "FC Drafts issued by Overseas Banks to the Credit",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "82 of NSB FC/LKR accounts above 100 units in each",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "currency",
+    "amount": "Inward Remittances through SWIFT (Charges",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "are applicable only for charges type ''BEN''",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "a) to the credit of NSB FC",
+    "amount": "No Special Charges + Actual Bank Charges",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "Accounts(USD/EUR/GBP/AUD)",
+    "amount": "b) to the credit of NSB LKR Accounts Rs. 250/ + Actual Bank Charges",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "Inward Remittances through EUROGIRO",
+    "amount": "b) to the credit of NSB LKR Accounts (received",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "Rs. 250/ + Actual Bank Charges",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "in USD)",
+    "amount": "c) to the credit of NSB LKR Accounts (received",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "Rs. 350/ + Actual Bank Charges",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "d) to the credit of other bank FC accounts",
+    "amount": "One unit of FC + Actual Bank Charges",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "(received in EUR)",
+    "amount": "f) to the credit of other bank LKR accounts",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "Rs. 500/ + Actual Bank Charges",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "g) to the credit of other bank LKR accounts",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "Rs. 750/ + Actual Bank Charges",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "(charges are applicable only for charges types",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "''Ben'' and ''Sha'' and charges type 'OUR' a",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "commission of Rs. 5/ each in USD/EUR is to be",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "a) to the credit of NSB FC",
+    "amount": "No Charges",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "Accounts(USD/EUR/GBP/AUD)",
+    "amount": "b) to the credit of NSB LKR accounts Rs. 250/ -",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "Companies",
+    "amount": "a) in FC/LKR to the credit of NSB FC/LKR",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "No Special Charges + Actual Bank Charges",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "b) in FC to the credit of NSB FC accounts from",
+    "amount": "One unit of FC + Actual Bank Charges",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "non income sharing institutions",
+    "amount": "c) in LKR to the credit of NSB / Other Bank LKR",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "Rs. 100/ + Bank Charges",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "accounts from non income sharing institutions",
+    "amount": "Accepting Travelers' cheques",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "8 7 a) to the credit of NSB FC accounts Suspended",
+    "amount": "b) to the credit of NSB LKR accounts Suspended",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "Accepting Foreign Currency Notes to the credit of",
+    "amount": "NSB FC/LKR accounts (Exchange income could",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "be earned only for FCN accepted in",
+    "amount": "USD/GBP/EUR/AUD to the credit of LKR",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "8 8 No Charges",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "claimed from commercial bank of ceylon for FCN",
+    "amount": "deposited to LKR accounts of Commercial Bank)",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "8 9 Issuance of LKR drafts from NSB FC Accounts Rs. 1,500/ -",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "90 a) FC Drafts",
+    "amount": "Rs. 500/ -",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "b) LKR Drafts",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "Cancellation of Drafts from NSB FC Accounts Cancellation Rs. 500/ -",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "91 a) FC Drafts FC draft Charges (as per 94)",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "b) LKR Drafts LKR draft charges (as per 94)",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "Cancellation of Drafts and remitting by",
+    "amount": "92 TT charges + Cancellation Charges",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "telegraphic Transfer",
+    "amount": "LKR Fund Transfers from NSB FC Accounts",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "a) to NSB LKR Accounts No Charges",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "9 3",
+    "amount": "b) to other bank LKR accounts Rs. 4,000/ -",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "Issuance of Travellers cheques from NSB FC Issuance of TC was discontinued from",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "Accounts 11/11/2013",
+    "amount": "9 5 Issuance of Balance Confirmation Rs. 1,000/ -",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "9 6 Closure of Foreign Currency Account US $ 5 Equivalent",
+    "amount": "Telegraphic Transfer (TT ) Charges (Commission + Charges for Issuing",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "9 7 Foreign Outward Remittances (New Charges) FC Draft Charges",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "SWIFT Charges + Actual Bank Charges) Foreign Currency Notes",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "2.50%2.25%1.75%",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "97.1 NSB Account Holders of Same Currency",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "+ SWIFT message charges 25 USD per message + Actual Bank Charges minimum USD 10",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "97. 2 NSB Foreign Currency Account holders but",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "2.95%2.85%2.10%",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "not the same currency",
+    "amount": "3.00%3.00%3.00%",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "97. 3 NSB LKR Account Holders",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  },
+  {
+    "bank": "NSB",
+    "product": "Personal Loan",
+    "feeType": "Uncategorized",
+    "description": "-",
+    "amount": "97. 4 Walk In Customers",
+    "updatedAt": "2025-10-06T07:41:54.796Z",
+    "source": "https://www.nsb.lk/wp-content/uploads/2022/08/New-Fee-Based-Income.pdf"
+  }
+]

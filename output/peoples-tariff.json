@@ -1,0 +1,46 @@
+[
+  {
+    "bank": "People's Bank",
+    "product": "Home Loan",
+    "feeCategory": "Legal",
+    "description": "Resale Endorsement",
+    "amount": "0.5% of the purchase value (Maximum 500,000/=)",
+    "updatedAt": "2025-10-10T18:05:26.088Z",
+    "source": "https://www.peoplesbank.lk/roastoth/2023/12/Legal-Charges.pdf",
+    "page": "1",
+    "notes": "Visual table pairing"
+  },
+  {
+    "bank": "People's Bank",
+    "product": "Loan Against Property",
+    "feeCategory": "Legal",
+    "description": "Resale Endorsement",
+    "amount": "0.5% of the purchase value (Maximum 500,000/=)",
+    "updatedAt": "2025-10-10T18:05:26.089Z",
+    "source": "https://www.peoplesbank.lk/roastoth/2023/12/Legal-Charges.pdf",
+    "page": "1",
+    "notes": "Visual table pairing"
+  },
+  {
+    "bank": "People's Bank",
+    "product": "Home Loan",
+    "feeCategory": "Early Settlement",
+    "description": "Issuing of balance confirmation for any other purpose",
+    "amount": "750/",
+    "updatedAt": "2025-10-10T18:05:26.089Z",
+    "source": "https://www.peoplesbank.lk/roastoth/2024/04/Pawning.pdf",
+    "page": "1",
+    "notes": "Visual table pairing"
+  },
+  {
+    "bank": "People's Bank",
+    "product": "Personal Loan",
+    "feeCategory": "Early Settlement",
+    "description": "Issuing of balance confirmation for any other purpose",
+    "amount": "750/",
+    "updatedAt": "2025-10-10T18:05:26.089Z",
+    "source": "https://www.peoplesbank.lk/roastoth/2024/04/Pawning.pdf",
+    "page": "1",
+    "notes": "Visual table pairing"
+  }
+]

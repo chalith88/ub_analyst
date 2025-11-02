@@ -1,0 +1,46 @@
+# Node modules (will be installed in container)
+node_modules/
+client/node_modules/
+
+# Build outputs (will be built in container)
+client/dist/
+client/.vite/
+output/
+static/
+
+# Development files
+.git/
+.github/
+*.md
+README.md
+SEYLAN_*.md
+TARIFF_*.md
+INTEGRATION_*.md
+
+# Local development
+.env
+.env.local
+.vscode/
+*.log
+npm-debug.log*
+
+# Temporary files
+tmp/
+work_*/
+temp.py
+test.tsx
+tmp_*
+unionb-tariff-lines.txt
+
+# Test outputs
+client/test-results/
+client/playwright-report/
+client/__tests__/
+
+# Scripts
+*.ps1
+start-*.ps1
+
+# OCR and debug files
+ocr/
+*.traineddata

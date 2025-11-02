@@ -1,0 +1,106 @@
+[
+  {
+    "bank": "People's Bank",
+    "product": "Home Loan",
+    "type": "Floating",
+    "tenureLabel": "Min Rate",
+    "rateWithSalary": "12.5%",
+    "rateWithoutSalary": "12.5%",
+    "source": "https://www.peoplesbank.lk/interest-rates/",
+    "updatedAt": "2025-09-28T03:57:53.863Z"
+  },
+  {
+    "bank": "People's Bank",
+    "product": "Home Loan",
+    "type": "Floating",
+    "tenureLabel": "Max Rate",
+    "rateWithSalary": "15.5%",
+    "rateWithoutSalary": "15.5%",
+    "source": "https://www.peoplesbank.lk/interest-rates/",
+    "updatedAt": "2025-09-28T03:57:53.863Z"
+  },
+  {
+    "bank": "People's Bank",
+    "product": "Personal Loans",
+    "type": "Floating",
+    "tenureLabel": "Min Rate",
+    "rateWithSalary": "13.0%",
+    "rateWithoutSalary": "13.0%",
+    "source": "https://www.peoplesbank.lk/interest-rates/",
+    "updatedAt": "2025-09-28T03:57:53.863Z"
+  },
+  {
+    "bank": "People's Bank",
+    "product": "Personal Loans",
+    "type": "Floating",
+    "tenureLabel": "Max Rate",
+    "rateWithSalary": "15.0%",
+    "rateWithoutSalary": "15.0%",
+    "source": "https://www.peoplesbank.lk/interest-rates/",
+    "updatedAt": "2025-09-28T03:57:53.863Z"
+  },
+  {
+    "bank": "People's Bank",
+    "product": "Personal Loan",
+    "type": "Floating",
+    "tenureLabel": "≤ LKR 4Mn (Min Rate)",
+    "rateWithSalary": "11.5%",
+    "rateWithoutSalary": "11.5%",
+    "source": "https://www.peoplesbank.lk/interest-rates/",
+    "updatedAt": "2025-09-28T03:57:53.863Z",
+    "notes": "Only for Teachers of the public and private sector schools and institutions. Maximum tenure up to 10 years."
+  },
+  {
+    "bank": "People's Bank",
+    "product": "LAP",
+    "type": "Floating",
+    "tenureLabel": "> LKR 4Mn (Min Rate)",
+    "rateWithSalary": "11.5%",
+    "rateWithoutSalary": "11.5%",
+    "source": "https://www.peoplesbank.lk/interest-rates/",
+    "updatedAt": "2025-09-28T03:57:53.863Z",
+    "notes": "Only for Teachers of the public and private sector schools and institutions. Maximum tenure up to 10 years."
+  },
+  {
+    "bank": "People's Bank",
+    "product": "Personal Loan",
+    "type": "Floating",
+    "tenureLabel": "≤ LKR 4Mn (Max Rate)",
+    "rateWithSalary": "13.0%",
+    "rateWithoutSalary": "13.0%",
+    "source": "https://www.peoplesbank.lk/interest-rates/",
+    "updatedAt": "2025-09-28T03:57:53.863Z",
+    "notes": "Only for Teachers of the public and private sector schools and institutions. Maximum tenure up to 10 years."
+  },
+  {
+    "bank": "People's Bank",
+    "product": "LAP",
+    "type": "Floating",
+    "tenureLabel": "> LKR 4Mn (Max Rate)",
+    "rateWithSalary": "13.0%",
+    "rateWithoutSalary": "13.0%",
+    "source": "https://www.peoplesbank.lk/interest-rates/",
+    "updatedAt": "2025-09-28T03:57:53.863Z",
+    "notes": "Only for Teachers of the public and private sector schools and institutions. Maximum tenure up to 10 years."
+  },
+  {
+    "bank": "People's Bank",
+    "product": "Education Loans",
+    "type": "Floating",
+    "tenureLabel": "Min Rate",
+    "rateWithSalary": "12.0%",
+    "rateWithoutSalary": "12.0%",
+    "source": "https://www.peoplesbank.lk/interest-rates/",
+    "updatedAt": "2025-09-28T03:57:53.863Z"
+  },
+  {
+    "bank": "People's Bank",
+    "product": "Education Loans",
+    "type": "Floating",
+    "tenureLabel": "Max Rate",
+    "rateWithSalary": "13.5%",
+    "rateWithoutSalary": "13.5%",
+    "source": "https://www.peoplesbank.lk/interest-rates/",
+    "updatedAt": "2025-09-28T03:57:53.863Z"
+  }
+]

@@ -1,0 +1,88 @@
+[
+  {
+    "bank": "DFCC",
+    "product": "Home Loan",
+    "type": "Fixed",
+    "tenureLabel": "Housing Loans - Fixed (Normal)",
+    "source": "https://www.dfcc.lk/interest-rates/lending-rates/",
+    "updatedAt": "2025-09-28T04:05:04.347Z",
+    "rateWithSalary": "11.00%",
+    "rateWithoutSalary": "11.00%",
+    "notes": "Minimum"
+  },
+  {
+    "bank": "DFCC",
+    "product": "Home Loan",
+    "type": "Fixed",
+    "tenureLabel": "Housing Loans - Fixed (Normal)",
+    "source": "https://www.dfcc.lk/interest-rates/lending-rates/",
+    "updatedAt": "2025-09-28T04:05:04.347Z",
+    "rateWithSalary": "16.00%",
+    "rateWithoutSalary": "16.00%",
+    "notes": "Maximum"
+  },
+  {
+    "bank": "DFCC",
+    "product": "Home Loan",
+    "type": "Fixed",
+    "tenureLabel": "Housing Loans - Fixed (Professionals & Pinnacle Fixed Income Clients)",
+    "source": "https://www.dfcc.lk/interest-rates/lending-rates/",
+    "updatedAt": "2025-09-28T04:05:04.347Z",
+    "rateWithSalary": "10.75%",
+    "notes": "Minimum (Salaried/Professionals only)"
+  },
+  {
+    "bank": "DFCC",
+    "product": "Home Loan",
+    "type": "Fixed",
+    "tenureLabel": "Housing Loans - Fixed (Professionals & Pinnacle Fixed Income Clients)",
+    "source": "https://www.dfcc.lk/interest-rates/lending-rates/",
+    "updatedAt": "2025-09-28T04:05:04.347Z",
+    "rateWithSalary": "14.00%",
+    "notes": "Maximum (Salaried/Professionals only)"
+  },
+  {
+    "bank": "DFCC",
+    "product": "Home Loan",
+    "type": "Floating",
+    "tenureLabel": "Housing Loans - Variable",
+    "source": "https://www.dfcc.lk/interest-rates/lending-rates/",
+    "updatedAt": "2025-09-28T04:05:04.347Z",
+    "rateWithSalary": "AWPR + 3%",
+    "rateWithoutSalary": "AWPR + 3%",
+    "notes": "Minimum"
+  },
+  {
+    "bank": "DFCC",
+    "product": "Home Loan",
+    "type": "Floating",
+    "tenureLabel": "Housing Loans - Variable",
+    "source": "https://www.dfcc.lk/interest-rates/lending-rates/",
+    "updatedAt": "2025-09-28T04:05:04.347Z",
+    "rateWithSalary": "AWPR + 5%",
+    "rateWithoutSalary": "AWPR + 5%",
+    "notes": "Maximum"
+  },
+  {
+    "bank": "DFCC",
+    "product": "Personal Loan",
+    "type": "Floating",
+    "tenureLabel": "Personal Loans - Variable (Professionals / Salaried & Others)",
+    "source": "https://www.dfcc.lk/interest-rates/lending-rates/",
+    "updatedAt": "2025-09-28T04:05:04.347Z",
+    "rateWithSalary": "AWPR + 3%",
+    "rateWithoutSalary": "AWPR + 3%",
+    "notes": "Minimum"
+  },
+  {
+    "bank": "DFCC",
+    "product": "Personal Loan",
+    "type": "Floating",
+    "tenureLabel": "Personal Loans - Variable (Professionals / Salaried & Others)",
+    "source": "https://www.dfcc.lk/interest-rates/lending-rates/",
+    "updatedAt": "2025-09-28T04:05:04.347Z",
+    "rateWithSalary": "AWPR + 4.5%",
+    "rateWithoutSalary": "AWPR + 4.5%",
+    "notes": "Maximum"
+  }
+]

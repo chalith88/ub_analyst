@@ -1,0 +1,135 @@
+1	Loans & Advances Frequency Fees and Commission
+2	Retail Facilities Frequency Fees and Commission
+3	1 Cash Back Facilities - Loans, POD & Bank Guarantees
+4	Personal Accounts 2,000.00
+5	1.1 Cash Back Loan/ POD Processing Fees Business Accounts Less than 5.0Mn - 2,000
+6	Above 5.0 Mn - 5,000
+7	Without change to Individual - 1,000
+8	1.2 Cash Back Facility Renewal Business Accounts Less than terms and
+9	5.0Mn - 1,000 Above 5.0 Mn - conditions
+10	2,500
+11	With change to Individual - 2,000
+12	Business Accounts Less Than 1.3 Cash Back Facility Renewal terms and
+13	5.0Mn - 2,000 Above 5Mn - conditions
+14	5,000
+15	2 Overdrafts Frequency Fees and Commission
+16	Up to 500K 2,500
+17	Permanent Overdraft set up fee/Processing Fee 500K - 1Mn 5,000 2.1
+18	1Mn - 25Mn 0.5% (Max - 100,000) (Excluding Cash Back OD)
+19	25Mn - 50Mn 0.375% (Max - 150,000)
+20	Above 50Mn 0.25% (Max - 250,000)
+21	Amount up to 500,000 1,500
+22	500,001-1,000,000 3,000
+23	2.2 Temporary Overdraft set up fee 1,000,001-5,000,000 5,000
+24	5,000,001-10,000,000 7,500
+25	Above 10 Mio 12,500
+26	2.3 Excess Approval (pre-approved) Per Transaction 250
+27	2.4 Inward Referral Charges Per Transaction 150
+28	2.5 Minimum Overdraft monthly interest Per Month 300
+29	3 Personal & Education Loans Frequency Fees and Commission
+30	Loans up to 500K Per Event 5,000
+31	3.1 Processing Fee - 50% waived for Salary Savings Account holders, subject to 1 Month Net Salary Remittance.- 25% waived for Abhimani Account holders, who obtain loans for the purpose of education &wedding. Loans up to 7.5Mn Per Event 8,500
+32	Loans above 7.5Mn Per Event 12,500
+33	3.2 Early settlement fee (withing 1 year of granting the facility) Partial setllement upto 5% or Min 10,000 whichever
+34	3.3 Early settlement fee (After 1 Year of granting the Facility) 10% of outsatnding 4% or Min 10,000 whichever
+35	3.4 Early settlement fee - Salary Savings Account Holders Settlement Capital 50% From the prevailing tariff
+36	3.5 Default penalty charge Per Event 2% from the due amount
+37	4 Personal Loans (PILOTS) Frequency Fees and Commission
+38	Loans up to 500K Per Event 5,000
+39	4.1 Processing Fee - 50% waived for Salary Savings Account holders, subject to 1 Month Net Salary Remittance.- 25% waived for Abhimani Account holders, who obtain loans for the purpose of education &wedding. Loans up to 7.5Mn Per Event 8,500
+40	Loans above 7.5Mn Per Event 12,500
+41	4.2 Early settlement fee (withing 1 year of granting the facility) Partial setllement upto 4% or Min 10,000 whichever
+42	4.3 Early settlement fee (After 1 Year of granting the Facility) 10% of outsatnding 2% or Min 10,000 whichever
+43	4.4 Early settlement fee - Salary Savings Account Holders Settlement Capital NO EARLY SETTLEMENT FEE
+44	4.5 Default penalty charge Per Event 2% from the due amount
+45	5 Housing Loans Frequency Fees and Commission
+46	Loan Amount 0.50%
+47	5.1 Processing Fee Min Per Event 5,000
+48	Max Per Event 100,000
+49	5.2 Early settlement fee (withing 1 year of granting the facility) Partial setllement upto 5%
+50	5.3 Early settlement fee (After 1 Year of granting the Facility) 10% of outsatnding 4%
+51	5.4 Early settlement fee - Salary Savings Account Holders Settlement Capital 50% FROM THE PREVAILING
+52	5.5 Default penalty charge Per Event 2% from the due amount
+53	5.6 Stamp Duty Loan Amount As per regulations
+54	6 Loan Against Property (LAP) Frequency Fees and Commission
+55	Loans up to 5Mn Per Event
+56	6.1 Processing Fee Loans up to 25Mn Per Event 0.5% Minimum 10,000
+57	Loans up to 50Mn Per Event
+58	Loans up to 100Mn Per Event
+59	6.2 Early settlement fee (withing 1 year of granting the facility) Partial setllement upto 5%
+60	6.3 Early settlement fee (After 1 Year of granting the Facility) 10% of outsatnding 4%
+61	6.4 Default penalty charge Per Event 2% from the due amount
+62	6.5 Stamp Duty (Loans above 3Mn) Loan Amount As per regulations
+63	7 Vehicle Loans Frequency Fees and Commission
+64	Loans up to 3Mn Per Event 5,000
+65	7.1 Processing Fee Loans up to 8Mn Per Event 12,500
+66	Loans above 8Mn Per Event 20,000
+67	7.2 Early settlement fee (withing 1 year of granting the facility) Partial setllement upto 5%
+68	7.3 Early settlement fee (After 1 Year of granting the Facility) 10% of outsatnding 4%
+69	7.4 Early settlement fee - Salary Savings Account Holders Settlement Capital 50% FROM THE PREVAILING
+70	7.5 Default penalty charge Per Event As per regulations
+71	7.6 Stamp Duty (Loans above 3Mn) Loan Amount 0.10%
+72	8 Term Loans Frequency Fees and Commission
+73	Loans up to 5Mn Per Event 0.5% (Min 5,000)
+74	8.1 Processing Fee Loans up to 25Mn Per Event 0.35% (Min 25,000)
+75	Loans up to 50Mn Per Event 0.25% (Min 87,500)
+76	Loans up to 100Mn Per Event 0.15% (Min 125,000)
+77	8.2 Early settlement fee (withing 1 year of granting the facility) Partial setllement upto 5%
+78	8.3 Early settlement fee (After 1 Year of granting the Facility) 10% of outsatnding 4%
+79	8.4 Default penalty charge Per Event As per regulations
+80	8.5 Stamp Duty (Loans above 3Mn) Loan Amount As per regulations
+81	9 Retail Facilities/ Revolving Loans Frequency Fees and Commission
+82	9.1 New Request Per Request 15,000
+83	9.2 Additional Request Per Request 5,000
+84	9.3 Renewal Per Request 15,000
+85	9.4 Default penalty charge Per Event 4%
+86	9.5 Stamp Duty Loan Amount As per regulations
+87	10 Agri / Micro Facility Frequency Fees and Commission
+88	New Request Upto 100,000 Per Request 2500
+89	10.1 From 100,001/- to Per Request 1%
+90	Over 500,000 Per Request 5000
+91	10.2 Additional Request Per Request 1,000
+92	10.3 Renewal Per Request 5,000
+93	10.4 Early settlement fee Settlement Capital Free
+94	11 Pawning & Gold Loan Frequency Fees and Commission
+95	11.1 Processing Fee Free
+96	11.2 Stamp Duty Above 25K 25
+97	12 Business Banking Facility Frequency Fees and Commission
+98	12.1 New Request Per Request 50,000
+99	12.2 Additional Request (Permanent Enhancement) Per Request 25,000
+100	12.3 Renewal Per Request 25,000
+101	12.4 Renewal with Enhancement Per Request 35,000
+102	12.5 All Tempory Limits Pre arrange tempory Per Request 25,000
+103	12.6 Early settlement fee (Term Loans) Settlement Capital 2%
+104	13 SME Facility Frequency Fees and Commission
+105	13.1 New Request Below 25Mn Per Request 15,000
+106	Above 25Mn Per Request 25,000
+107	Additional Request (Permanent Enhancement) 13.2 Below 25Mn Per Request 10,000
+108	Above 25Mn 20,000
+109	13.3 Renewal Per Request 15,000
+110	13.4 Renewal with Enhancement Per Request 20,000
+111	13.5 All Tempory Limits Pre arrange tempory facilities (Trade,Money Market,OD,STL) Below 25Mn Per Request 15,000
+112	Above 25Mn 25,000
+113	13.6 Early settlement fee (Term Loans) Settlement Capital 2%
+114	Commen Charges
+115	14 Loan Re-schedule/ Re-Structure Fee (Retail and Business Banking) Frequency Fees and Commission
+116	up to 1,000,000 Per Event 2,500
+117	14.1 Loan Amount 1,000,001 - Per Event 5,000
+118	5,000,001 - Per Event 10,000
+119	10,000,001 and Per Event 0.1% of the loan value subject
+120	15 Legal Fee Frequency Fees and Commission
+121	Up to 1,000,000 Per Event 1.50%
+122	1,000,001 to Per Event 1.00%
+123	15.1 Property 5,000,001 to Per Event 0.75%
+124	25,000,001 to Per Event up to 25Mn 187,000 + 0.50%
+125	Above 50,000,001 Per Event upto 50Mn – 312,500 + 0.3%
+126	15.2 Housing loans 75% of the amount to be
+127	15.3 Vehicle Loans Per event 1,000
+128	15.4 Issuing certified copies Title deed Per deed per copy 2,500
+129	15.5 Issuing certified copies Survey plan Per plan per copy 500
+130	15.6 Sending Letter of Demand Per letter of 1,000
+131	15.7 Court appearances by in house lawyers One court 3,000
+132	16 Loan Balance Confirmation Frequency Fees and Commission
+133	16.1 Loan Balance Confirmation Per Request 2,500
+134	17 Postage Frequency Fees and Commission
+135	17.1 Postage Fee Per Event Actual

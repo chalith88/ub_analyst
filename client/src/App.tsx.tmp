@@ -1,0 +1,3965 @@
+import React, { useEffect, useMemo, useState } from "react";
+import { motion } from "framer-motion";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+  Legend,
+} from "recharts";
+import ubLogo from "./assets/unionbank-logo.png";
+import hnbLogo from "./assets/hnb.png";
+import ndbLogo from "./assets/ndb.png";
+import dfccLogo from "./assets/dfcc.png";
+import sampathLogo from "./assets/sampath.png";
+import combankLogo from "./assets/combank.png";
+import seylanLogo from "./assets/seylan.png";
+import nsbLogo from "./assets/nsb.png";
+import bocLogo from "./assets/boc.png";
+import cargillsLogo from "./assets/cargills.png";
+import ntbLogo from "./assets/ntb.png";
+import amanaLogo from "./assets/amana.png";
+import peoplesLogo from "./assets/peoples.png";
+const BANK_LOGOS: Record<string, string> = {
+  "HNB": hnbLogo,
+  "DFCC": dfccLogo,
+  "DFCC Bank": dfccLogo,
+  "NDB": ndbLogo,
+  "NDB Bank": ndbLogo,
+  "Sampath Bank": sampathLogo,
+  "Commercial Bank": combankLogo,
+  "Seylan Bank": seylanLogo,
+  "Seylan": seylanLogo,
+  "Union Bank": ubLogo,
+  "Union Bank of Colombo": ubLogo,
+  "NSB": nsbLogo,
+  "BOC": bocLogo,
+  "Bank of Ceylon": bocLogo,
+  "Cargills": cargillsLogo,
+  "Cargills Bank": cargillsLogo,
+  "NTB": ntbLogo,
+  "Nations Trust Bank (NTB)": ntbLogo,
+  "Amana": amanaLogo,
+  "Amãna Bank": amanaLogo,
+  "Peoples": peoplesLogo,
+  "People's Bank": peoplesLogo,
+};
+
+function BankLogoName({ bank }: { bank: string }) {
+  const logo = BANK_LOGOS[bank];
+  return (
+    <span className="inline-flex items-center gap-2">
+      {logo && (
+        <img
+          src={logo}
+          alt={bank}
+          className="h-10 w-10 rounded-sm bg-white shadow border"
+          style={{ objectFit: "contain" }}
+        />
+      )}
+      <span>{bank}</span>
+    </span>
+  );
+}
+
+/* ---------------- UI helpers ---------------- */
+type BtnProps = React.ComponentProps<typeof motion.button> & {
+  className?: string;
+  children?: React.ReactNode;
+};
+function Btn({ className = "", children, ...restProps }: BtnProps) {
+  return (
+    <motion.button
+      type={(restProps as any).type || "button"}
+      whileTap={{ scale: 0.96 }}
+      whileHover={{ scale: 1.02 }}
+      transition={{ type: "spring", stiffness: 400, damping: 22 }}
+      className={className}
+      {...restProps}
+    >
+      {children}
+    </motion.button>
+  );
+}
+/* ---------------- Theme ---------------- */
+/* mapped to your Home Loan+ palette */
+const BRAND = {
+  bgTop: "#0a0f1c",       // main background
+  bgBottom: "#0a0f1c",    // keep flat or same tone gradient
+  orange: "#161b27",      // use accent blue for tiles/lines
+  orangeSoft: "#161b27",  // lighter blue for gradients
+  card: "#161b27",        // card surfaces
+  Gold: "#f2b90f", // AWPR
+};
+
+/* ---------------- Auth (login gate) ---------------- */
+const AUTH_LS_KEY = "ub.auth.ok";
+const UB_PASSWORD = "5973"; // ← requested password
+
+/* ---------------- Types ---------------- */
+const PRODUCTS = [
+  { key: "HL", label: "Home Loans" },
+  { key: "LAP", label: "Loan Against Property" },
+  { key: "PL", label: "Personal Loans" },
+  { key: "EDU", label: "Education Loans" },
+] as const;
+type ProductKey = (typeof PRODUCTS)[number]["key"];
+
+type TenorKey = "1M" | "3M" | "6M" | "12M" | "24M" | "36M" | "48M" | "60M";
+export interface UbFtpMonth {
+  month: string; // "YYYY-MM"
+  sourceName: string; // filename
+  asset: Partial<Record<TenorKey, number>>; // % per tenor
+  liquidityPremium?: number | Partial<Record<TenorKey, number>>;
+  uploadedAt: string;
+}
+
+interface RateRow {
+  bank: string;
+  product: ProductKey;
+  rate: number;                 // numeric if known; NaN if formula
+  type: "Fixed" | "Floating";
+  fixedYears?: number;
+  notes?: string;               // keep "AWPR + 2%" etc.
+  updatedAt: string;
+  source?: string;
+  salaryRequired?: boolean;     // generic “with salary” flag from scraper
+  ltv?: number;                 // max LTV allowed (%) if present
+  logoUrl?: string;
+  raw?: Record<string, any>;
+}
+interface SourceRec {
+  bank: string;
+  url: string;
+  logoUrl?: string;
+  raw?: Record<string, any>;
+}
+export type TariffBasis = "flat" | "percent" | "actuals";
+export type TariffFeeType =
+  | "processing"
+  | "legal"
+  | "valuation"
+  | "crib"
+  | "early_settlement"
+  | "stamp_duty"
+  | "penalty"
+  | "other";
+
+// REPLACE your current TariffRow interface with this (adds feeTypeRaw)
+export interface TariffRow {
+  bank: string;
+  product: ProductKey;        // "HL" | "LAP" | "PL" | "EDU"
+  feeType: TariffFeeType;     // normalized bucket => shown as "Category"
+  feeTypeRaw?: string;        // NEW: raw feeType from scraper => shown as "Fee Type"
+  basis: TariffBasis;         // "flat" | "percent" | "actuals"
+  value?: number;
+  min?: number;
+  max?: number;
+  description?: string;
+  amount?: string;
+  notes?: string;
+  effectiveDate?: string;
+  updatedAt: string;
+  source: string;
+}
+
+// REPLACE your existing normalizer with this version.
+// It applies your explicit business mappings FIRST, then falls back to regex rules.
+function normalizeTariffFeeType(s?: string, description?: string): TariffFeeType {
+  const raw = String(s || "").trim();
+  const desc = String(description || "").trim();
+
+  const lc = (x: string) => x.toLowerCase().replace(/\s+/g, " ");
+  const rawLC = lc(raw);
+  const descLC = lc(desc);
+
+  // 1) YOUR EXPLICIT MAPPINGS — exact or contains (order matters)
+  // Fee Type (raw) → Category
+  const FEE_RAW_MAP: Record<string, TariffFeeType> = {
+    "penal": "penalty",
+    "in house title clearance charge": "legal",
+    "tripartite agreement on condominiums": "legal",
+    "handling fee": "processing",
+    "premature settlement or part settlement": "early_settlement",
+
+  };
+  if (FEE_RAW_MAP[rawLC]) return FEE_RAW_MAP[rawLC];
+
+  // Description → Category (exact or contains)
+  const DESC_RULES: Array<{ test: (s: string) => boolean; cat: TariffFeeType }> = [
+    { test: (t) => t.includes("housing - primary bonds"), cat: "legal" },
+    { test: (t) => t.includes("housing - further bonds"), cat: "legal" },
+    { test: (t) => t.includes("mortgage bond"),            cat: "legal" },
+    { test: (t) => t.includes("stamp duty"),               cat: "legal" },      // ← your override
+    { test: (t) => t.includes("valuation fee"),            cat: "valuation" },
+    { test: (t) => /crib|credit\s*information\s*report|credit\s*bureau/i.test(t), cat: "crib" },
+    { test: (t) => t.includes("title report"),             cat: "legal" },
+    { test: (t) => t.includes("documentation charges"),    cat: "processing" },    
+    { test: (t) => t.includes("early settlement / part payment charges"), cat: "early_settlement" },
+  ];
+  for (const r of DESC_RULES) { if (r.test(descLC)) return r.cat; }
+
+  // 2) GENERIC FALLBACK RULES — catch common variants across banks
+  const txt = `${rawLC} ${descLC}`;
+
+  // Processing / documentation / service charges
+  if (/(process|documentation|doc\.?\s*charges?|service\s*charge|application\s*fee|app\s*fee|handling)/i.test(txt))
+    return "processing";
+
+  // Legal / notary / deed
+  if (/(legal|lawyer|attorney|notary|mortgage\s*deed|deed|title\s*(report|search))/i.test(txt))
+    return "legal";
+
+  // Valuation / inspection
+  if (/(valuat|valuer|inspection\s*fee)/i.test(txt))
+    return "valuation";
+  // CRIB
+  if (/\bcrib\b|credit\s*information\s*report|credit\s*bureau/i.test(txt))
+  return "crib";
+  // Early settlement / prepayment / foreclosure / exit
+  if (/(early\s*(settle|closure|close)|pre[-\s]?settle|pre[-\s]?payment|prepayment|foreclos(e|ure)|termination\s*fee|exit\s*fee)/i.test(txt))
+    return "early_settlement";
+
+  // Penalty / penal / default / late payment
+  if (/\bpenal\b|penalt(y|ies)|late\s*payment|overdue|past\s*due|default\s*(interest|charge|fee)/i.test(txt))
+    return "penalty";
+
+  // If nothing matched, keep as other
+  return "other";
+}
+
+
+/* ---------------- Tariffs: types & constants ---------------- */
+
+
+
+const LS_TARIFFS = "ub.tariffs.v1";
+
+/** Build tariff scraper endpoint from rate key (with graceful underscore fallback for ComBank, etc.) */
+function tariffEndpointFor(rateKey: string, apiBase: string): string[] {
+  const dash = `${apiBase}/scrape/${rateKey}-tariff`;
+  const underscore = `${apiBase}/scrape/${rateKey}_tariff`;
+  return [dash, underscore]; // try dash first; if 404, try underscore
+}
+
+/** Coerce backend payload into TariffRow[] safely */
+/** Parse LKR amounts from free text like "LKR 15,000", "250000", "2 Mn" */
+function parseLkrFromText(s?: string): number | undefined {
+  if (!s) return undefined;
+  const m = s.match(/([0-9][0-9,\.]*)\s*(mn|million|bn|billion)?/i);
+  if (!m) return undefined;
+  const raw = (m[1] || "").replace(/,/g, "");
+  const unit = (m[2] || "").toLowerCase();
+  if (!raw || isNaN(Number(raw))) return undefined;
+  return toMoneyLkr(raw, unit || null);
+}
+
+/** Extract min/max from notes text */
+function parseMinMaxFromNotes(notes?: string): { min?: number; max?: number } {
+  if (!notes) return {};
+  const s = notes.toLowerCase();
+  // Min
+  const minMatch =
+    s.match(/(?:^|\b)(min|minimum)\b[^0-9]{0,12}([0-9][0-9,\.]*)\s*(mn|million|bn|billion)?/i) ||
+    s.match(/(?:>=|above|over)\s*(?:rs\.?|lkr)?\s*([0-9][0-9,\.]*)\s*(mn|million|bn|billion)?/i);
+  // Max
+  const maxMatch =
+    s.match(/(?:^|\b)(max|maximum)\b[^0-9]{0,12}([0-9][0-9,\.]*)\s*(mn|million|bn|billion)?/i) ||
+    s.match(/(?:<=|upto|up\s*to)\s*(?:rs\.?|lkr)?\s*([0-9][0-9,\.]*)\s*(mn|million|bn|billion)?/i);
+
+  const min = minMatch ? toMoneyLkr(minMatch[2] || minMatch[1], (minMatch[3] || "") as any) : undefined;
+  const max = maxMatch ? toMoneyLkr(maxMatch[2] || maxMatch[1], (maxMatch[3] || "") as any) : undefined;
+  return { min: Number.isFinite(min as number) ? (min as number) : undefined,
+           max: Number.isFinite(max as number) ? (max as number) : undefined };
+}
+
+/** Extract effective date from notes: supports dd/mm/yyyy, dd.mm.yyyy, yyyy-mm-dd, "w.e.f." etc. */
+function parseEffectiveDateFromNotes(notes?: string): string | undefined {
+  if (!notes) return undefined;
+  const s = notes.toLowerCase();
+
+  // yyyy-mm-dd
+  let m = s.match(/\b(20\d{2})[-/.]([01]?\d)[-/.]([0-3]?\d)\b/);
+  if (m) {
+    const y = Number(m[1]), mo = Number(m[2]), d = Number(m[3]);
+    if (y && mo >= 1 && mo <= 12 && d >= 1 && d <= 31) {
+      return `${y}-${String(mo).padStart(2,"0")}-${String(d).padStart(2,"0")}`;
+    }
+  }
+  // dd/mm/yyyy or dd.mm.yyyy (typical in “w.e.f. 22/09/2025”)
+  m = s.match(/\b([0-3]?\d)[./-]([01]?\d)[./-](20\d{2})\b/);
+  if (m) {
+    const d = Number(m[1]), mo = Number(m[2]), y = Number(m[3]);
+    if (y && mo >= 1 && mo <= 12 && d >= 1 && d <= 31) {
+      return `${y}-${String(mo).padStart(2,"0")}-${String(d).padStart(2,"0")}`;
+    }
+  }
+  return undefined;
+}
+
+// REPLACE your current coerceTariffs with this version (stores feeTypeRaw)
+function coerceTariffs(raw: any): TariffRow[] {
+  const arr = Array.isArray(raw) ? raw : raw?.rows || raw?.data || [];
+  if (!Array.isArray(arr)) return [];
+
+  return arr.map((r) => {
+    const bank = String(r.bank || r.Bank || "Unknown");
+
+    const product = ((): ProductKey => {
+      const p = r.product ?? r.Product ?? r.category;
+      return (["HL","LAP","PL","EDU"] as ProductKey[]).includes(p) ? p : normProductName(p);
+    })();
+
+    // Long label first—may be used by the normalizer
+    const feeRaw = r.feeType ?? r.feeCategory ?? r.category ?? r.type ?? r.fee ?? "";
+    const description: string | undefined =
+      r.description ?? r.desc ?? r.label ?? r.item ?? r.details ?? r.text ?? r.line ??
+      (feeRaw ? String(feeRaw) : undefined);
+
+    // Category (normalized) and raw fee type
+    const feeType = normalizeTariffFeeType(String(feeRaw), description);
+    const feeTypeRaw = feeRaw ? String(feeRaw) : undefined;
+
+    const basis = String(r.basis || "actuals").toLowerCase() as TariffBasis;
+
+    const valueNum =
+      basis === "actuals" ? undefined :
+      (typeof r.value === "number" ? r.value :
+        ((): number | undefined => {
+          const m = String(r.value ?? "").match(/([0-9]+(?:\.[0-9]+)?)/);
+          const n = m ? parseFloat(m[1]) : NaN;
+          return isFinite(n) ? n : undefined;
+        })());
+
+    const minN = readNumber(r.min ?? r.minimum ?? r.minAmount ?? r.min_amt ?? r.floor);
+    const maxN = readNumber(r.max ?? r.maximum ?? r.maxAmount ?? r.max_amt ?? r.cap);
+
+    // Preserve raw "amount" provided by scraper, if present
+    const amount: string | undefined =
+      (typeof r.amount === "string" && r.amount.trim()) ? r.amount.trim()
+      : (typeof r.Amount === "string" && r.Amount.trim()) ? r.Amount.trim()
+      : undefined;
+
+    const notes: string | undefined = r.notes || r.note || r.remark || r.remarks || undefined;
+
+    const effField = r.effectiveDate ?? r.effective_from ?? r.effectiveFrom ?? r.validFrom ?? r.valid_from ?? r.wef;
+    const effectiveISO =
+      effField && !isNaN(Date.parse(effField)) ? new Date(effField).toISOString().slice(0,10) : undefined;
+
+    const upd = r.updatedAt && !isNaN(Date.parse(r.updatedAt)) ? r.updatedAt : new Date().toISOString();
+
+    return {
+      bank,
+      product,
+      feeType,
+      feeTypeRaw, // <- NEW
+      basis: (basis === "flat" || basis === "percent" || basis === "actuals") ? basis : "actuals",
+      value: typeof valueNum === "number" && isFinite(valueNum) ? valueNum : undefined,
+      min: typeof minN === "number" && isFinite(minN) ? minN : undefined,
+      max: typeof maxN === "number" && isFinite(maxN) ? maxN : undefined,
+      description,
+      amount,
+      notes,
+      effectiveDate: effectiveISO,
+      updatedAt: upd,
+      source: String(r.source || r.url || ""),
+    } as TariffRow;
+  });
+}
+
+// REPLACE your current tariff merge function with this version.
+// It preserves distinct slabs by including description/amount/basis/value in the key.
+// Identical duplicates (same content) still collapse; different slabs remain separate.
+function mergeTariffs(existing: TariffRow[], incoming: TariffRow[]): TariffRow[] {
+  const toKey = (t: TariffRow) =>
+    [
+      t.bank,
+      t.product,
+      t.feeType,
+      t.basis,                                 // percent / flat / actuals
+      (t.value != null && isFinite(t.value)) ? String(t.value) : "", // numeric value if any
+      (t.description || "").toLowerCase().trim(), // long label, e.g., "Up to Rs. 1,000,000/-"
+      (t.amount || "").toLowerCase().trim(),      // raw amount text from scraper
+    ].join("||");
+
+  const map = new Map<string, TariffRow>();
+  for (const r of existing) map.set(toKey(r), r);
+  for (const r of incoming) map.set(toKey(r), r);
+  return [...map.values()];
+}
+
+/* ---------------- Sources (static) ---------------- */
+const BANK_SOURCES: Record<string, SourceRec> = {
+  HNB: { url: "https://www.hnb.lk/interest-rates" },
+  DFCC: { url: "https://www.dfcc.lk/interest-rates/lending-rates/" },
+  NDB: { url: "https://www.ndbbank.com/rates/interest-rates-on-advances" },
+  "Sampath Bank": {
+    url: "https://www.sampath.lk/common/loan/interest-rates-loan-and-advances.pdf",
+  },
+  "Commercial Bank": { url: "https://www.combank.lk/rates-tariff#lending-rates" },
+  "Seylan Bank": { url: "https://www.seylan.lk/interest-rates#" },
+  "Union Bank": { url: "https://www.unionb.com/interest-rates/loans/" },
+};
+
+/* ---------------- LocalStorage utils ---------------- */
+const LS_RATES = "ub.rates.v1";
+const LS_PANEL = "ub.panel.v1";
+const LS_CBSL = "ub.cbsl.v1";        // CBSL monthly AWPR series
+const LS_FTP  = "ub.ftp.v1";         // FTP uploads
+const LS_COMPARE_PREFS = "ub.compare.prefs.v1";
+
+function loadJSON<T>(key: string, fallback: T): T {
+  try {
+    const raw = localStorage.getItem(key);
+    return raw ? (JSON.parse(raw) as T) : fallback;
+  } catch {
+    return fallback;
+  }
+}
+function saveJSON<T>(key: string, value: T) {
+  localStorage.setItem(key, JSON.stringify(value));
+}
+/* ---------------- Helpers ---------------- */
+function normProductName(s: any): ProductKey {
+  const t = String(s ?? "").toLowerCase();
+  if (/lap|against\s+property|mortgage|equity\s*release|property\s*loan/.test(t)) return "LAP";
+  if (/education|student|scholar/.test(t)) return "EDU";
+  if (/personal|consumption/.test(t)) return "PL";
+  return "HL";
+}
+function readNumber(x: any): number | undefined {
+  if (x == null) return undefined;
+  if (typeof x === "number" && isFinite(x)) return x;
+  const m = String(x).match(/([0-9]+(?:\.[0-9]+)?)/);
+  const n = m ? parseFloat(m[1]) : NaN;
+  return isFinite(n) ? n : undefined;
+}
+function containsFormula(str?: string): boolean {
+  return !!str && /awpr|awplr/i.test(str);
+}
+
+function unique<T>(arr: T[]): T[] {
+  return Array.from(new Set(arr));
+}
+function byAlpha<T>(sel: (t: T) => string) {
+  return (a: T, b: T) => sel(a).localeCompare(sel(b));
+}
+const CATEGORY_ORDER: TariffFeeType[] = [
+  "processing", "legal", "valuation", "crib", "early_settlement", "stamp_duty", "penalty", "other",
+];
+
+// ---- Tariff math helpers (Compare tab) ----
+function lkr(n: number): string {
+  return new Intl.NumberFormat("en-US", { maximumFractionDigits: 0 }).format(n);
+}
+
+type TariffComputationMeta = {
+  basis: TariffBasis;
+  value?: number;
+  min?: number;
+  max?: number;
+  valueDerived?: boolean;
+  valueSource?: "value" | "amount" | "description" | "notes";
+  minDerived?: boolean;
+  maxDerived?: boolean;
+  loanMin?: number;
+  loanMax?: number;
+  loanMinExclusive?: boolean;
+  loanMaxExclusive?: boolean;
+  loanSource?: "feeType" | "amount" | "description" | "notes";
+  rawText?: string;
+};
+
+function firstPercent(text: string): number | undefined {
+  const m = text.match(/([0-9]+(?:\.[0-9]+)?)\s*%/);
+  return m ? parseFloat(m[1]) : undefined;
+}
+
+function firstMoney(text: string): number | undefined {
+  const m = text.match(/(?:rs\.?|lkr|rupees?)\s*([0-9][0-9,\.]*)\s*(mn|million|bn|billion)?/i);
+  if (m) {
+    return toMoneyLkr(m[1], m[2] || null);
+  }
+  const slash = text.match(/([0-9][0-9,\.]*)\s*(?:\/-|\/=)/);
+  if (slash) {
+    const n = parseFloat(slash[1].replace(/,/g, ""));
+    return Number.isFinite(n) ? n : undefined;
+  }
+  const bare = text.match(/^\s*([0-9][0-9,\.]*)\s*$/);
+  if (bare) {
+    const n = parseFloat(bare[1].replace(/,/g, ""));
+    return Number.isFinite(n) ? n : undefined;
+  }
+  return undefined;
+}
+
+type LoanRange = {
+  min?: number;
+  max?: number;
+  minExclusive?: boolean;
+  maxExclusive?: boolean;
+};
+
+function isLoanRangeText(text: string): boolean {
+  const lower = text.toLowerCase();
+  if (/(loan\s*(amount|range|band)|slab|tier\s*\d|facility)/.test(lower)) return true;
+  if (/(up\s*to|upto|between|from|above|over|less\s*than|below|not\s*exceeding|greater\s*than)/.test(lower)) return true;
+  if (/\b[0-9][0-9,\.]*\s*(mn|million|bn|billion)?\s*(?:\/-|\/=)?\s*(?:-|to)\s*(?:rs\.?|lkr)?\s*[0-9]/i.test(text)) return true;
+  return false;
+}
+
+function parseLoanRangeFromText(text: string): LoanRange | undefined {
+  if (!text) return undefined;
+  const clean = text.replace(/[\u2012\u2013\u2014\u2015]/g, "-").replace(/\s+/g, " ").trim();
+  if (!clean) return undefined;
+  const lower = clean.toLowerCase();
+
+  const parseNum = (numStr: string, unit?: string | null) => toMoneyLkr(numStr.replace(/,/g, ""), unit ?? null);
+  const range: LoanRange = {};
+
+  const between = lower.match(/(?:between|from)\s*(?:rs\.?|lkr)?\s*([0-9][0-9,\.]*)\s*(mn|million|bn|billion)?\s*(?:\/-)?\s*(?:to|and|-)\s*(?:rs\.?|lkr)?\s*([0-9][0-9,\.]*)\s*(mn|million|bn|billion)?/i);
+  if (between) {
+    range.min = parseNum(between[1], between[2]);
+    range.max = parseNum(between[3], between[4]);
+  } else {
+    const explicit = lower.match(/(?:rs\.?|lkr)?\s*([0-9][0-9,\.]*)\s*(mn|million|bn|billion)?\s*(?:\/-)?\s*(?:to|-)\s*(?:rs\.?|lkr)?\s*([0-9][0-9,\.]*)\s*(mn|million|bn|billion)?/i);
+    if (explicit) {
+      range.min = parseNum(explicit[1], explicit[2]);
+      range.max = parseNum(explicit[3], explicit[4]);
+    }
+  }
+
+  const upTo = lower.match(/(?:up\s*to|upto|less\s*than|below|not\s*exceeding)\s*(?:rs\.?|lkr)?\s*([0-9][0-9,\.]*)\s*(mn|million|bn|billion)?/i);
+  if (upTo) {
+    const maxVal = parseNum(upTo[1], upTo[2]);
+    if (Number.isFinite(maxVal)) {
+      range.max = maxVal;
+      range.maxExclusive = /less\s*than|below/.test(upTo[0]);
+    }
+  }
+
+  const above = lower.match(/(?:above|over|greater\s*than|exceeding)\s*(?:rs\.?|lkr)?\s*([0-9][0-9,\.]*)\s*(mn|million|bn|billion)?/i);
+  if (above) {
+    const minVal = parseNum(above[1], above[2]);
+    if (Number.isFinite(minVal)) {
+      range.min = minVal;
+      range.minExclusive = /above|over|greater/.test(above[0]);
+    }
+  }
+
+  const minimum = lower.match(/(?:minimum|min)\s*(?:loan\s*)?(?:amount\s*)?(?:rs\.?|lkr)?\s*([0-9][0-9,\.]*)\s*(mn|million|bn|billion)?/i);
+  if (minimum) {
+    const minVal = parseNum(minimum[1], minimum[2]);
+    if (Number.isFinite(minVal)) {
+      range.min = minVal;
+      range.minExclusive = false;
+    }
+  }
+
+  const maximum = lower.match(/(?:maximum|max)\s*(?:loan\s*)?(?:amount\s*)?(?:rs\.?|lkr)?\s*([0-9][0-9,\.]*)\s*(mn|million|bn|billion)?/i);
+  if (maximum) {
+    const maxVal = parseNum(maximum[1], maximum[2]);
+    if (Number.isFinite(maxVal)) {
+      range.max = maxVal;
+      range.maxExclusive = false;
+    }
+  }
+
+  if (range.min == null && range.max == null) return undefined;
+  return range;
+}
+
+function normalizeTariffForComputation(r: TariffRow): TariffComputationMeta | undefined {
+  let basis: TariffBasis = r.basis === "percent" || r.basis === "flat" ? r.basis : "actuals";
+  let value = typeof r.value === "number" && isFinite(r.value) ? r.value : undefined;
+  let min = typeof r.min === "number" && isFinite(r.min) ? r.min : undefined;
+  let max = typeof r.max === "number" && isFinite(r.max) ? r.max : undefined;
+  let valueDerived = false;
+  let valueSource: TariffComputationMeta["valueSource"] = value != null ? "value" : undefined;
+  let minDerived = false;
+  let maxDerived = false;
+  let loanMin: number | undefined;
+  let loanMax: number | undefined;
+  let loanMinExclusive = false;
+  let loanMaxExclusive = false;
+  let loanSource: TariffComputationMeta["loanSource"];
+
+  const fields: Array<{ text: string; source: TariffComputationMeta["valueSource"] | "feeType" }> = [
+    { text: typeof r.feeTypeRaw === "string" ? r.feeTypeRaw : "", source: "feeType" },
+    { text: typeof r.amount === "string" ? r.amount : "", source: "amount" },
+    { text: typeof r.description === "string" ? r.description : "", source: "description" },
+    { text: typeof r.notes === "string" ? r.notes : "", source: "notes" },
+  ];
+  const text = fields
+    .filter((f) => f.source !== "feeType")
+    .map((f) => f.text.trim())
+    .filter(Boolean)
+    .join(" | ");
+  if (text) {
+    const mm = parseMinMaxFromNotes(text);
+    if (min == null && mm.min != null) { min = mm.min; minDerived = true; }
+    if (max == null && mm.max != null) { max = mm.max; maxDerived = true; }
+  }
+
+  for (const field of fields) {
+    if (!field.text) continue;
+    const range = parseLoanRangeFromText(field.text);
+    if (range) {
+      if (range.min != null && (loanMin == null || range.min > loanMin)) {
+        loanMin = range.min;
+        loanMinExclusive = !!range.minExclusive;
+        loanSource =
+          field.source === "feeType" ? "feeType" :
+          field.source === "amount" ? "amount" :
+          field.source === "notes" ? "notes" :
+          "description";
+      }
+      if (range.max != null && (loanMax == null || range.max < loanMax)) {
+        loanMax = range.max;
+        loanMaxExclusive = !!range.maxExclusive;
+        loanSource =
+          field.source === "feeType" ? "feeType" :
+          field.source === "amount" ? "amount" :
+          field.source === "notes" ? "notes" :
+          "description";
+      }
+    }
+  }
+
+  if (basis === "actuals" || value == null) {
+    for (const field of fields) {
+      if (!field.text || isLoanRangeText(field.text)) continue;
+      const pct = firstPercent(field.text);
+      if (pct != null) {
+        basis = "percent";
+        value = pct;
+        valueDerived = true;
+        valueSource = field.source === "feeType" ? "description" : (field.source as TariffComputationMeta["valueSource"]);
+        break;
+      }
+    }
+  }
+
+  if (basis === "actuals" || value == null) {
+    for (const field of fields) {
+      if (!field.text || isLoanRangeText(field.text)) continue;
+      const amt = firstMoney(field.text);
+      if (amt != null) {
+        basis = "flat";
+        value = amt;
+        valueDerived = true;
+        valueSource = field.source === "feeType" ? "description" : (field.source as TariffComputationMeta["valueSource"]);
+        break;
+      }
+    }
+  }
+
+  if (basis === "actuals" || value == null) return undefined;
+
+  return {
+    basis,
+    value,
+    min,
+    max,
+    valueDerived,
+    valueSource,
+    minDerived,
+    maxDerived,
+    loanMin,
+    loanMax,
+    loanMinExclusive,
+    loanMaxExclusive,
+    loanSource,
+    rawText: text,
+  };
+}
+
+// Sum best-computable upfront fees for a bank & product.
+// Included categories: processing, legal, valuation.
+// - percent  -> amount * value/100 (clamped by min/max if provided)
+// - flat     -> value
+// - actuals  -> excluded from total, but flagged via `actualsFlags`
+function sumUpfrontTariffsForBank(
+  tariffs: TariffRow[],
+  bank: string,
+  product: ProductKey,
+  loanAmount?: number
+): {
+  total: number;
+  actualsFlags: string[];
+  picked: Array<{ cat: TariffFeeType; row?: TariffRow; computed?: number; note?: string; meta?: TariffComputationMeta }>;
+} {
+  // Product rules:
+// - HL & LAP: include processing + legal + exactly one valuation + CRIB
+// - PL:       include processing + CRIB only (no legal/title, no valuation)
+const include = new Set<TariffFeeType>(
+  product === "PL"
+    ? ["processing", "crib"]
+    : ["processing", "legal", "valuation", "crib"]
+);
+  const rows = tariffs
+  .filter(t => t.bank === bank && t.product === product && include.has(t.feeType))
+  .filter(t => {
+    const text = `${t.feeTypeRaw || ""} ${t.description || ""}`.toLowerCase();
+    if (/\binsurance\b/.test(text)) return false; // Exclude insurance
+    if (/\brelease\b/.test(text)) return false;   // Exclude release/part release
+    return true;
+  });
+
+  const byCat: Record<TariffFeeType, TariffRow[]> = {
+    processing: [], legal: [], valuation: [],
+    early_settlement: [], stamp_duty: [], penalty: [], other: []
+  };
+  for (const r of rows) byCat[r.feeType].push(r);
+
+  const actualsFlags: string[] = [];
+  const picked: Array<{ cat: TariffFeeType; row?: TariffRow; computed?: number; note?: string; meta?: TariffComputationMeta }> = [];
+
+  function loanMatches(meta: TariffComputationMeta | undefined, amt?: number): boolean {
+    if (!meta || amt == null || !isFinite(amt)) return true;
+    if (meta.loanMin != null) {
+      if (meta.loanMinExclusive ? amt <= meta.loanMin : amt < meta.loanMin) return false;
+    }
+    if (meta.loanMax != null) {
+      if (meta.loanMaxExclusive ? amt >= meta.loanMax : amt > meta.loanMax) return false;
+    }
+    return true;
+  }
+
+  function compute(r: TariffRow): { amount: number; meta: TariffComputationMeta; inRange: boolean } | undefined {
+    const meta = normalizeTariffForComputation(r);
+    if (!meta) return undefined;
+    if (meta.basis === "percent") {
+      if (!loanAmount || !isFinite(loanAmount)) return undefined;
+      let v = (loanAmount * (meta.value ?? 0)) / 100;
+      if (typeof meta.min === "number") v = Math.max(v, meta.min);
+      if (typeof meta.max === "number") v = Math.min(v, meta.max);
+      return { amount: v, meta, inRange: loanMatches(meta, loanAmount) };
+    }
+    if (meta.basis === "flat") {
+      let v = meta.value ?? 0;
+      if (typeof meta.min === "number") v = Math.max(v, meta.min);
+      if (typeof meta.max === "number") v = Math.min(v, meta.max);
+      return { amount: v, meta, inRange: loanMatches(meta, loanAmount) };
+    }
+    return undefined;
+  }
+
+  let total = 0;
+
+  for (const cat of ["processing", "legal", "valuation"] as const) {
+    const list = byCat[cat] || [];
+    let bestVal: number | undefined;
+    let bestRow: TariffRow | undefined;
+    let bestMeta: TariffComputationMeta | undefined;
+    let bestInRangeVal: number | undefined;
+    let bestInRangeRow: TariffRow | undefined;
+    let bestInRangeMeta: TariffComputationMeta | undefined;
+    let sawActuals = false;
+
+    for (const r of list) {
+      const out = compute(r);
+      if (!out) {
+        if (r.basis === "actuals") sawActuals = true;
+        continue;
+      }
+      if (out.inRange) {
+        if (bestInRangeVal == null || out.amount < bestInRangeVal) {
+          bestInRangeVal = out.amount;
+          bestInRangeRow = r;
+          bestInRangeMeta = out.meta;
+        }
+      }
+      if (bestVal == null || out.amount < bestVal) {
+        bestVal = out.amount;
+        bestRow = r;
+        bestMeta = out.meta;
+      }
+    }
+
+    if (bestInRangeVal != null) {
+      total += bestInRangeVal;
+      picked.push({ cat, row: bestInRangeRow, computed: bestInRangeVal, meta: bestInRangeMeta });
+    } else if (bestVal != null) {
+      total += bestVal;
+      picked.push({ cat, row: bestRow, computed: bestVal, meta: bestMeta });
+    } else {
+      if (sawActuals) { actualsFlags.push(cat); picked.push({ cat, note: "At actuals" }); }
+      else if (!list.length) { picked.push({ cat, note: "No data" }); }
+      else { picked.push({ cat, note: "Not computable" }); }
+    }
+  }
+
+  return { total, actualsFlags, picked };
+}
+
+function MatrixRain() {
+  const ref = React.useRef<HTMLCanvasElement | null>(null);
+  React.useEffect(() => {
+    const canvas = ref.current!;
+    const ctx = canvas.getContext("2d")!;
+    let raf = 0;
+
+    function resize() {
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = Math.floor(canvas.clientWidth * dpr);
+      canvas.height = Math.floor(canvas.clientHeight * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    const onResize = () => { resize(); initColumns(); };
+    window.addEventListener("resize", onResize);
+    resize();
+
+    const chars = "アカサタナハマヤラワ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    let columns: { x: number; y: number }[] = [];
+    function initColumns() {
+      const colWidth = 16;
+      const cols = Math.ceil(canvas.clientWidth / colWidth);
+      columns = Array.from({ length: cols }, (_, i) => ({ x: i * colWidth, y: (Math.random() * -100) | 0 }));
+    }
+    initColumns();
+
+    function draw() {
+      const w = canvas.clientWidth;
+      const h = canvas.clientHeight;
+
+      // fade the frame (tail)
+      ctx.fillStyle = "rgba(10,15,28,0.12)";
+      ctx.fillRect(0, 0, w, h);
+
+      ctx.fillStyle = "#65a30d"; // lime-600
+      ctx.font = "16px monospace";
+      for (let i = 0; i < columns.length; i++) {
+        const col = columns[i];
+        const ch = chars[Math.floor(Math.random() * chars.length)];
+        ctx.fillText(ch, col.x, col.y);
+        col.y += 18 + Math.random() * 8;
+        if (col.y > h + 50) col.y = -50 - Math.random() * 300;
+      }
+      raf = requestAnimationFrame(draw);
+    }
+    raf = requestAnimationFrame(draw);
+    return () => { cancelAnimationFrame(raf); window.removeEventListener("resize", onResize); };
+  }, []);
+
+  return (
+    <canvas
+      ref={ref}
+      className="absolute inset-0 h-full w-full"
+      style={{ display: "block" }}
+    />
+  );
+}
+
+function LoginGate({ onSuccess }: { onSuccess: () => void }) {
+  const [pw, setPw] = React.useState("");
+  const [err, setErr] = React.useState<string | null>(null);
+  const [showPw, setShowPw] = React.useState(false);
+
+  function submit(e?: React.FormEvent) {
+    e?.preventDefault();
+    if (pw.trim() === UB_PASSWORD) {      
+      onSuccess();
+    } else {
+      setErr("Incorrect password. Please try again.");
+    }
+  }
+
+  return (
+    <div className="relative h-screen w-screen overflow-hidden text-white">
+      {/* Matrix rain background */}
+      <MatrixRain />
+      {/* Dark overlay for contrast */}
+      <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(10,15,28,0.55) 0%, rgba(10,15,28,0.85) 100%)" }} />
+
+      {/* Center content */}
+      <div className="relative z-10 h-full w-full flex items-center justify-center p-6">
+        <motion.form
+          onSubmit={submit}
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ type: "spring", stiffness: 260, damping: 22 }}
+          className="w-full max-w-md rounded-2xl border border-white/10 p-6 shadow-2xl"
+          style={{ backgroundColor: "#161b27cc", backdropFilter: "blur(6px)" }}
+        >
+          {/* Brand header */}
+          <div className="text-center mb-5">
+            <div className="text-2xl font-extrabold">UB Analyst</div>
+            <div className="text-white/70 text-sm">Secure Access</div>
+          </div>
+
+          {/* Password input */}
+          <label className="block text-sm mb-1 text-white/80">Password</label>
+          <div className="flex items-center gap-2">
+            <input
+              type={showPw ? "text" : "password"}
+              value={pw}
+              onChange={(e) => setPw(e.target.value)}
+              className="w-full px-3 py-2 rounded bg-white/10 outline-none"
+              placeholder="Enter password"
+              autoFocus
+            />
+            <Btn
+              type="button"
+              onClick={() => setShowPw((s) => !s)}
+              className="px-3 py-2 rounded bg-white/10"
+              title={showPw ? "Hide" : "Show"}
+            >
+              {showPw ? "Hide" : "Show"}
+            </Btn>
+          </div>
+
+          {err && <div className="mt-2 text-xs text-red-300">{err}</div>}
+
+          <Btn
+            type="submit"
+            className="mt-4 w-full px-4 py-2 rounded-xl bg-[#3b82f6] text-white shadow-lg"
+            whileTap={{ scale: 0.98 }}
+          >
+            Enter
+          </Btn>
+
+          {/* small footer */}
+          <div className="mt-4 text-center text-[11px] text-white/60">
+            © {new Date().getFullYear()} Chalith Perera. All Rights Reserved. This software is proprietary and confidential.
+  Unauthorized copying, distribution, reverse engineering, or disclosure is strictly prohibited.<br />
+  Developed by Chalith Perera – Head of Product Management, Retail Assets &amp; Liabilities,
+  Union Bank of Colombo PLC. Contact: 077 395 1370
+          </div>
+        </motion.form>
+      </div>
+    </div>
+  );
+}
+
+/* ---------------- Normalize formulas using AWPR/AWPLR ---------------- */
+function normalizeFormulaRates(rows: RateRow[], awpr?: number, awplr?: number): RateRow[] {
+  if (typeof awpr !== "number" && typeof awplr !== "number") return rows;
+  return rows.map((r) => {
+    if (isFinite(r.rate)) return r;
+    const note = r.notes || "";
+    const mAwpr = note.match(/awpr\s*\+\s*([0-9.]+)/i);
+    if (mAwpr && typeof awpr === "number") {
+      const add = parseFloat(mAwpr[1]);
+      return { ...r, rate: awpr + add, notes: `AWPR + ${add}%` };
+    }
+    const mAwplr = note.match(/awplr\s*\+\s*([0-9.]+)/i);
+    if (mAwplr && typeof awplr === "number") {
+      const add = parseFloat(mAwplr[1]);
+      return { ...r, rate: awplr + add, notes: `AWPLR + ${add}%` };
+    }
+    return r;
+  });
+}
+
+/* ---------------- Month helpers (FTP & CBSL reduction) ---------------- */
+function ym(d: Date | string): string {
+  const dt = typeof d === "string" ? new Date(d) : d;
+  const y = dt.getFullYear();
+  const m = dt.getMonth() + 1;
+  return `${y}-${String(m).padStart(2, "0")}`;
+}
+function inferMonthFromFilename(name: string): string | null {
+  const s = name.toLowerCase();
+  const m1 = s.match(/(20\d{2})[ -_]?([01]?\d)\b/);
+  if (m1) {
+    const y = Number(m1[1]);
+    const mo = Number(m1[2]);
+    if (y >= 2000 && mo >= 1 && mo <= 12) return `${y}-${String(mo).padStart(2, "0")}`;
+  }
+  const months = ["jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec"];
+  const m2 = s.match(new RegExp(`\\b(${months.join("|")})\\s*-?\\s*(['’]?\\d{2}|20\\d{2})`, "i"));
+  if (m2) {
+    const idx = months.indexOf(m2[1].slice(0,3).toLowerCase());
+    const ystr = m2[2].replace(/['’]/g,"");
+    const y = ystr.length === 2 ? 2000 + Number(ystr) : Number(ystr);
+    if (y >= 2000 && idx >= 0) return `${y}-${String(idx+1).padStart(2, "0")}`;
+  }
+  return null;
+}
+function UBRateAnalyst() {
+  const [page, setPage] = useState<"dashboard" | "interest" | "tariffs" | "compare" | "news" | "admin" | "scrapers">(
+  "dashboard"
+);
+
+  const [rates, setRates] = useState<RateRow[]>(() =>
+    loadJSON<RateRow[]>(LS_RATES, [])
+  );
+  useEffect(() => saveJSON(LS_RATES, rates), [rates]);
+
+    /* ---- Tariffs state (persist to LS_TARIFFS) ---- */
+  const [tariffs, setTariffs] = useState<TariffRow[]>(
+    () => loadJSON<TariffRow[]>(LS_TARIFFS, [])
+  );
+  useEffect(() => saveJSON(LS_TARIFFS, tariffs), [tariffs]);
+
+  function onMergeTariffs(rows: TariffRow[]) {
+    setTariffs((prev) => mergeTariffs(prev, rows));
+  }
+
+  type CbslRow = { period: string; weekEnd: string; metric: string; rate: string; source: string; updatedAt: string };
+  const [cbslRows, setCbslRows] = useState<CbslRow[]>(
+    () => loadJSON<CbslRow[]>(LS_CBSL, [])
+  );
+  useEffect(() => saveJSON(LS_CBSL, cbslRows), [cbslRows]);
+
+  const [ftpMonths, setFtpMonths] = useState<UbFtpMonth[]>(
+    () => loadJSON<UbFtpMonth[]>(LS_FTP, [])
+  );
+  useEffect(() => saveJSON(LS_FTP, ftpMonths), [ftpMonths]);
+
+  const awprLatest = useMemo(() => {
+    if (!cbslRows.length) return undefined;
+    let latestRate: number | undefined;
+    let latestTs = -Infinity;
+    for (const r of cbslRows) {
+      const n = parseFloat(String(r.rate));
+      if (!isFinite(n)) continue;
+      const ts =
+        (r.weekEnd ? Date.parse(r.weekEnd) : NaN) ||
+        (r.period ? Date.parse(r.period) : NaN) ||
+        (r.updatedAt ? Date.parse(r.updatedAt) : NaN) ||
+        NaN;
+      const tsv = isNaN(ts) ? -Infinity : ts;
+      if (tsv >= latestTs) {
+        latestTs = tsv;
+        latestRate = n;
+      }
+    }
+    return latestRate;
+  }, [cbslRows]);
+
+  function mergeRates(existing: RateRow[], incoming: RateRow[]) {
+    if (!incoming?.length) return existing;
+    const keyOf = (row: RateRow) => [
+      row.bank ?? "",
+      row.product ?? "",
+      row.type ?? "",
+      row.fixedYears ?? "",
+      row.notes ?? "",
+    ].join("||");
+
+    const map = new Map<string, RateRow>();
+    for (const row of existing) {
+      map.set(keyOf(row), row);
+    }
+    for (const row of incoming) {
+      map.set(keyOf(row), row);
+    }
+    const merged = Array.from(map.values());
+    return normalizeFormulaRates(merged, awprLatest);
+  }
+
+  function bestForProduct(p: ProductKey) {
+    const rows = rates.filter((r) => r.product === p && isFinite(r.rate));
+    if (!rows.length) return undefined;
+    return [...rows].sort((a, b) => a.rate - b.rate)[0];
+  }
+
+  const API_BASE =
+    import.meta.env.DEV ? "" : (window as any).__UB_BASE__ || "http://localhost:3000";
+
+  return (
+    <div
+      className="min-h-screen w-full flex flex-col"
+      style={{
+        background: `linear-gradient(180deg, ${BRAND.bgTop} 0%, ${BRAND.bgBottom} 100%)`,
+        color: "white",
+      }}
+    >
+      <div className="max-w-7xl mx-auto px-4 pt-8 pb-24 text-white flex-1 w-full">
+        {/* Header */}
+        <div className="flex items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <motion.div
+              whileTap={{ scale: 0.9 }}
+              className="h-15 w-15 rounded-2xl overflow-hidden flex items-center justify-center shadow-md bg-white"
+            >
+              <img src={ubLogo} alt="Union Bank Logo" className="h-12 w-12 object-contain" />
+              </motion.div>
+            <div>
+              <h1 className="text-2xl md:text-3xl font-bold">UB Analyst</h1>
+              <p className="text-white/80">Retail advances - peer comparison</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Nav */}
+        <div className="mt-4 flex gap-3 overflow-x-auto">
+          {(["dashboard", "interest", "tariffs", "compare", "news", "admin", "scrapers"] as const).map((p) => (
+  <Btn
+    key={p}
+    onClick={() => setPage(p)}
+    className={`px-4 py-2 rounded-xl whitespace-nowrap transition-all ${
+      page === p ? "bg-[#3b82f6] text-white shadow-lg" : "bg-white/10"
+    }`}
+  >
+    {p === "dashboard" ? "Dashboard" :
+     p === "interest" ? "Interest Rates" :
+     p === "tariffs" ? "Tariffs" :
+     p === "compare" ? "Compare" :
+     p === "news" ? "News" :
+     p === "admin" ? "Admin" : "Scrapers"}
+  </Btn>
+))}
+
+        </div>
+
+        {/* Dashboard */}
+        {page === "dashboard" && (
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+            {PRODUCTS.map((p) => {
+              const top = bestForProduct(p.key);
+              return (
+                <motion.div
+                  key={p.key}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  whileHover={{
+                    scale: 1.04,
+                    boxShadow: "0 8px 32px 0 rgba(59,130,246,0.25)",
+                    zIndex: 2,
+                  }}
+                  transition={{ type: "spring", stiffness: 300, damping: 22 }}
+                  className="rounded-2xl overflow-hidden shadow-lg border border-white/10 transition-all duration-200 cursor-pointer"
+                  style={{
+                    background: `linear-gradient(135deg, ${BRAND.orange} 0%, ${BRAND.orangeSoft} 100%)`,
+                  }}
+                >
+                  <div className="p-6 text-white">
+                    <div className="text-white/80 text-xs uppercase tracking-wider mb-1">
+                      LOWEST IN {p.label}
+                    </div>
+                    <div className="text-white text-2xl font-extrabold">
+                      {top ? `${top.rate}%` : "—"}{" "}
+                      <span className="text-white/60 text-base font-semibold">
+                        {top?.type}
+                        {top?.type === "Fixed" && top?.fixedYears ? ` (${top.fixedYears}y)` : ""}
+                      </span>
+                    </div>
+                    <div className="text-white/70">{top?.bank ? <BankLogoName bank={top.bank} /> : "No data"}</div>
+                    {top?.notes && <div className="text-white/60 text-xs mt-1">Note: {top.notes}</div>}
+                  </div>
+                </motion.div>
+              );
+            })}
+
+            {/* AWPR vs FTP (Union Bank) */}
+            <div className="md:col-span-2 rounded-2xl p-6" style={{ backgroundColor: BRAND.card }}>
+              <div className="mb-4">
+                <div className="text-lg font-semibold">AWPR vs FTP (Union Bank)</div>
+                <div className="text-white/70 text-sm">
+                  CBSL bi-annual AWPR compared with Union Bank FTP
+                </div>
+              </div>
+              <div className="h-64 w-full">
+                <AwprFtpChartMulti
+                  cbslRows={cbslRows}
+                  ftpMonths={ftpMonths}
+                  brand={BRAND}
+                />
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Interest Rates */}
+        {page === "interest" && <InterestRatesView rows={rates} />}
+        {page === "tariffs" && <TariffsView rows={tariffs} />}
+
+        {/* Compare */}
+        {page === "compare" && (
+  <CompareAdvisor
+    rows={rates}
+    tariffs={loadJSON<TariffRow[]>("ub.tariffs.v1", [])}
+  />
+)}
+
+        {/* News */}
+        {page === "news" && <NewsRoom apiBase={API_BASE} />}
+
+        {/* Admin */}
+        {page === "admin" && (
+          <div className="mt-6 text-white/80 space-y-6">
+            <FtpFileUploader
+              initialMonths={ftpMonths}
+              onSaveAll={(months) => setFtpMonths(months)}
+              onReset={() => setFtpMonths([])}
+            />
+          </div>
+        )}
+
+        {/* Scrapers */}
+{page === "scrapers" && (
+  <div className="mt-6">
+    <ScraperPanel
+      apiBase={API_BASE}
+      onMerge={(rows) => setRates((prev) => mergeRates(prev, rows))}
+      onMergeTariffs={onMergeTariffs}
+      onResetRates={() => setRates([])}
+      onResetTariffs={() => setTariffs([])}
+      onCbsl={(rows) => {
+        setCbslRows(rows);
+        const latestFromFetch = (() => {
+          let latest: number | undefined;
+          let tsBest = -Infinity;
+          for (const r of rows) {
+            const n = parseFloat(String(r.rate));
+            if (!isFinite(n)) continue;
+            const ts =
+              (r.weekEnd ? Date.parse(r.weekEnd) : NaN) ||
+              (r.period ? Date.parse(r.period) : NaN) ||
+              (r.updatedAt ? Date.parse(r.updatedAt) : NaN) ||
+              NaN;
+            const tsv = isNaN(ts) ? -Infinity : ts;
+            if (tsv >= tsBest) { tsBest = tsv; latest = n; }
+          }
+          return latest;
+        })();
+        if (typeof latestFromFetch === "number") {
+          setRates((prev) => normalizeFormulaRates(prev, latestFromFetch));
+        }
+      }}
+      awprLatest={awprLatest}
+    />
+  </div>
+)}
+
+      </div>
+
+      {/* Global Footer (copyright) */}
+      <footer className="bg-[#1f2937] text-white/80 text-xs text-center px-4 py-3">
+        © 2025 Chalith Perera. All Rights Reserved. This software is proprietary and confidential.
+        Unauthorized copying, distribution, reverse engineering, or disclosure is strictly prohibited.
+        Developed by Chalith Perera – Head of Product Management, Retail Assets & Liabilities,
+        Union Bank of Colombo PLC. Contact: 077 395 1370
+      </footer>
+    </div>
+  );
+}
+type NewsEntry = {
+  id: string;
+  title: string;
+  summary: string;
+  link: string;
+  source: string;
+  publishedAt?: string;
+  topics?: string[];
+  origin?: string;
+  image?: string;
+};
+
+type NewsResponse = {
+  updatedAt?: string;
+  count?: number;
+  sources?: string[];
+  items?: NewsEntry[];
+};
+
+const TOPIC_ORDER = ["Banking & Finance", "Policy & Regulation", "Real Estate", "Economy & Markets"];
+
+function formatRelativeTime(iso?: string | null) {
+  if (!iso) return "";
+  const ts = Date.parse(iso);
+  if (Number.isNaN(ts)) return "";
+  const diffMs = Date.now() - ts;
+  if (diffMs <= 0) return "just now";
+  const minutes = Math.floor(diffMs / 60000);
+  if (minutes < 1) return "just now";
+  if (minutes < 60) return `${minutes} min${minutes === 1 ? "" : "s"} ago`;
+  const hours = Math.floor(minutes / 60);
+  if (hours < 24) return `${hours} hr${hours === 1 ? "" : "s"} ago`;
+  const days = Math.floor(hours / 24);
+  if (days < 7) return `${days} day${days === 1 ? "" : "s"} ago`;
+  const weeks = Math.floor(days / 7);
+  if (weeks < 5) return `${weeks} wk${weeks === 1 ? "" : "s"} ago`;
+  const months = Math.floor(days / 30);
+  if (months < 12) return `${months} mo${months === 1 ? "" : "s"} ago`;
+  const years = Math.floor(days / 365);
+  return `${years} yr${years === 1 ? "" : "s"} ago`;
+}
+
+function formatDisplayTime(iso?: string | null) {
+  if (!iso) return "";
+  const date = new Date(iso);
+  if (Number.isNaN(date.getTime())) return "";
+  return date.toLocaleString("en-GB", {
+    timeZone: "Asia/Colombo",
+    day: "2-digit",
+    month: "short",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  });
+}
+
+function NewsRoom({ apiBase }: { apiBase: string }) {
+  const [articles, setArticles] = useState<NewsEntry[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [search, setSearch] = useState("");
+  const [activeTopics, setActiveTopics] = useState<string[]>([]);
+  const [updatedAt, setUpdatedAt] = useState<string | null>(null);
+  const [sources, setSources] = useState<string[]>([]);
+  const articlesRef = React.useRef<NewsEntry[]>([]);
+
+  const fetchNews = React.useCallback(async (force = false) => {
+    try {
+      setLoading(force || !articlesRef.current.length);
+      setError(null);
+      const base = (apiBase || "").replace(/\/$/, "");
+      const params = new URLSearchParams({ limit: "60" });
+      if (force) params.set("refresh", "true");
+      const endpoint = `${base}/api/news?${params.toString()}`;
+      const res = await fetch(endpoint, { cache: "no-store" });
+      if (!res.ok) throw new Error(`Request failed with status ${res.status}`);
+      const data: NewsResponse = await res.json();
+      const items = Array.isArray(data.items) ? data.items : [];
+      articlesRef.current = items;
+      setArticles(items);
+      setUpdatedAt(data.updatedAt ?? null);
+      setSources(Array.isArray(data.sources) ? data.sources : []);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : String(err));
+    } finally {
+      setLoading(false);
+    }
+  }, [apiBase]);
+
+  useEffect(() => {
+    fetchNews(false);
+    const timer = window.setInterval(() => fetchNews(false), 5 * 60 * 1000);
+    return () => window.clearInterval(timer);
+  }, [fetchNews]);
+
+  const availableTopics = useMemo(() => {
+    const set = new Set<string>();
+    for (const article of articles) {
+      if (!article?.topics) continue;
+      for (const topic of article.topics) set.add(topic);
+    }
+    const list = Array.from(set);
+    return list.sort((a, b) => {
+      const ai = TOPIC_ORDER.indexOf(a);
+      const bi = TOPIC_ORDER.indexOf(b);
+      if (ai === -1 && bi === -1) return a.localeCompare(b);
+      if (ai === -1) return 1;
+      if (bi === -1) return -1;
+      return ai - bi;
+    });
+  }, [articles]);
+
+  const filteredArticles = useMemo(() => {
+    const q = search.trim().toLowerCase();
+    return articles.filter((article) => {
+      const matchesTopic = activeTopics.length
+        ? article.topics?.some((topic) => activeTopics.includes(topic))
+        : true;
+      const matchesSearch = q
+        ? `${article.title} ${article.summary} ${article.source}`.toLowerCase().includes(q)
+        : true;
+      return matchesTopic && matchesSearch;
+    });
+  }, [articles, activeTopics, search]);
+
+  const toggleTopic = (topic: string) => {
+    setActiveTopics((prev) =>
+      prev.includes(topic) ? prev.filter((t) => t !== topic) : [...prev, topic]
+    );
+  };
+
+  const hasData = filteredArticles.length > 0;
+
+  return (
+    <div className="mt-6 space-y-6">
+      <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        <div>
+          <h2 className="text-2xl font-semibold">Industry Pulse</h2>
+          <p className="text-white/70 text-sm md:text-base">
+            Live digest of Sri Lanka banking, policy, and real estate developments.
+          </p>
+          {updatedAt && (
+            <div className="text-xs text-white/50 mt-2">
+              Synced {formatRelativeTime(updatedAt)}
+              {` • ${formatDisplayTime(updatedAt)}`}
+            </div>
+          )}
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+          <div className="relative flex-1 sm:w-72">
+            <input
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="Search headlines, keywords, sources..."
+              className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-[#3b82f6]/80"
+              type="search"
+            />
+            <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-white/40 text-xs uppercase tracking-widest">
+              ⌕
+            </span>
+          </div>
+          <Btn
+            onClick={() => fetchNews(true)}
+            disabled={loading}
+            className="px-4 py-2 rounded-xl bg-white/10 hover:bg-[#3b82f6] hover:text-white disabled:opacity-60 transition"
+          >
+            {loading ? "Refreshing..." : "Refresh"}
+          </Btn>
+        </div>
+      </div>
+
+      {sources.length > 0 && (
+        <div className="text-xs text-white/50 flex flex-wrap items-center gap-2">
+          <span className="text-white/40 uppercase tracking-widest">Feeds</span>
+          <span>{sources.join(" • ")}</span>
+        </div>
+      )}
+
+      {availableTopics.length > 0 && (
+        <div className="flex flex-wrap gap-2">
+          {availableTopics.map((topic) => {
+            const active = activeTopics.includes(topic);
+            return (
+              <button
+                key={topic}
+                onClick={() => toggleTopic(topic)}
+                className={`px-3 py-1.5 rounded-full text-xs font-medium border transition ${
+                  active
+                    ? "bg-[#3b82f6]/90 border-[#60a5fa]/70 text-white shadow"
+                    : "bg-white/5 border-white/10 text-white/70 hover:bg-white/10"
+                }`}
+              >
+                {topic}
+              </button>
+            );
+          })}
+          {activeTopics.length > 0 && (
+            <button
+              onClick={() => setActiveTopics([])}
+              className="text-xs text-white/50 underline underline-offset-4 hover:text-white/80"
+            >
+              Clear filters
+            </button>
+          )}
+        </div>
+      )}
+
+      {error && (
+        <div className="rounded-2xl border border-red-400/40 bg-red-500/10 px-4 py-3 text-sm text-red-200">
+          Latest refresh failed: {error}
+        </div>
+      )}
+
+      {loading && !articles.length && (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {Array.from({ length: 4 }).map((_, idx) => (
+            <div
+              key={idx}
+              className="rounded-2xl border border-white/10 bg-white/5 p-5 h-48 animate-pulse"
+            />
+          ))}
+        </div>
+      )}
+
+      {!loading && !hasData && (
+        <div className="rounded-2xl border border-white/10 bg-white/5 px-6 py-12 text-center text-white/70">
+          No stories matched those filters. Try broadening your search.
+        </div>
+      )}
+
+      {hasData && (
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
+          {filteredArticles.map((article) => (
+            <motion.a
+              key={article.id}
+              href={article.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ y: -4 }}
+              whileTap={{ scale: 0.99 }}
+              className="group relative flex flex-col gap-4 overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 via-white/5 to-white/[0.04] p-5 transition-shadow hover:border-[#60a5fa]/60 hover:shadow-[0_14px_40px_rgba(96,165,250,0.25)]"
+            >
+              <div className="flex items-center justify-between text-xs uppercase tracking-wide text-white/50">
+                <span className="font-semibold text-white/70">{article.source}</span>
+                <span title={formatDisplayTime(article.publishedAt)}>
+                  {formatRelativeTime(article.publishedAt) || "—"}
+                </span>
+              </div>
+
+              <div className="space-y-3">
+                <h3 className="text-lg font-semibold leading-snug text-white transition group-hover:text-[#60a5fa]">
+                  {article.title}
+                </h3>
+                {article.image && (
+                  <div className="overflow-hidden rounded-xl border border-white/10">
+                    <img
+                      src={article.image}
+                      alt=""
+                      loading="lazy"
+                      className="h-44 w-full object-cover opacity-80 transition group-hover:opacity-100"
+                    />
+                  </div>
+                )}
+                <p className="text-sm leading-relaxed text-white/70">
+                  {article.summary}
+                </p>
+              </div>
+
+              {article.topics && article.topics.length > 0 && (
+                <div className="flex flex-wrap gap-2 pt-2">
+                  {article.topics.slice(0, 4).map((topic) => (
+                    <span
+                      key={topic}
+                      className="rounded-full border border-white/10 bg-white/10 px-3 py-1 text-[0.7rem] font-medium uppercase tracking-wide text-white/70"
+                    >
+                      {topic}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </motion.a>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function InterestRatesView({ rows }: { rows: RateRow[] }) {
+  type SortKey = "rate" | "bank" | "product" | "type" | "fixedYears" | "updatedAt";
+  const [product, setProduct] = useState<ProductKey | "ALL">("ALL");
+  const [q, setQ] = useState("");
+  const [sortKey, setSortKey] = useState<SortKey>("rate");
+  const [sortDir, setSortDir] = useState<"asc" | "desc">("asc");
+
+  const filtered = useMemo(() => {
+    return (rows || [])
+      .filter((r) => r && r.bank)
+      .filter((r) => (product === "ALL" ? true : r.product === product))
+      .filter((r) => (q ? r.bank.toLowerCase().includes(q.toLowerCase()) : true));
+  }, [rows, product, q]);
+
+  const sorted = useMemo(() => {
+    const arr = [...filtered];
+    arr.sort((a, b) => {
+      let va: any = (a as any)[sortKey];
+      let vb: any = (b as any)[sortKey];
+
+      if (sortKey === "updatedAt") {
+        const ta = a?.updatedAt ? new Date(a.updatedAt).getTime() : NaN;
+        const tb = b?.updatedAt ? new Date(b.updatedAt).getTime() : NaN;
+        va = Number.isFinite(ta) ? ta : -Infinity;
+        vb = Number.isFinite(tb) ? tb : -Infinity;
+      } else if (sortKey === "rate") {
+        va = Number.isFinite(a?.rate) ? a.rate : Infinity;
+        vb = Number.isFinite(b?.rate) ? b.rate : Infinity;
+      } else if (sortKey === "fixedYears") {
+        const fa = Number(a?.fixedYears);
+        const fb = Number(b?.fixedYears);
+        va = Number.isFinite(fa) ? fa : Infinity;
+        vb = Number.isFinite(fb) ? fb : Infinity;
+      } else {
+        if (typeof va === "string") va = va.toLowerCase();
+        if (typeof vb === "string") vb = vb.toLowerCase();
+      }
+      const cmp = va < vb ? -1 : va > vb ? 1 : 0;
+      return sortDir === "asc" ? cmp : -cmp;
+    });
+    return arr;
+  }, [filtered, sortKey, sortDir]);
+
+  function setSort(k: SortKey) {
+    setSortDir((d) => (k === sortKey ? (d === "asc" ? "desc" : "asc") : "asc"));
+    setSortKey(k);
+  }
+
+  function dlCsv() {
+    const headers = ["Bank", "Product", "Rate", "Type", "FixedYears", "Notes", "UpdatedAt", "Source"];
+    const lines = [headers.join(",")];
+    for (const r of sorted) {
+      const rateOut = Number.isFinite(r?.rate) ? r.rate : "";
+      const fixedOut = Number.isFinite(Number(r?.fixedYears)) ? Number(r.fixedYears) : "";
+      const upd = r?.updatedAt && Number.isFinite(new Date(r.updatedAt).getTime())
+        ? r.updatedAt
+        : "";
+      const line = [
+        r?.bank ?? "",
+        r?.product ?? "",
+        `${rateOut}`,
+        r?.type ?? "",
+        `${fixedOut}`,
+        (r?.notes ?? "").replace(/,/g, ";"),
+        upd,
+        r?.source ?? "",
+      ]
+        .map((x) => `"${String(x).replace(/"/g, '""')}"`)
+        .join(",");
+      lines.push(line);
+    }
+    const blob = new Blob([lines.join("\n")], { type: "text/csv;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "ub-interest-rates.csv";
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+
+  return (
+    <div className="mt-6">
+      {/* NEW: Interest summary matrix (independent product pills) */}
+    <InterestSummaryMatrix rows={rows} />
+      <div className="flex flex-wrap items-center gap-3 mb-4">
+        {/* Product pills */}
+        <div className="flex flex-wrap gap-2">
+          <Btn
+            className={`px-3 py-1.5 rounded-full ${
+              product === "ALL" ? "bg-[#3b82f6] text-white" : "bg-white/10"
+            }`}
+            onClick={() => setProduct("ALL")}
+          >
+            All
+          </Btn>
+          {PRODUCTS.map((p) => (
+            <Btn
+              key={p.key}
+              className={`px-3 py-1.5 rounded-full ${
+                product === p.key ? "bg-[#3b82f6] text-white" : "bg-white/10"
+              }`}
+              onClick={() => setProduct(p.key)}
+            >
+              {p.label}
+            </Btn>
+          ))}
+        </div>
+
+        {/* Search + download */}
+        <input
+          value={q}
+          onChange={(e) => setQ(e.target.value)}
+          placeholder="Search bank…"
+          className="ml-auto px-3 py-2 rounded-md bg-white/10 outline-none"
+        />
+        <Btn className="px-3 py-2 rounded-lg bg-white/10" onClick={dlCsv}>
+          Download
+        </Btn>
+      </div>
+
+      <div className="overflow-auto rounded-xl border border-white/10">
+        <table className="min-w-full text-sm">
+          <thead className="bg-white/5 sticky top-0">
+            <tr className="[&>th]:px-3 [&>th]:py-2 text-left">
+              <Th onClick={() => setSort("bank")} active={sortKey === "bank"} dir={sortDir}>Bank</Th>
+              <Th onClick={() => setSort("product")} active={sortKey === "product"} dir={sortDir}>Product</Th>
+              <Th onClick={() => setSort("rate")} active={sortKey === "rate"} dir={sortDir}>Rate</Th>
+              <Th onClick={() => setSort("type")} active={sortKey === "type"} dir={sortDir}>Type</Th>
+              <Th onClick={() => setSort("fixedYears")} active={sortKey === "fixedYears"} dir={sortDir}>Fixed</Th>
+              <Th onClick={() => setSort("updatedAt")} active={sortKey === "updatedAt"} dir={sortDir}>Updated</Th>
+              <th className="px-3 py-2">Notes</th>
+              <th className="px-3 py-2">Source</th>
+            </tr>
+          </thead>
+          <tbody className="[&>tr:nth-child(even)]:bg-white/5">
+            {sorted.map((r, i) => {
+              const rateDisplay = Number.isFinite(r?.rate) ? `${(r.rate as number).toFixed(2)}%` : "—";
+              const fyNum = Number(r?.fixedYears);
+              const fixedDisplay = Number.isFinite(fyNum) && fyNum > 0 ? `${fyNum}y` : "—";
+              const d = r?.updatedAt ? new Date(r.updatedAt) : null;
+              const updatedDisplay = d && !Number.isNaN(d.getTime()) ? d.toLocaleString() : "—";
+
+              return (
+                <tr key={`${r.bank}-${i}`} className="border-t border-white/10">
+                  <td className="px-3 py-2 font-medium whitespace-nowrap min-w-[250px]">
+                    <BankLogoName bank={r.bank} />
+                  </td>
+                  <td className="px-3 py-2">
+                    {PRODUCTS.find((p) => p.key === r.product)?.label ?? r.product ?? "—"}
+                  </td>
+                  <td className="px-3 py-2">
+                    <span className="font-semibold text-[#60a5fa]">{rateDisplay}</span>
+                  </td>
+                  <td className="px-3 py-2">{r?.type ?? "—"}</td>
+                  <td className="px-3 py-2">{fixedDisplay}</td>
+                  <td className="px-3 py-2">{updatedDisplay}</td>
+                  <td className="px-3 py-2 text-white/80">{r?.notes ?? "—"}</td>
+                  <td className="px-3 py-2">
+                    {r?.source ? (
+                      <a className="text-[#60a5fa] underline" href={r.source} target="_blank" rel="noreferrer">Open</a>
+                    ) : "—"}
+                  </td>
+                </tr>
+              );
+            })}
+            {!sorted.length && (
+              <tr>
+                <td colSpan={8} className="px-3 py-6 text-center text-white/70">
+                  No rows to show. Run scrapers first or change filters.
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
+function Th({
+  children, onClick, active, dir,
+}: { children: React.ReactNode; onClick: () => void; active: boolean; dir: "asc" | "desc"; }) {
+  return (
+    <th onClick={onClick} className={`cursor-pointer select-none ${active ? "text-white" : "text-white/80"}`} title="Sort">
+      <div className="flex items-center gap-1">
+        <span>{children}</span>
+        {active && <span className="text-xs">{dir === "asc" ? "▲" : "▼"}</span>}
+      </div>
+    </th>
+  );
+}
+// --- Note parsing helpers for constraints/bundles ---
+function toMoneyLkr(numStr: string, unit?: string | null): number {
+  const n = parseFloat(numStr.replace(/,/g, ""));
+  if (!isFinite(n)) return NaN;
+  const u = (unit || "").toLowerCase();
+  if (u.startsWith("bn") || u.startsWith("billion")) return n * 1_000_000_000;
+  if (u.startsWith("mn") || u.startsWith("mil")) return n * 1_000_000;
+  return n;
+}
+function parseLoanCaps(notes?: string): { min?: number; max?: number } {
+  if (!notes) return {};
+  const s = notes.toLowerCase();
+  const upTo = s.match(/(?:up\s*to|upto|maximum|<=)\s*(?:rs\.?|lkr)?\s*([0-9.,]+)\s*(mn|million|bn|billion)?/i);
+  const above = s.match(/(?:above|over|minimum|>=)\s*(?:rs\.?|lkr)?\s*([0-9.,]+)\s*(mn|million|bn|billion)?/i);
+  const max = upTo ? toMoneyLkr(upTo[1], upTo[2]) : undefined;
+  const min = above ? toMoneyLkr(above[1], above[2]) : undefined;
+  return { min: isFinite(min!) ? min : undefined, max: isFinite(max!) ? max : undefined };
+}
+function requiresFirstHome(notes?: string): boolean {
+  if (!notes) return false;
+  return /first\s+home\s+(owner|purchase|buyer)/i.test(notes);
+}
+function parseIntroFixedYears(notes?: string): number | undefined {
+  if (!notes) return undefined;
+  const m = notes.match(/fixed\s+for\s+([0-9]+)\s*(?:years|yrs|y)/i);
+  return m ? parseInt(m[1], 10) : undefined;
+}
+
+type SalaryLevel = "none" | "remittance" | "assignment";
+function salaryRequirementFromNotes(notes?: string, fallbackRequired?: boolean): SalaryLevel {
+  if (!notes) return fallbackRequired ? "remittance" : "none";
+  const s = notes.toLowerCase();
+  if (/(salary\s*assignment|assigned)/i.test(s)) return "assignment";
+  if (/(salary\s*remitt?ance|remitted|credited|with\s*salary|salary\s*credit)/i.test(s)) return "remittance";
+  return fallbackRequired ? "remittance" : "none";
+}
+function levelNum(l: SalaryLevel): number { return l === "none" ? 0 : l === "remittance" ? 1 : 2; }
+function requiresInternetBanking(notes?: string): boolean { return !!notes && /(internet\s*banking|online\s*banking|e-?banking|i-?banking)/i.test(notes); }
+function requiresCreditCard(notes?: string): boolean { return !!notes && /credit\s*card/i.test(notes); }
+
+/** Money input helpers */
+function formatMoney(n?: number): string {
+  if (n == null || !Number.isFinite(n)) return "";
+  return new Intl.NumberFormat("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(n);
+}
+function parseMoney(s: string): number | undefined {
+  const clean = s.replace(/,/g, "").trim();
+  if (clean === "") return undefined;
+  const n = Number(clean);
+  return Number.isFinite(n) ? n : undefined;
+}
+type MoneyInputProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, "value" | "onChange"> & {
+  value: number | undefined; onChange: (val: number | undefined) => void; hardFormat?: boolean;
+};
+export function MoneyInput({ value, onChange, hardFormat = false, className = "", ...rest }: MoneyInputProps) {
+  const [display, setDisplay] = React.useState<string>(() =>
+    value == null ? "" : hardFormat ? formatMoney(value) : String(value)
+  );
+  React.useEffect(() => { setDisplay(value == null ? "" : hardFormat ? formatMoney(value) : String(value)); }, [value, hardFormat]);
+  const onInput = (e: React.ChangeEvent<HTMLInputElement>) => { const s = e.target.value; setDisplay(s); onChange(parseMoney(s)); };
+  const doFormat = (s: string) => { const n = parseMoney(s); setDisplay(n == null ? "" : formatMoney(n)); };
+  return (
+    <input
+      inputMode="decimal"
+      value={display}
+      onChange={onInput}
+      onBlur={(e) => doFormat(e.target.value)}
+      onKeyDown={(e) => { if (e.key === "Enter") { doFormat(display); (e.target as HTMLInputElement).blur(); } }}
+      className={`w-full px-3 py-2 rounded bg-white/10 outline-none ${className}`}
+      placeholder="0.00"
+      {...rest}
+    />
+  );
+}
+/** Safe JSON clean for tariffs array export (not used in UI, but handy for debugging) */
+function tariffsToCsv(rows: TariffRow[]): string {
+  const headers = ["Bank","Product","FeeType","Basis","Value","Min","Max","Notes","EffectiveDate","UpdatedAt","Source"];
+  const lines = [headers.join(",")];
+  for (const r of rows) {
+    const line = [
+      r.bank, r.product, r.feeType, r.basis,
+      r.value ?? "", r.min ?? "", r.max ?? "",
+      (r.notes ?? "").replace(/,/g, ";"),
+      r.effectiveDate ?? "", r.updatedAt ?? "", r.source ?? "",
+    ].map(x => `"${String(x).replace(/"/g,'""')}"`).join(",");
+    lines.push(line);
+  }
+  return lines.join("\n");
+}
+function TariffsView({ rows }: { rows: TariffRow[] }) {
+  // REPLACE SortKey to add feeTypeRaw and rename feeType->category in comments (code key stays "feeType")
+  type SortKey = "bank" | "product" | "feeType" | "feeTypeRaw" | "basis" | "description" | "updatedAt";
+  const [product, setProduct] = useState<ProductKey | "ALL">("ALL");
+  const [feeType, setFeeType] = useState<TariffFeeType | "ALL">("ALL");
+  const [basis, setBasis] = useState<TariffBasis | "ALL">("ALL");
+  const [q, setQ] = useState("");
+  const [sortKey, setSortKey] = useState<SortKey>("updatedAt");
+  const [sortDir, setSortDir] = useState<"asc" | "desc">("desc");
+
+  const filtered = useMemo(() => {
+    return (rows || [])
+      .filter((r) => r && r.bank)
+      .filter((r) => (product === "ALL" ? true : r.product === product))
+      .filter((r) => (feeType === "ALL" ? true : r.feeType === feeType))
+      .filter((r) => (basis === "ALL" ? true : r.basis === basis))
+      .filter((r) => q ? (r.bank + " " + (r.feeTypeRaw || "") + " " + (r.description || "") + " " + (r.notes || "")).toLowerCase().includes(q.toLowerCase()) : true);
+
+    }, [rows, product, feeType, basis, q]);
+
+  const sorted = useMemo(() => {
+    const arr = [...filtered];
+    arr.sort((a, b) => {
+      let va: any = (a as any)[sortKey];
+      let vb: any = (b as any)[sortKey];
+
+      if (sortKey === "updatedAt" || sortKey === "effectiveDate") {
+        const ta = va ? new Date(va).getTime() : -Infinity;
+        const tb = vb ? new Date(vb).getTime() : -Infinity;
+        va = Number.isFinite(ta) ? ta : -Infinity;
+        vb = Number.isFinite(tb) ? tb : -Infinity;
+      } else if (sortKey === "value" || sortKey === "min" || sortKey === "max") {
+        va = Number.isFinite(va) ? va : Infinity;
+        vb = Number.isFinite(vb) ? vb : Infinity;
+      } else {
+        if (typeof va === "string") va = va.toLowerCase();
+        if (typeof vb === "string") vb = vb.toLowerCase();
+      }
+      const cmp = va < vb ? -1 : va > vb ? 1 : 0;
+      return sortDir === "asc" ? cmp : -cmp;
+    });
+    return arr;
+  }, [filtered, sortKey, sortDir]);
+
+  function setSort(k: SortKey) {
+    setSortDir((d) => (k === sortKey ? (d === "asc" ? "desc" : "asc") : "asc"));
+    setSortKey(k);
+  }
+
+  function fmtValue(t: TariffRow): string {
+    if (t.basis === "actuals") return "At actuals";
+    if (t.basis === "percent") {
+      const v = typeof t.value === "number" ? t.value : NaN;
+      return Number.isFinite(v) ? `${v.toFixed(2)}%` : "—";
+    }
+    // flat
+    const v = typeof t.value === "number" ? t.value : NaN;
+    return Number.isFinite(v) ? `LKR ${new Intl.NumberFormat("en-US").format(v)}` : "—";
+  }
+  function fmtMoney(n?: number): string {
+    return Number.isFinite(n as number) ? `LKR ${new Intl.NumberFormat("en-US").format(n as number)}` : "—";
+  }
+    function fmtAmount(t: TariffRow): string {
+    // Prefer the raw "amount" text if your endpoint provided it
+    const raw = (t as any).amount;
+    if (raw && typeof raw === "string") return raw;
+
+    // Otherwise compose a human-readable string from basis/value/min/max/notes
+    if (t.basis === "actuals") return "At actuals";
+    if (t.basis === "percent") {
+      const v = typeof t.value === "number" ? `${t.value}%` : "";
+      const min = Number.isFinite(t.min as number) ? ` · Min LKR ${new Intl.NumberFormat("en-US").format(t.min as number)}` : "";
+      const max = Number.isFinite(t.max as number) ? ` · Max LKR ${new Intl.NumberFormat("en-US").format(t.max as number)}` : "";
+      return (v + min + max).replace(/^ · /, "") || "—";
+    }
+    // flat
+    const v = Number.isFinite(t.value as number) ? `LKR ${new Intl.NumberFormat("en-US").format(t.value as number)}` : "";
+    const min = Number.isFinite(t.min as number) ? ` · Min LKR ${new Intl.NumberFormat("en-US").format(t.min as number)}` : "";
+    const max = Number.isFinite(t.max as number) ? ` · Max LKR ${new Intl.NumberFormat("en-US").format(t.max as number)}` : "";
+    return (v + min + max).replace(/^ · /, "") || "—";
+  }
+  // REPLACE dlCsv to include Category (normalized) and Fee Type (raw)
+function dlCsv() {
+  const headers = [
+    "Bank",
+    "Product",
+    "Category",   // normalized
+    "Fee Type",   // raw from scraper
+    "Basis",
+    "Description",
+    "Amount",
+    "Updated",
+    "Notes",
+    "Source",
+  ];
+  const lines = [headers.join(",")];
+
+  for (const r of sorted) {
+    const line = [
+      r.bank,
+      r.product,
+      String(r.feeType).replace(/_/g, " "),
+      r.feeTypeRaw ?? "",
+      r.basis,
+      (r.description ?? "").replace(/,/g, ";"),
+      (typeof (r as any).amount === "string" && (r as any).amount)
+        ? (r as any).amount.replace(/,/g, ";")
+        : ( // fallback to previously formatted amount
+            (() => {
+              if (r.basis === "actuals") return "At actuals";
+              if (r.basis === "percent") {
+                const v = typeof r.value === "number" ? `${r.value}%` : "";
+                const min = Number.isFinite(r.min as number) ? ` · Min LKR ${new Intl.NumberFormat("en-US").format(r.min as number)}` : "";
+                const max = Number.isFinite(r.max as number) ? ` · Max LKR ${new Intl.NumberFormat("en-US").format(r.max as number)}` : "";
+                return (v + min + max).replace(/^ · /, "");
+              }
+              const v = Number.isFinite(r.value as number) ? `LKR ${new Intl.NumberFormat("en-US").format(r.value as number)}` : "";
+              const min = Number.isFinite(r.min as number) ? ` · Min LKR ${new Intl.NumberFormat("en-US").format(r.min as number)}` : "";
+              const max = Number.isFinite(r.max as number) ? ` · Max LKR ${new Intl.NumberFormat("en-US").format(r.max as number)}` : "";
+              return (v + min + max).replace(/^ · /, "");
+            })()
+          ),
+      r.updatedAt ?? "",
+      (r.notes ?? "").replace(/,/g, ";"),
+      r.source ?? "",
+    ]
+      .map((x) => `"${String(x).replace(/"/g, '""')}"`)
+      .join(",");
+    lines.push(line);
+  }
+
+  const blob = new Blob([lines.join("\n")], { type: "text/csv;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "ub-tariffs.csv";
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+  return (
+    <div className="mt-6">
+      {/* NEW: Summary Matrix (product-specific, independent of filters) */}
+    <TariffSummaryMatrix rows={rows} />
+      <div className="flex flex-wrap items-center gap-3 mb-4">
+        {/* Product pills */}
+        <div className="flex flex-wrap gap-2">
+          <Btn
+            className={`px-3 py-1.5 rounded-full ${product === "ALL" ? "bg-[#3b82f6] text-white" : "bg-white/10"}`}
+            onClick={() => setProduct("ALL")}
+          >
+            All
+          </Btn>
+          {PRODUCTS.map((p) => (
+            <Btn
+              key={p.key}
+              className={`px-3 py-1.5 rounded-full ${product === p.key ? "bg-[#3b82f6] text-white" : "bg-white/10"}`}
+              onClick={() => setProduct(p.key)}
+            >
+              {p.label}
+            </Btn>
+          ))}
+        </div>
+
+        {/* Fee type */}
+        <select
+          value={feeType}
+          onChange={(e) => setFeeType(e.target.value as any)}
+          className="px-3 py-2 rounded-md bg-white text-black outline-none select-light"
+          title="Category"
+        >
+          <option value="ALL">All fee categories</option>
+          <option value="processing">Processing</option>
+          <option value="legal">Legal</option>
+          <option value="valuation">Valuation</option>
+          <option value="crib">CRIB</option>
+          <option value="early_settlement">Early Settlement</option>
+          <option value="stamp_duty">Stamp Duty</option>
+          <option value="penalty">Penalty</option>
+          <option value="other">Other</option>
+        </select>
+
+        {/* Basis */}
+        <select
+          value={basis}
+          onChange={(e) => setBasis(e.target.value as any)}
+          className="px-3 py-2 rounded-md bg-white text-black outline-none select-light"
+          title="Basis"
+        >
+          <option value="ALL">All basis</option>
+          <option value="percent">Percent</option>
+          <option value="flat">Flat</option>
+          <option value="actuals">Actuals</option>
+        </select>
+
+        {/* Search + download */}
+        <input
+          value={q}
+          onChange={(e) => setQ(e.target.value)}
+          placeholder="Search bank or notes…"
+          className="ml-auto px-3 py-2 rounded-md bg-white/10 outline-none"
+        />
+        <Btn className="px-3 py-2 rounded-lg bg-white/10" onClick={dlCsv}>
+          Download
+        </Btn>
+      </div>
+
+      <div className="overflow-auto rounded-xl border border-white/10">
+        <table className="min-w-full text-sm">
+          <thead className="bg-white/5 sticky top-0">
+  <tr className="[&>th]:px-3 [&>th]:py-2 text-left">
+    <Th onClick={() => setSort("bank")} active={sortKey === "bank"} dir={sortDir}>Bank</Th>
+    <Th onClick={() => setSort("product")} active={sortKey === "product"} dir={sortDir}>Product</Th>
+    {/* Category (normalized bucket) */}
+    <Th onClick={() => setSort("feeType")} active={sortKey === "feeType"} dir={sortDir}>Category</Th>
+    {/* New: Fee Type (raw from scraper) */}
+    <Th onClick={() => setSort("feeTypeRaw")} active={sortKey === "feeTypeRaw"} dir={sortDir}>Fee Type</Th>
+    <Th onClick={() => setSort("basis")} active={sortKey === "basis"} dir={sortDir}>Basis</Th>
+    <Th onClick={() => setSort("description")} active={sortKey === "description"} dir={sortDir}>Description</Th>
+    <th className="px-3 py-2">Amount</th>
+    <Th onClick={() => setSort("updatedAt")} active={sortKey === "updatedAt"} dir={sortDir}>Updated</Th>
+    <th className="px-3 py-2">Notes</th>
+    <th className="px-3 py-2">Source</th>
+  </tr>
+</thead>
+          <tbody className="[&>tr:nth-child(even)]:bg-white/5">
+            {sorted.map((r, i) => {
+              const eff = r.effectiveDate ? new Date(r.effectiveDate) : null;
+              const upd = r.updatedAt ? new Date(r.updatedAt) : null;
+              const effDisplay = eff && !Number.isNaN(eff.getTime()) ? eff.toLocaleDateString() : "—";
+              const updDisplay = upd && !Number.isNaN(upd.getTime()) ? upd.toLocaleString() : "—";
+
+              return (
+                <tr key={`${r.bank}-${r.product}-${r.feeType}-${i}`} className="border-t border-white/10">
+                  <td className="px-3 py-2 font-medium whitespace-nowrap min-w-[250px]">
+                    <BankLogoName bank={r.bank} />
+                  </td>
+                  <td className="px-3 py-2">
+                    {PRODUCTS.find((p) => p.key === r.product)?.label ?? r.product}
+                  </td>
+                  <td className="px-3 py-2">{String(r.feeType).replace(/_/g, " ")}</td>
+                  <td className="px-3 py-2">{r.feeTypeRaw ?? "—"}</td> {/* NEW: raw fee type */}
+                  <td className="px-3 py-2 capitalize">{r.basis}</td>
+                  <td className="px-3 py-2">{r.description ?? "—"}</td>
+                  <td className="px-3 py-2">{fmtAmount(r)}</td>
+                  <td className="px-3 py-2">{updDisplay}</td>
+                  <td className="px-3 py-2 text-white/80">{r.notes ?? "—"}</td>
+                  <td className="px-3 py-2">
+                    {r.source ? (
+                      <a className="text-[#60a5fa] underline" href={r.source} target="_blank" rel="noreferrer">Open</a>
+                    ) : "—"}
+                  </td>
+                </tr>
+              );
+            })}
+            {!sorted.length && (
+              <tr>
+                <td colSpan={10} className="px-3 py-6 text-center text-white/70">
+                  No tariff rows to show. Run tariff scrapers first or change filters.
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
+function TariffSummaryMatrix({
+  rows,
+}: {
+  rows: TariffRow[];
+}) {
+  const [prod, setProd] = useState<ProductKey>("HL");
+
+  const banks = useMemo(() => {
+    const names = unique(rows.map((r) => r.bank)).sort();
+    return names;
+  }, [rows]);
+
+  const dataByCatBank = useMemo(() => {
+    const map: Record<
+      TariffFeeType,
+      Record<string, Array<{ description?: string; amount?: string }>>
+    > = {} as any;
+    for (const cat of CATEGORY_ORDER) map[cat] = {};
+    for (const b of banks)
+      for (const cat of CATEGORY_ORDER) map[cat][b] = [];
+
+    for (const r of rows) {
+      if (r.product !== prod) continue;
+      const cat = r.feeType ?? "other";
+      (map[cat][r.bank] ||= []).push({
+        description: r.description,
+        amount: r.amount,
+      });
+    }
+
+    // sort and dedupe
+    for (const cat of CATEGORY_ORDER) {
+      for (const b of banks) {
+        const items = map[cat][b] || [];
+        const key = (x: { description?: string; amount?: string }) =>
+          (x.description || "").toLowerCase().trim() +
+          "||" +
+          (x.amount || "").toLowerCase().trim();
+        const dedup = Array.from(
+          new Map(items.map((i) => [key(i), i])).values()
+        ).sort(
+          byAlpha(
+            (i) =>
+              (i.description || i.amount || "").toLowerCase()
+          )
+        );
+        map[cat][b] = dedup;
+      }
+    }
+    return map;
+  }, [rows, banks, prod]);
+
+  function CellList({
+    items,
+  }: {
+    items: Array<{ description?: string; amount?: string }>;
+  }) {
+    if (!items?.length) return <span className="text-white/40">—</span>;
+    const maxShow = 4;
+    const shown = items.slice(0, maxShow);
+    const extra = items.length - shown.length;
+    return (
+      <div className="space-y-1">
+        {shown.map((it, idx) => (
+          <div key={idx} className="text-xs leading-snug">
+            <span className="font-medium">{it.description || "—"}</span>
+            {it.amount ? (
+              <span className="text-white/70"> — {it.amount}</span>
+            ) : null}
+          </div>
+        ))}
+        {extra > 0 && (
+          <span className="inline-block text-[10px] px-1.5 py-0.5 rounded bg-white/10 text-white/70">
+            +{extra} more
+          </span>
+        )}
+      </div>
+    );
+  }
+
+  return (
+    <div
+      className="rounded-2xl border border-white/10 p-4 mb-5 overflow-auto"
+      style={{ backgroundColor: BRAND.card }}
+    >
+      <div className="flex items-center justify-between mb-3">
+        <div className="text-base font-semibold">
+          Tariff Summary (by Category × Bank)
+        </div>
+        <div className="flex flex-wrap gap-2">
+          {PRODUCTS.map((p) => (
+            <Btn
+              key={p.key}
+              className={`px-3 py-1.5 rounded-full ${
+                prod === p.key
+                  ? "bg-[#3b82f6] text-white"
+                  : "bg-white/10"
+              }`}
+              onClick={() => setProd(p.key)}
+            >
+              {p.label}
+            </Btn>
+          ))}
+        </div>
+      </div>
+
+      <div className="min-w-[900px]">
+        <table className="w-full text-sm">
+          <thead className="bg-white/5 sticky top-0">
+            <tr className="[&>th]:px-3 [&>th]:py-2 text-center align-bottom">
+             <th
+  className="w-40 text-left sticky left-0"
+  style={{ backgroundColor: "#2c313c", zIndex: 2 }}
+>
+  Fee Category
+</th>
+              {banks.map((b) => (
+                <th
+                  key={b}
+                  className="px-3 py-2 text-center align-bottom"
+                  style={{ verticalAlign: "bottom" }}
+                >
+                  <div className="flex flex-col items-center justify-center gap-1">
+                    {BANK_LOGOS[b] ? (
+                      <img
+                        src={BANK_LOGOS[b]}
+                        alt={b}
+                        className="h-10 w-10 rounded-md bg-white shadow border"
+                        style={{ objectFit: "contain" }}
+                      />
+                    ) : null}
+                    <span className="text-xs font-medium text-white/80 text-center w-24 break-words">
+                      {b}
+                    </span>
+                  </div>
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody className="[&>tr:nth-child(even)]:bg-white/5 align-top">
+  {CATEGORY_ORDER.map((cat, rowIdx) => {
+    // zebra colors for sticky Fee Category column
+    const STICKY_SHADE_ODD  = "#161b27"; // darker
+    const STICKY_SHADE_EVEN = "#212632"; // lighter
+    const stickyBg = rowIdx % 2 === 0 ? STICKY_SHADE_ODD : STICKY_SHADE_EVEN;
+
+    return (
+      <tr key={cat} className="border-t border-white/10 align-top">
+        <td
+          className="px-3 py-2 font-medium capitalize text-left sticky left-0"
+          style={{ backgroundColor: stickyBg, zIndex: 1 }}
+        >
+          {String(cat).replace(/_/g, " ")}
+        </td>
+        {banks.map((b) => (
+          <td key={`${cat}-${b}`} className="px-3 py-2 align-top text-left">
+            <CellList items={dataByCatBank[cat][b]} />
+          </td>
+        ))}
+      </tr>
+    );
+  })}
+          </tbody>
+        </table>
+      </div>
+
+      <div className="mt-2 text-xs text-white/60">
+        Tip: Click the product pills to switch the matrix; the detailed
+        table below remains unaffected.
+      </div>
+    </div>
+  );
+}
+function InterestSummaryMatrix({ rows }: { rows: RateRow[] }) {
+  const [prod, setProd] = useState<ProductKey>("HL");
+
+  // bank list
+  const banks = useMemo(() => {
+    const names = Array.from(new Set(rows.map((r) => r.bank))).sort();
+    return names;
+  }, [rows]);
+
+  // row labels for the matrix (display order)
+  const YEAR_LABELS: Array<"Variable" | number | "Above 20"> = [
+    "Variable",
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+    11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+    "Above 20",
+  ];
+
+  // Build: bank -> yearKey -> best numeric rate
+  const grid = useMemo(() => {
+    type YearKey = "Variable" | number | "Above 20";
+    const m: Record<string, Partial<Record<YearKey, number>>> = {};
+    for (const b of banks) m[b] = {};
+
+    for (const r of rows) {
+      if (r.product !== prod) continue;
+      if (!r || !r.bank) continue;
+      const rateNum = typeof r.rate === "number" && isFinite(r.rate) ? r.rate : undefined;
+      if (rateNum == null) continue;
+
+      if (r.type === "Floating") {
+        const cur = m[r.bank]["Variable"];
+        m[r.bank]["Variable"] = cur == null ? rateNum : Math.min(cur, rateNum);
+      } else if (r.type === "Fixed") {
+        const fy = Number(r.fixedYears);
+        if (!Number.isFinite(fy) || fy <= 0) continue;
+        let key: YearKey;
+        if (fy > 20) key = "Above 20";
+        else key = (fy as YearKey);
+        const cur = m[r.bank][key];
+        m[r.bank][key] = cur == null ? rateNum : Math.min(cur, rateNum);
+      }
+    }
+    return m;
+  }, [rows, banks, prod]);
+
+  const fmt = (n?: number) =>
+    n == null ? "—" : `${n.toFixed(2)}%`;
+
+  return (
+    <div
+      className="rounded-2xl border border-white/10 p-4 mb-5 overflow-auto"
+      style={{ backgroundColor: BRAND.card }}
+    >
+      <div className="flex items-center justify-between mb-3">
+        <div className="text-base font-semibold">Rate Summary (by Fixed Period × Bank)</div>
+        <div className="flex flex-wrap gap-2">
+          {PRODUCTS.map((p) => (
+            <Btn
+              key={p.key}
+              className={`px-3 py-1.5 rounded-full ${
+                prod === p.key ? "bg-[#3b82f6] text-white" : "bg-white/10"
+              }`}
+              onClick={() => setProd(p.key)}
+            >
+              {p.label}
+            </Btn>
+          ))}
+        </div>
+      </div>
+
+      <div className="min-w-[900px]">
+        <table className="w-full text-sm">
+          <thead className="bg-white/5 sticky top-0">
+            <tr className="[&>th]:px-3 [&>th]:py-2 text-center align-bottom">
+              <th
+  className="w-40 text-left sticky left-0"
+  style={{ backgroundColor: "#2c313c", zIndex: 2 }}
+>
+  Fixed Period (Years)
+</th>
+              {banks.map((b) => (
+                <th key={b} className="px-3 py-2 text-center align-bottom" style={{ verticalAlign: "bottom" }}>
+                  <div className="flex flex-col items-center justify-center gap-1">
+                    {BANK_LOGOS[b] ? (
+                      <img
+                        src={BANK_LOGOS[b]}
+                        alt={b}
+                        className="h-10 w-10 rounded-md bg-white shadow border"
+                        style={{ objectFit: "contain" }}
+                      />
+                    ) : null}
+                    <span className="text-xs font-medium text-white/80 text-center w-24 break-words">
+                      {b}
+                    </span>
+                  </div>
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody className="[&>tr:nth-child(even)]:bg-white/5 align-top">
+  {YEAR_LABELS.map((lab, rowIdx) => {
+    // zebra colors for sticky first column
+    const STICKY_SHADE_ODD  = "#161b27"; // darker
+    const STICKY_SHADE_EVEN = "#212632"; // lighter
+    const stickyBg = rowIdx % 2 === 0 ? STICKY_SHADE_ODD : STICKY_SHADE_EVEN;
+
+    return (
+      <tr key={String(lab)} className="border-t border-white/10">
+        <td
+          className="px-3 py-2 font-medium text-left sticky left-0"
+          style={{ backgroundColor: stickyBg, zIndex: 1 }}
+>
+          {lab === "Variable" ? "Variable" : lab === "Above 20" ? "Above 20" : lab}
+        </td>
+        {banks.map((b) => (
+          <td key={`${lab}-${b}`} className="px-3 py-2 text-left">
+            <span className="text-xs">{fmt(grid[b]?.[lab as any] as number | undefined)}</span>
+          </td>
+        ))}
+      </tr>
+    );
+  })}
+</tbody>
+        </table>
+      </div>
+
+      <div className="mt-2 text-xs text-white/60">
+        Note: For each bank & period, the lowest available rate is shown (Floating → Variable row; Fixed with exact years; &gt;20 → Above 20).
+      </div>
+    </div>
+  );
+}
+
+
+
+type RateScenario = {
+  rate: number;
+  key: string;
+  minSalary: SalaryLevel;
+  salaryBand?: "above700k" | "below700k";
+  requiresCreditCard?: "yes" | "no";
+  requiresInternet?: "yes" | "no";
+  label: string;
+  benchmark?: "AWPR" | "AWPLR";
+  benchmarkDelta?: number;
+  benchmarkExpr?: string;
+};
+
+type ScenarioSelection = {
+  rate?: number;
+  scenario?: RateScenario;
+  eligible: boolean;
+};
+
+function parseBenchmarkRate(
+  value: any,
+  refRates: { awpr?: number; awplr?: number }
+): { rate: number; benchmark: "AWPR" | "AWPLR"; delta: number; expr: string } | undefined {
+  if (typeof value !== "string") return undefined;
+  const match = value.toLowerCase().match(/\b(awpr|awplr)\s*([+\-])\s*([0-9]+(?:\.[0-9]+)?)\s*%?/i);
+  if (!match) return undefined;
+  const benchmark = match[1].toUpperCase() as "AWPR" | "AWPLR";
+  const sign = match[2] === "-" ? -1 : 1;
+  const delta = parseFloat(match[3]);
+  if (!isFinite(delta)) return undefined;
+  const base = benchmark === "AWPR" ? refRates.awpr : refRates.awplr;
+  if (typeof base !== "number") return undefined;
+  const expr = `${benchmark} ${sign === 1 ? "+" : "-"} ${delta}%`;
+  return { rate: base + sign * delta, benchmark, delta: sign * delta, expr };
+}
+
+function parseRateScenarioKey(
+  key: string,
+  value: any,
+  refRates: { awpr?: number; awplr?: number }
+): RateScenario | undefined {
+  const benchmark = parseBenchmarkRate(value, refRates);
+  const rate = benchmark ? benchmark.rate : readNumber(value);
+  if (rate == null) return undefined;
+
+  const lower = key.toLowerCase();
+  let minSalary: SalaryLevel = "none";
+  let salaryBand: RateScenario["salaryBand"] = undefined;
+
+  if (/withsalary/.test(lower)) minSalary = "remittance";
+  if (/withoutsalary/.test(lower)) minSalary = "none";
+
+  if (/tier1/.test(lower)) {
+    minSalary = "assignment";
+  } else if (/tier2/.test(lower)) {
+    if (minSalary !== "assignment") minSalary = "remittance";
+  } else if (/tier3/.test(lower)) {
+    minSalary = "none";
+  }
+
+  if (/above700k/.test(lower)) {
+    minSalary = "assignment";
+    salaryBand = "above700k";
+  } else if (/below700k/.test(lower)) {
+    salaryBand = "below700k";
+    if (minSalary !== "assignment") minSalary = "remittance";
+  }
+
+  let requiresCreditCard: RateScenario["requiresCreditCard"];
+  let requiresInternet: RateScenario["requiresInternet"];
+
+  if (/withcreditcardinternetbanking/.test(lower)) {
+    requiresCreditCard = "yes";
+    requiresInternet = "yes";
+  } else if (/withoutcreditcardinternetbanking/.test(lower)) {
+    requiresCreditCard = "no";
+    requiresInternet = "no";
+  } else {
+    if (/withcreditcard/.test(lower)) requiresCreditCard = "yes";
+    if (/withoutcreditcard/.test(lower)) requiresCreditCard = "no";
+
+    if (/withinternetbanking/.test(lower)) requiresInternet = "yes";
+    else if (/withoutinternetbanking/.test(lower)) requiresInternet = "no";
+    else if (/internetbanking/.test(lower) && requiresInternet == null) {
+      requiresInternet = requiresCreditCard === "no" ? undefined : "yes";
+    }
+  }
+
+  const labelParts: string[] = [];
+  if (minSalary === "remittance") labelParts.push("Salary relationship");
+  if (minSalary === "assignment") {
+    labelParts.push("Salary assignment");
+    if (salaryBand === "above700k") labelParts.push("High-income tier");
+  }
+  if (requiresCreditCard === "yes" && requiresInternet === "yes") labelParts.push("Credit card + Internet banking");
+  else if (requiresCreditCard === "yes") labelParts.push("Credit card");
+  else if (requiresCreditCard === "no") labelParts.push("No credit card");
+
+  if (requiresInternet === "yes" && requiresCreditCard !== "yes") labelParts.push("Internet banking");
+  else if (requiresInternet === "no" && requiresCreditCard !== "no") labelParts.push("No internet banking");
+
+  const scenario: RateScenario = {
+    rate,
+    key,
+    minSalary,
+    salaryBand,
+    requiresCreditCard,
+    requiresInternet,
+    label: labelParts.join(" + "),
+  };
+
+  if (benchmark) {
+    scenario.benchmark = benchmark.benchmark;
+    scenario.benchmarkDelta = benchmark.delta;
+    scenario.benchmarkExpr = benchmark.expr;
+    scenario.label = [benchmark.expr, labelParts.length ? labelParts.join(" + ") : undefined]
+      .filter(Boolean)
+      .join(" + ");
+  }
+
+  return scenario;
+}
+
+function meetsScenarioRequirements(
+  scenario: RateScenario,
+  prefs: { salaryLevel: SalaryLevel; takeCreditCard: "yes" | "no"; useInternetBanking: "yes" | "no" }
+): boolean {
+  if (scenario.minSalary === "remittance" && prefs.salaryLevel === "none") return false;
+  if (scenario.minSalary === "assignment" && prefs.salaryLevel !== "assignment") return false;
+
+  if (scenario.requiresCreditCard === "yes" && prefs.takeCreditCard !== "yes") return false;
+  if (scenario.requiresCreditCard === "no" && prefs.takeCreditCard !== "no") return false;
+
+  if (scenario.requiresInternet === "yes" && prefs.useInternetBanking !== "yes") return false;
+  if (scenario.requiresInternet === "no" && prefs.useInternetBanking !== "no") return false;
+
+  return true;
+}
+
+function describeScenario(scenario?: RateScenario): string | undefined {
+  if (!scenario) return undefined;
+
+  const parts: string[] = [];
+  if (scenario.benchmarkExpr) parts.push(scenario.benchmarkExpr);
+
+  if (scenario.minSalary === "remittance") parts.push("Requires salary relationship");
+  if (scenario.minSalary === "assignment") {
+    parts.push("Requires salary assignment");
+    if (scenario.salaryBand === "above700k") parts.push("High-income tier");
+  }
+
+  if (scenario.requiresCreditCard === "yes" && scenario.requiresInternet === "yes") {
+    parts.push("Needs credit card & internet banking");
+  } else {
+    if (scenario.requiresCreditCard === "yes") parts.push("Needs credit card");
+    if (scenario.requiresCreditCard === "no") parts.push("No credit card bundle");
+    if (scenario.requiresInternet === "yes") parts.push("Needs internet banking");
+    if (scenario.requiresInternet === "no") parts.push("No internet banking");
+  }
+
+  if (!parts.length && scenario.label && scenario.label !== "Standard") {
+    return scenario.label;
+  }
+
+  const textOut = parts.join(" | " );
+  return textOut || undefined;
+}
+
+function selectRateScenario(
+  row: RateRow,
+  prefs: { salaryLevel: SalaryLevel; takeCreditCard: "yes" | "no"; useInternetBanking: "yes" | "no" },
+  refRates: { awpr?: number; awplr?: number }
+): ScenarioSelection {
+  const raw = row.raw || {};
+  const scenarios: RateScenario[] = [];
+
+  for (const key of Object.keys(raw)) {
+    if (!/^rate/i.test(key)) continue;
+    const scenario = parseRateScenarioKey(key, (raw as any)[key], refRates);
+    if (scenario) scenarios.push(scenario);
+  }
+
+  if (!scenarios.length && Number.isFinite(row.rate)) {
+    scenarios.push({
+      rate: row.rate,
+      key: "base",
+      minSalary: "none",
+      label: "Standard",
+    });
+  }
+
+  if (!scenarios.length) {
+    return { rate: Number.isFinite(row.rate) ? row.rate : undefined, scenario: undefined, eligible: true };
+  }
+
+  const eligible = scenarios.filter((s) => meetsScenarioRequirements(s, prefs));
+  const sortFn = (a: RateScenario, b: RateScenario) => a.rate - b.rate;
+  const picked = (eligible.length ? eligible : scenarios).sort(sortFn)[0];
+
+  return {
+    rate: picked?.rate ?? (Number.isFinite(row.rate) ? row.rate : undefined),
+    scenario: picked,
+    eligible: picked ? eligible.includes(picked) : true,
+  };
+}
+
+function CompareAdvisor({ rows, tariffs, awpr, awplr }: { rows: RateRow[]; tariffs: TariffRow[]; awpr?: number; awplr?: number }) {
+  const [product, setProduct] = useState<ProductKey>("HL");
+  const [bankFilter, setBankFilter] = useState<string>("");
+  const [amount, setAmount] = useState<number | undefined>(10_000_000);
+  const [propertyValue, setPropertyValue] = useState<number | undefined>(undefined);
+  const [typePref, setTypePref] = useState<"any" | "fixed" | "floating">("any");
+  const [desiredFixedYears, setDesiredFixedYears] = useState<number | "">("");
+  const [tenureYears, setTenureYears] = useState<number>(20);
+
+  const [isFirstHome, setIsFirstHome] = useState<"yes" | "no">("no");
+  const [salaryLevel, setSalaryLevel] = useState<SalaryLevel>("none");
+  const [useInternetBanking, setUseInternetBanking] = useState<"yes" | "no">("no");
+  const [takeCreditCard, setTakeCreditCard] = useState<"yes" | "no">("no");
+
+  const tariffPrefsRef = React.useRef<CompareTariffPrefs | null>(null);
+  const loadTariffPrefs = () => {
+    if (!tariffPrefsRef.current) {
+      tariffPrefsRef.current = loadJSON<CompareTariffPrefs>(LS_COMPARE_PREFS, {
+        isCondo: "no",
+        isConstruction: "no",
+      });
+    }
+    return tariffPrefsRef.current;
+  };
+  const [isCondo, setIsCondo] = useState<"yes" | "no">(() => loadTariffPrefs().isCondo);
+  const [isConstruction, setIsConstruction] = useState<"yes" | "no">(() => loadTariffPrefs().isConstruction);
+
+  const [includeTariffs, setIncludeTariffs] = useState<boolean>(true); // toggle
+  type CompareResult = {
+    row: RateRow;
+    rate?: number;
+    eff?: number;
+    upfront?: number;
+    note?: string;
+    picked?: Array<{ cat: TariffFeeType; row?: TariffRow; computed?: number; note?: string; meta?: TariffComputationMeta }>;
+    scenario?: RateScenario;
+    scenarioEligible?: boolean;
+    scenarioDescription?: string;
+    tariffScenario?: ReturnType<typeof deriveTariffScenario>;
+  };
+  const [results, setResults] = useState<CompareResult[]>([]);
+
+  useEffect(() => {
+    const next: CompareTariffPrefs = { isCondo, isConstruction };
+    tariffPrefsRef.current = next;
+    saveJSON(LS_COMPARE_PREFS, next);
+  }, [isCondo, isConstruction]);
+
+  const bankOptions = useMemo(() => {
+    const seen = new Set<string>();
+    return rows
+      .filter((r) => r.product === product)
+      .map((r) => (r.bank || "").trim())
+      .filter(Boolean)
+      .filter((bank) => {
+        const key = bank.toLowerCase();
+        if (seen.has(key)) return false;
+        seen.add(key);
+        return true;
+      })
+      .sort((a, b) => a.localeCompare(b));
+  }, [rows, product]);
+
+  useEffect(() => {
+    if (!bankFilter) return;
+    const normalized = bankFilter.trim().toLowerCase();
+    const stillAvailable = bankOptions.some((bank) => bank.trim().toLowerCase() === normalized);
+    if (!stillAvailable) {
+      setBankFilter("");
+    }
+  }, [bankFilter, bankOptions]);
+
+  const resolveInterestRate = (item: CompareResult) => {
+    if (typeof item.rate === "number" && Number.isFinite(item.rate)) return item.rate;
+    if (Number.isFinite(item.row.rate)) return item.row.rate;
+    return undefined;
+  };
+
+  const resolveEffectiveRate = (item: CompareResult) => {
+    if (typeof item.eff === "number" && Number.isFinite(item.eff)) return item.eff;
+    return resolveInterestRate(item);
+  };
+
+  function parseNum(v: any): number | undefined { const n = typeof v === "string" ? parseFloat(v) : v; return isFinite(n) ? n : undefined; }
+
+  function ltvOk(row: RateRow): boolean {
+    if ((product === "HL" || product === "LAP") && row.ltv && propertyValue) {
+      const amt = Number(amount) || 0, val = Number(propertyValue) || 0;
+      if (val <= 0) return true;
+      const ltv = (amt / val) * 100;
+      return ltv <= row.ltv;
+    }
+    return true;
+  }
+  function typeOk(row: RateRow): boolean {
+    if (typePref === "any") return true;
+    if (typePref === "fixed") {
+      const want = parseNum(desiredFixedYears);
+      if (row.type === "Fixed") {
+        if (want && row.fixedYears != null) return row.fixedYears >= want;
+        return true;
+      }
+      const intro = parseIntroFixedYears(row.notes);
+      if (want && intro && intro >= want) return true;
+      return false;
+    }
+    if (typePref === "floating") return row.type === "Floating";
+    return true;
+  }
+  function capsOk(row: RateRow): boolean {
+    const { min, max } = parseLoanCaps(row.notes);
+    if (min != null && (amount ?? 0) < min) return false;
+    if (max != null && (amount ?? 0) > max) return false;
+    return true;
+  }
+  function firstHomeOk(row: RateRow): boolean {
+    const needsFirst = requiresFirstHome(row.notes);
+    return !needsFirst || isFirstHome === "yes";
+  }
+  function salaryOk(row: RateRow): boolean {
+    const required = salaryRequirementFromNotes(row.notes, row.salaryRequired);
+    return levelNum(salaryLevel) >= levelNum(required);
+  }
+  function internetBankingOk(row: RateRow): boolean {
+    const needs = requiresInternetBanking(row.notes);
+    return !needs || useInternetBanking === "yes";
+  }
+  function creditCardOk(row: RateRow): boolean {
+    const needs = requiresCreditCard(row.notes);
+    return !needs || takeCreditCard === "yes";
+  }
+type CompareTariffPrefs = {
+  isCondo: "yes" | "no";
+  isConstruction: "yes" | "no";
+};
+
+// --- Tariff scenario defaults (no extra questions) ---
+function deriveTariffScenario(product: ProductKey, isCondo: boolean, isConstruction: boolean) {
+  const isPL = product === "PL";
+  const isHLorLAP = product === "HL" || product === "LAP";
+
+  // Fixed rules per your request:
+  // - Title Report: mandatory for HL/LAP, not applicable for PL
+  // - Property/Title questions not applicable to PL
+  // - Valuation & Inspections: 1 mandatory for HL/LAP, not applicable for PL
+  // - CRIB: mandatory for any loan (count = 1)
+  // - Exclude insurance
+  // - Remove Release / Part Release entirely
+
+  const includeTitleReport = isHLorLAP ? true : false;
+  const includeTransferDeed = isPL ? false : false; // not asked anymore; always false
+
+  const numValuations = isHLorLAP ? 1 : 0;
+  // If you still want construction to increase inspections later, keep logic here;
+  // for now we enforce minimum 1 for HL/LAP as requested.
+  const numInspections = isHLorLAP ? 1 : 0;
+
+  const cribCount = 1; // mandatory for all products
+
+  return {
+    // keep keys your cost engine already expects:
+    includeTitleReport,
+    includeTransferDeed,
+    isCondo: isPL ? false : isCondo,         // not applicable for PL
+    isConstruction: isPL ? false : isConstruction, // not applicable for PL
+    numValuations,
+    numInspections,
+    cribCount,
+    // removals: releaseDeeds, partReleases, insurance are intentionally omitted
+  };
+}
+/*
+  function onGenerate() {
+    const normalizedBankFilter = bankFilter.trim().toLowerCase();
+    let candidates = rows.filter((r) => r.product === product && isFinite(r.rate));
+    candidates = candidates
+      .filter(ltvOk).filter(typeOk).filter(capsOk)
+      .filter(firstHomeOk).filter(salaryOk).filter(internetBankingOk).filter(creditCardOk);
+    if (normalizedBankFilter) {
+      candidates = candidates.filter((r) => (r.bank || "").trim().toLowerCase() === normalizedBankFilter);
+    }
+
+    const amt = Number(amount);
+    const haveAmt = Number.isFinite(amt) && amt > 0;
+
+    const prefs = { salaryLevel, takeCreditCard, useInternetBanking };
+    const refRates = { awpr, awplr };
+    const tariffScenario = deriveTariffScenario(product, isCondo === "yes", isConstruction === "yes");
+
+  const enriched = candidates.map((r) => {
+    const scenarioSel = selectRateScenario(r, prefs, refRates);
+    const baseRate =
+      typeof scenarioSel.rate === "number" && Number.isFinite(scenarioSel.rate)
+        ? scenarioSel.rate
+        : Number.isFinite(r.rate)
+        ? r.rate
+        : undefined;
+
+    let total = 0;
+    let eff: number | undefined = baseRate;
+    let picked: Array<{ cat: TariffFeeType; row?: TariffRow; computed?: number; note?: string; meta?: TariffComputationMeta }> = [];
+    let note = "";
+
+    if (!(includeTariffs && haveAmt)) {
+      return {
+        row: r,
+        rate: baseRate,
+        eff: baseRate,
+        upfront: 0,
+        picked: [],
+        note: "",
+        scenario: scenarioSel.scenario,
+        scenarioEligible: scenarioSel.eligible,
+        scenarioDescription: describeScenario(scenarioSel.scenario),
+        tariffScenario,
+      };
+    }
+
+    const {
+      total: tariffTotal,
+      actualsFlags,
+      picked: tariffPicks,
+    } = sumUpfrontTariffsForBank(tariffs || [], r.bank, product, amt);
+    total = tariffTotal;
+    picked = tariffPicks;
+    if (typeof baseRate === "number" && amt > 0) {
+      eff = baseRate + (tariffTotal / amt) * 100;
+    } else if (Number.isFinite(r.rate) && amt > 0) {
+      eff = (r.rate as number) + (tariffTotal / amt) * 100;
+    }
+    note = actualsFlags.length ? `${actualsFlags.map((c) => c.replace(/_/g, " ")).join(", ")} at actuals` : "";
+    return {
+      row: r,
+      rate: baseRate,
+      eff,
+      upfront: total,
+      picked,
+      note,
+      scenario: scenarioSel.scenario,
+      scenarioEligible: scenarioSel.eligible,
+      scenarioDescription: describeScenario(scenarioSel.scenario),
+      tariffScenario,
+    };
+  });
+
+    // rank: prefer lowest effective (or base) rate; enforce unique banks when possible
+    const rateOf = (item: (typeof enriched)[number]) => {
+      if (typeof item.rate === "number" && Number.isFinite(item.rate)) return item.rate;
+      if (Number.isFinite(item.row.rate)) return item.row.rate;
+      return Number.POSITIVE_INFINITY;
+    };
+
+    const sorted = enriched
+      .slice()
+      .sort((a, b) => {
+        const rateA = rateOf(a);
+        const rateB = rateOf(b);
+        if (rateA !== rateB) return rateA - rateB;
+        const bankA = (a.row.bank || "").trim().toLowerCase();
+        const bankB = (b.row.bank || "").trim().toLowerCase();
+        if (bankA !== bankB) return bankA.localeCompare(bankB);
+        const productA = a.row.product || "";
+        const productB = b.row.product || "";
+        return productA.localeCompare(productB);
+      });
+
+    const picks: typeof enriched = [];
+
+    if (normalizedBankFilter) {
+      const match = sorted.find(
+        (item) => (item.row.bank || "").trim().toLowerCase() === normalizedBankFilter,
+      );
+      if (match) {
+        picks.push(match);
+      }
+    } else {
+      const seen = new Set<string>();
+
+      for (const item of sorted) {
+        const bankKey = (item.row.bank || "").trim().toLowerCase() || "__unknown__";
+        if (seen.has(bankKey)) continue;
+        seen.add(bankKey);
+        picks.push(item);
+        if (picks.length === 3) break;
+      }
+
+      if (picks.length < Math.min(3, sorted.length)) {
+        for (const item of sorted) {
+          if (picks.includes(item)) continue;
+          picks.push(item);
+          if (picks.length === 3) break;
+        }
+      }
+    }
+
+    setResults(picks);
+  }
+
+  const needsLtv = product === "HL" || product === "LAP";
+  const showFixedYears = typePref === "fixed";
+  const hasBankFilter = bankFilter.trim().length > 0;
+
+  type TariffPick = { cat: TariffFeeType; row?: TariffRow; computed?: number; note?: string; meta?: TariffComputationMeta };
+  function describeTariffPick(pick: TariffPick): { main: string; detail: string } {
+    if (!pick.row) {
+      return { main: pick.note || "N/A", detail: "" };
+    }
+    const { row } = pick;
+    const basis = pick.meta?.basis ?? row.basis;
+    const value = pick.meta?.value ?? row.value;
+    const min = pick.meta?.min ?? row.min;
+    const max = pick.meta?.max ?? row.max;
+    const detailParts: string[] = [];
+    if (basis === "percent" && typeof value === "number") {
+      const pct = value % 1 === 0 ? value.toFixed(0) : value.toFixed(2);
+      detailParts.push(`${pct}%`);
+    } else if (basis === "flat" && typeof value === "number") {
+      detailParts.push(`LKR ${lkr(value)}`);
+    } else if (basis === "actuals") {
+      detailParts.push("At actuals");
+    }
+    if (typeof min === "number") detailParts.push(`min LKR ${lkr(min)}`);
+    if (typeof max === "number") detailParts.push(`max LKR ${lkr(max)}`);
+    const derivations: string[] = [];
+    if (pick.meta?.valueDerived) {
+      const src = pick.meta.valueSource;
+      const label =
+        src === "amount" ? "amount text" :
+        src === "description" ? "description" :
+        src === "notes" ? "notes" :
+        "value";
+      derivations.push(`value parsed from ${label}`);
+    }
+    if (pick.meta?.minDerived) derivations.push("min parsed from notes");
+    if (pick.meta?.maxDerived) derivations.push("max parsed from notes");
+    if (pick.meta?.loanMin != null || pick.meta?.loanMax != null) {
+      const rangeParts: string[] = [];
+      if (pick.meta?.loanMin != null) {
+        rangeParts.push(`${pick.meta.loanMinExclusive ? ">" : "="} LKR ${lkr(pick.meta.loanMin)}`);
+      }
+      if (pick.meta?.loanMax != null) {
+        rangeParts.push(`${pick.meta.loanMaxExclusive ? "<" : "="} LKR ${lkr(pick.meta.loanMax)}`);
+      }
+      const sourceLabel =
+        pick.meta?.loanSource === "feeType"
+          ? "fee type"
+          : pick.meta?.loanSource === "amount"
+          ? "amount text"
+          : pick.meta?.loanSource === "notes"
+          ? "notes"
+          : "description";
+      derivations.push(`loan band ${rangeParts.join(" & ")} (from ${sourceLabel})`);
+    }
+    if (derivations.length) detailParts.push(derivations.join(", "));
+    const main =
+      pick.computed != null ? `LKR ${lkr(pick.computed)}` : pick.note || "N/A";
+    return { main, detail: detailParts.join(" | ") };
+  }
+
+  return (
+    <div className="mt-6 space-y-4">
+      {/* existing inputs (unchanged, with one new toggle row) */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="rounded-xl p-4 border border-white/10" style={{ backgroundColor: BRAND.card }}>
+          <div className="text-sm mb-2">Product</div>
+          <div className="flex flex-wrap gap-2">
+            {PRODUCTS.map((p) => (
+              <Btn key={p.key}
+                className={`px-3 py-1.5 rounded-full ${product === p.key ? "bg-[#3b82f6] text-white" : "bg-white/10"}`}
+                onClick={() => setProduct(p.key)}
+              >{p.label}</Btn>
+            ))}
+          </div>
+          {bankOptions.length > 0 && (
+            <div className="mt-4">
+              <div className="text-sm mb-1">Bank (optional)</div>
+              <select
+                value={bankFilter}
+                onChange={(e) => setBankFilter(e.target.value)}
+                className="w-full px-3 py-2 rounded bg-white text-black outline-none select-light"
+              >
+                <option value="">All banks</option>
+                {bankOptions.map((bank) => (
+                  <option key={bank} value={bank}>{bank}</option>
+                ))}
+              </select>
+            </div>
+          )}
+        </div>
+
+        <div className="rounded-xl p-4 border border-white/10" style={{ backgroundColor: BRAND.card }}>
+          <div className="grid grid-cols-2 gap-3">
+            <div>
+              <div className="text-sm mb-1">Loan amount (LKR)</div>
+              <MoneyInput value={amount} onChange={setAmount} placeholder="0.00" />
+            </div>
+            <div>
+              <div className="text-sm mb-1">Tenure (years)</div>
+              <input inputMode="numeric" value={tenureYears}
+                onChange={(e) => setTenureYears(parseInt(e.target.value || "0", 10))}
+                className="w-full px-3 py-2 rounded bg-white/10 outline-none" />
+            </div>
+
+            {/* NEW: Include tariffs toggle */}
+            <div className="col-span-2 mt-1">
+              <label className="inline-flex items-center gap-2 cursor-pointer">
+                <input type="checkbox" checked={includeTariffs} onChange={(e) => setIncludeTariffs(e.target.checked)} />
+                <span className="text-sm">Include tariffs (upfront est.)</span>
+              </label>
+            </div>
+
+            {needsLtv && (
+              <div className="col-span-2">
+                <div className="text-sm mb-1">Property value (LKR)</div>
+                <MoneyInput value={propertyValue || 0} onChange={(val) => setPropertyValue(val)} placeholder="0.00" />
+                <div className="text-xs text-white/70 mt-1">
+                  Used to check LTV eligibility against bank max LTV (when available).
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+
+        <div className="rounded-xl p-4 border border-white/10" style={{ backgroundColor: BRAND.card }}>
+          <div className="grid grid-cols-2 gap-3">
+            <div>
+              <div className="text-sm mb-1">Rate type</div>
+              <select value={typePref} onChange={(e) => setTypePref(e.target.value as any)}
+                className="w-full px-3 py-2 rounded bg-white text-black outline-none select-light">
+                <option value="any">Any</option>
+                <option value="fixed">Fixed</option>
+                <option value="floating">Floating</option>
+              </select>
+            </div>
+            {showFixedYears && (
+              <div>
+                <div className="text-sm mb-1">Desired fixed period (years)</div>
+                <input inputMode="numeric" value={desiredFixedYears}
+                  onChange={(e) => setDesiredFixedYears(e.target.value ? parseInt(e.target.value, 10) : "")}
+                  className="w-full px-3 py-2 rounded bg-white/10 outline-none" />
+              </div>
+            )}
+
+            {product === "HL" && (
+              <div className="col-span-2">
+                <div className="text-sm mb-1">Is this a first home purchase?</div>
+                <div className="flex gap-2">
+                  <Btn className={`px-3 py-1.5 rounded-full ${isFirstHome === "yes" ? "bg-[#3b82f6] text-white" : "bg-white/10"}`} onClick={() => setIsFirstHome("yes")}>Yes</Btn>
+                  <Btn className={`px-3 py-1.5 rounded-full ${isFirstHome === "no" ? "bg-[#3b82f6] text-white" : "bg-white/10"}`} onClick={() => setIsFirstHome("no")}>No</Btn>
+                </div>
+              </div>
+            )}
+
+            <div className="col-span-2">
+              <div className="text-sm mb-1">Salary relationship with the bank</div>
+              <div className="flex gap-2">
+                <Btn className={`px-3 py-1.5 rounded-full ${salaryLevel === "none" ? "bg-[#3b82f6] text-white" : "bg-white/10"}`} onClick={() => setSalaryLevel("none")}>None</Btn>
+                <Btn className={`px-3 py-1.5 rounded-full ${salaryLevel === "remittance" ? "bg-[#3b82f6] text-white" : "bg-white/10"}`} onClick={() => setSalaryLevel("remittance")}>Remittance</Btn>
+                <Btn className={`px-3 py-1.5 rounded-full ${salaryLevel === "assignment" ? "bg-[#3b82f6] text-white" : "bg-white/10"}`} onClick={() => setSalaryLevel("assignment")}>Assignment</Btn>
+              </div>
+              <div className="text-xs text-white/70 mt-1">
+                Assignment is considered stronger than Remittance — selecting Assignment will still qualify for Remittance-only offers.
+              </div>
+            </div>
+
+            <div className="col-span-2">
+              <div className="text-sm mb-1">Will you use Internet/Online Banking?</div>
+              <div className="flex gap-2">
+                <Btn className={`px-3 py-1.5 rounded-full ${useInternetBanking === "yes" ? "bg-[#3b82f6] text-white" : "bg-white/10"}`} onClick={() => setUseInternetBanking("yes")}>Yes</Btn>
+                <Btn className={`px-3 py-1.5 rounded-full ${useInternetBanking === "no" ? "bg-[#3b82f6] text-white" : "bg-white/10"}`} onClick={() => setUseInternetBanking("no")}>No</Btn>
+              </div>
+            </div>
+
+            <div className="col-span-2">
+              <div className="text-sm mb-1">Are you willing to take a bank Credit Card with the loan?</div>
+              <div className="flex gap-2">
+                <Btn className={`px-3 py-1.5 rounded-full ${takeCreditCard === "yes" ? "bg-[#3b82f6] text-white" : "bg-white/10"}`} onClick={() => setTakeCreditCard("yes")}>Yes</Btn>
+                <Btn className={`px-3 py-1.5 rounded-full ${takeCreditCard === "no" ? "bg-[#3b82f6] text-white" : "bg-white/10"}`} onClick={() => setTakeCreditCard("no")}>No</Btn>
+              </div>
+            </div>
+          </div>
+        </div>
+        {(product === "HL" || product === "LAP") && (
+          <div className="rounded-xl p-4 border border-white/10" style={{ backgroundColor: BRAND.card }}>
+            <div className="text-sm mb-2">Tariff Scenario</div>
+
+            <div className="grid grid-cols-2 gap-3">
+              <div className="col-span-1">
+                <div className="text-xs mb-1">Condominium / Tripartite?</div>
+                <div className="flex gap-2">
+                  <Btn
+                    className={`px-3 py-1.5 rounded-full ${isCondo === "yes" ? "bg-[#3b82f6] text-white" : "bg-white/10"}`}
+                    onClick={() => setIsCondo("yes")}
+                  >
+                    Yes
+                  </Btn>
+                  <Btn
+                    className={`px-3 py-1.5 rounded-full ${isCondo === "no" ? "bg-[#3b82f6] text-white" : "bg-white/10"}`}
+                    onClick={() => setIsCondo("no")}
+                  >
+                    No
+                  </Btn>
+                </div>
+              </div>
+
+              <div className="col-span-1">
+                <div className="text-xs mb-1">Construction / Staged disbursement?</div>
+                <div className="flex gap-2">
+                  <Btn
+                    className={`px-3 py-1.5 rounded-full ${isConstruction === "yes" ? "bg-[#3b82f6] text-white" : "bg-white/10"}`}
+                    onClick={() => setIsConstruction("yes")}
+                  >
+                    Yes
+                  </Btn>
+                  <Btn
+                    className={`px-3 py-1.5 rounded-full ${isConstruction === "no" ? "bg-[#3b82f6] text-white" : "bg-white/10"}`}
+                    onClick={() => setIsConstruction("no")}
+                  >
+                    No
+                  </Btn>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-3 text-xs text-white/70 leading-relaxed space-y-1">
+              <div>- Title Report: mandatory for Home Loan or LAP; not applicable for Personal Loan.</div>
+              <div>- Valuation & inspections: one of each required for Home Loan or LAP; not applicable for Personal Loan.</div>
+              <div>- CRIB report: mandatory for all products (count = 1).</div>
+              <div>- Insurance, release/part-release, and transfer deed questions are excluded from this comparison.</div>
+            </div>
+          </div>
+        )}
+      </div>
+
+      <div className="flex justify-end">
+        <Btn className="px-5 py-2 rounded-lg bg-white/10" onClick={onGenerate}>Generate</Btn>
+      </div>
+
+      {/* Results */}
+      <div className="mt-3 space-y-3">
+        {!results.length ? (
+          <div className="text-white/80">
+            Fill the details and click <span className="font-semibold">Generate</span> to see the best banks for your criteria.
+          </div>
+        ) : (
+          results.map((r, idx) => {
+            const interestRate = resolveInterestRate(r);
+            const effectiveRate = resolveEffectiveRate(r);
+            return (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }}
+                className="rounded-2xl overflow-hidden shadow-xl"
+                style={{ background: `linear-gradient(135deg, ${BRAND.orange} 0%, ${BRAND.orangeSoft} 100%)` }}
+              >
+                <div className="p-6 text-white">
+                <div className="flex items-center justify-between">
+                  <div className="text-xs uppercase tracking-wider mb-1">
+                    #{idx + 1} {hasBankFilter ? "Selected bank result" : "Best match"}
+                  </div>
+                  <div className="text-3xl font-extrabold">
+                    {interestRate != null ? `${interestRate.toFixed(2)}%` : "N/A"}
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-3 mt-2">
+                  {r.row.bank && <BankLogoName bank={r.row.bank} />}
+                </div>
+                <div className="text-white/70 mt-1">
+                  {PRODUCTS.find((p) => p.key === r.row.product)?.label} • {r.row.type}
+                  {r.row.type === "Fixed" && r.row.fixedYears ? ` (${r.row.fixedYears}y)` : ""}
+                </div>
+                {r.row.notes && <div className="text-white/70 text-sm mt-1">Note: {r.row.notes}</div>}
+
+                {/* Sleek tariff strip */}
+                {includeTariffs && Number.isFinite(Number(amount)) && (
+                  <div className="mt-3">
+                    <div className="flex flex-wrap items-center gap-2">
+                      {r.picked?.map((p) => {
+                        const label = p.cat.replace(/_/g, " ");
+                        const { main, detail } = describeTariffPick(p);
+                        return (
+                          <span key={label} className="text-[11px] px-2 py-1 rounded-full bg-white/10">
+                            <span className="text-white/70">{label}: </span>
+                            <span className="text-white/90 font-medium">{main}</span>
+                            {detail && (
+                              <span className="text-white/60"> ({detail})</span>
+                            )}
+                          </span>
+                        );
+                      })}
+                    </div>
+
+                    <div className="mt-2 grid grid-cols-1 md:grid-cols-3 gap-2">
+                      <div className="text-sm">
+                        <span className="text-white/70">Upfront (est.): </span>
+                        <span className="font-semibold">LKR {lkr(r.upfront || 0)}</span>
+                        {r.note && <span className="text-white/60"> &nbsp;•&nbsp; {r.note}</span>}
+                      </div>
+                        <div className="text-sm">
+                          <span className="text-white/70">Effective rate (approx): </span>
+                          <span className="font-semibold">
+                            {effectiveRate != null ? `${effectiveRate.toFixed(2)}%` : "N/A"}
+                          </span>
+                        </div>
+                      {r.row.source && (
+                        <div className="text-sm">
+                          <a className="text-blue-700 underline" href={r.row.source} target="_blank" rel="noreferrer">Source</a>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                )}
+
+                {!includeTariffs && r.row.source && (
+                  <a className="text-blue-700 underline text-sm mt-2 inline-block" href={r.row.source} target="_blank" rel="noreferrer">Source</a>
+                )}
+                </div>
+              </motion.div>
+            );
+          })
+        )}
+      </div>
+    </div>
+  );
+}
+
+type ScrapeStatus = "idle" | "running" | "done" | "error";
+type Bank = { key: string; label: string; url: string };
+
+function ScraperPanel({
+  apiBase, onMerge, onMergeTariffs, onResetRates, onResetTariffs, onCbsl, awprLatest,
+}: {
+  apiBase: string;
+  onMerge: (rows: RateRow[]) => void;
+  onMergeTariffs: (rows: TariffRow[]) => void;
+  onResetRates: () => void;
+  onResetTariffs: () => void;
+  onCbsl: (rows: any[]) => void;
+  awprLatest?: number;
+}) {
+  /* ---- Rate scrapers (unchanged list incl. CBSL) ---- */
+  const rateBanks: Bank[] = [
+    { key: "hnb", label: "HNB", url: `${apiBase}/scrape/hnb` },
+    { key: "seylan", label: "Seylan", url: `${apiBase}/scrape/seylan` },
+    { key: "sampath", label: "Sampath", url: `${apiBase}/scrape/sampath` },
+    { key: "combank", label: "Commercial Bank", url: `${apiBase}/scrape/combank` },
+    { key: "ndb", label: "NDB", url: `${apiBase}/scrape/ndb` },
+    { key: "unionb", label: "Union Bank", url: `${apiBase}/scrape/unionb` },
+    { key: "dfcc", label: "DFCC", url: `${apiBase}/scrape/dfcc` },
+    { key: "nsb", label: "NSB", url: `${apiBase}/scrape/nsb` },
+    { key: "boc", label: "BOC", url: `${apiBase}/scrape/boc` },
+    { key: "cargills", label: "Cargills", url: `${apiBase}/scrape/cargills` },
+    { key: "ntb", label: "NTB", url: `${apiBase}/scrape/ntb` },
+    { key: "amana", label: "Amana", url: `${apiBase}/scrape/amana` },
+    { key: "peoples", label: "People’s", url: `${apiBase}/scrape/peoples` },
+    { key: "cbsl", label: "CBSL (AWPR)", url: `${apiBase}/scrape/cbsl` },
+  ];
+
+  /* ---- Tariff scrapers: mirror keys with "-tariff" endpoints ---- */
+  const tariffBanks: Bank[] = [
+    { key: "hnb_tariff", label: "HNB – Tariff", url: tariffEndpointFor("hnb", apiBase)[0] },
+    { key: "seylan_tariff", label: "Seylan – Tariff", url: tariffEndpointFor("seylan", apiBase)[0] },
+    { key: "sampath_tariff", label: "Sampath – Tariff", url: tariffEndpointFor("sampath", apiBase)[0] },
+    { key: "combank_tariff", label: "Commercial Bank – Tariff", url: tariffEndpointFor("combank", apiBase)[0] },
+    { key: "ndb_tariff", label: "NDB – Tariff", url: tariffEndpointFor("ndb", apiBase)[0] },
+    { key: "unionb_tariff", label: "Union Bank – Tariff", url: tariffEndpointFor("unionb", apiBase)[0] },
+    { key: "dfcc_tariff", label: "DFCC – Tariff", url: tariffEndpointFor("dfcc", apiBase)[0] },
+    { key: "nsb_tariff", label: "NSB – Tariff", url: tariffEndpointFor("nsb", apiBase)[0] },
+    { key: "boc_tariff", label: "BOC – Tariff", url: tariffEndpointFor("boc", apiBase)[0] },
+    { key: "cargills_tariff", label: "Cargills – Tariff", url: tariffEndpointFor("cargills", apiBase)[0] },
+    { key: "ntb_tariff", label: "NTB – Tariff", url: tariffEndpointFor("ntb", apiBase)[0] },
+    { key: "amana_tariff", label: "Amana – Tariff", url: tariffEndpointFor("amana", apiBase)[0] },
+    { key: "peoples_tariff", label: "People’s – Tariff", url: tariffEndpointFor("peoples", apiBase)[0] },
+  ];
+
+  type PanelState = {
+    status: Record<string, ScrapeStatus>;
+    counts: Record<string, number>;
+    errors: Record<string, string | undefined>;
+    lastRun: Record<string, string | undefined>;
+  };
+  const EMPTY_PANEL: PanelState = { status: {}, counts: {}, errors: {}, lastRun: {} };
+
+  const [panel, setPanel] = useState<PanelState>(() => loadJSON<PanelState>(LS_PANEL, EMPTY_PANEL));
+  useEffect(() => saveJSON(LS_PANEL, panel), [panel]);
+
+  function patch(key: string, p: Partial<{ st: ScrapeStatus; cnt: number; err?: string; ts?: string }>) {
+    setPanel((s) => ({
+      status: { ...s.status, ...(p.st ? { [key]: p.st } : {}) },
+      counts: { ...s.counts, ...(p.cnt !== undefined ? { [key]: p.cnt } : {}) },
+      errors: { ...s.errors, ...(p.err !== undefined ? { [key]: p.err } : {}) },
+      lastRun: { ...s.lastRun, ...(p.ts !== undefined ? { [key]: p.ts } : {}) },
+    }));
+  }
+
+  /* ---- Rates coercer (unchanged) ---- */
+  function coerceRows(raw: any): RateRow[] {
+    const arr = Array.isArray(raw) ? raw : raw?.rows || raw?.data || [];
+    if (!Array.isArray(arr)) return [];
+    return arr.map((r) => {
+      const stringFields: string[] = []
+        .concat(r.rate, r.Rate, r.rateWithSalary, r.rateWithoutSalary, r.minRate, r.maxRate, r.Min, r.Max, r.notes)
+        .filter((x: any) => typeof x === "string");
+      const formulaStr = stringFields.find(containsFormula);
+      const isFormula = !!formulaStr;
+
+      const numericCandidates = [r.rate, r.Rate, r.rateWithSalary, r.rateWithoutSalary, r.minRate, r.maxRate, r.Min, r.Max]
+        .filter((x: any) => !(isFormula && typeof x === "string"))
+        .map(readNumber);
+      const rateNum = isFormula ? undefined :
+        numericCandidates.find((v) => typeof v === "number" && isFinite(v));
+
+      const product = normProductName(r.product ?? r.Product ?? r.category ?? r.ProductName);
+      const type: "Fixed" | "Floating" =
+        /floating|float/i.test(String(r.type ?? r.Type ?? r.notes ?? "").toLowerCase())
+          ? "Floating" : "Fixed";
+
+      const fy =
+        r.fixedYears ?? r.tenureYears ??
+        (() => {
+          const m =
+            String(r.tenureLabel ?? r.notes ?? "").toLowerCase().match(/\b([0-9]+)\s*(?:y|year)/) ||
+            String(r.type ?? "").toLowerCase().match(/\b([0-9]+)\s*(?:y|year)/);
+          return m ? parseInt(m[1], 10) : undefined;
+        })();
+
+      return {
+        bank: r.bank || r.Bank || "Unknown",
+        product,
+        rate: rateNum ?? NaN,
+        type,
+        fixedYears: fy,
+        updatedAt: r.updatedAt || new Date().toISOString(),
+        source: r.source,
+        notes: r.notes ?? (isFormula ? formulaStr : undefined),
+        ltv: typeof r.ltv === "number" ? r.ltv : undefined,
+        salaryRequired: r.salaryRequired,
+        raw: r,
+      } as RateRow;
+    });
+  }
+
+  /* ---- runners ---- */
+
+  async function runRateOne(b: Bank) {
+    patch(b.key, { st: "running", err: undefined });
+    const tries: string[] = [b.url];
+    if (!/[?&](show|save)=/i.test(b.url)) {
+      tries.push(b.url + (b.url.includes("?") ? "&" : "?") + "show=true");
+    }
+
+    let lastErr: any = null;
+    for (const url of tries) {
+      try {
+        const res = await fetch(url, { cache: "no-store" });
+        if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
+        const data = await res.json();
+
+        if (b.key === "cbsl") {
+          const rows = Array.isArray(data) ? data : [];
+          onCbsl(rows);
+          patch(b.key, { st: "done", cnt: rows.length, ts: new Date().toLocaleString() });
+          return;
+        }
+
+        let rows = coerceRows(data);
+        if (typeof awprLatest === "number") rows = normalizeFormulaRates(rows, awprLatest);
+        onMerge(rows);
+        patch(b.key, { st: "done", cnt: rows.length, ts: new Date().toLocaleString() });
+        return;
+      } catch (e: any) {
+        lastErr = e;
+      }
+    }
+    patch(b.key, { st: "error", err: String(lastErr?.message || lastErr) });
+  }
+
+  async function runTariffOne(b: Bank) {
+    patch(b.key, { st: "running", err: undefined });
+
+    // Try both -tariff and _tariff transparently (server variations)
+    const baseTries = tariffEndpointFor(b.key.replace(/_tariff$/, "").replace(/-tariff$/, ""), apiBase);
+    const tries: string[] = [];
+    for (const base of baseTries) {
+      tries.push(base);
+      if (!/[?&](show|save)=/i.test(base)) {
+        tries.push(base + (base.includes("?") ? "&" : "?") + "show=true");
+      }
+    }
+
+    let lastErr: any = null;
+    for (const url of tries) {
+      try {
+        const res = await fetch(url, { cache: "no-store" });
+        if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
+        const data = await res.json();
+        const rows = coerceTariffs(data);
+        onMergeTariffs(rows);
+        patch(b.key, { st: "done", cnt: rows.length, ts: new Date().toLocaleString() });
+        return;
+      } catch (e: any) {
+        lastErr = e;
+      }
+    }
+    patch(b.key, { st: "error", err: String(lastErr?.message || lastErr) });
+  }
+
+  async function runAllSequential() {
+    // 1) All rate scrapers (incl. CBSL)
+    for (const b of rateBanks) { // eslint-disable-next-line no-await-in-loop
+      await runRateOne(b);
+    }
+    // 2) All tariff scrapers
+    for (const b of tariffBanks) { // eslint-disable-next-line no-await-in-loop
+      await runTariffOne(b);
+    }
+  }
+
+  function resetAll() {
+    // Clear panel
+    const EMPTY_PANEL: PanelState = { status: {}, counts: {}, errors: {}, lastRun: {} };
+    setPanel(EMPTY_PANEL);
+    saveJSON(LS_PANEL, EMPTY_PANEL);
+    // Clear rates
+    onResetRates();
+    saveJSON(LS_RATES, [] as RateRow[]);
+    // Clear tariffs
+    onResetTariffs();
+    saveJSON(LS_TARIFFS, [] as TariffRow[]);
+  }
+
+  /* ---- UI ---- */
+
+  function Tile({ id, label, isTariff, url, onRun }: { id: string; label: string; isTariff: boolean; url: string; onRun: () => void; }) {
+    const st = panel.status[id] || "idle";
+    const cnt = panel.counts[id] ?? 0;
+    const err = panel.errors[id];
+    const ts = panel.lastRun[id];
+    const tag = st.toUpperCase();
+
+    return (
+      <div className="rounded-xl p-4 bg-white/5 border border-white/10">
+        <div className="flex items-center justify-between gap-3">
+          <div className="font-medium">{label}</div>
+          <span
+            className={
+              "text-xs px-2 py-1 rounded " +
+              (st === "running" ? "bg-yellow-500/20 text-yellow-300"
+                : st === "done" ? "bg-green-500/20 text-green-300"
+                : st === "error" ? "bg-red-500/20 text-red-300"
+                : "bg-white/10 text-white/70")
+            }
+          >
+            {tag}
+          </span>
+        </div>
+
+        <div className="mt-2 text-sm text-white/70">
+          Rows: <span className="text-white/90">{cnt}</span>
+          {ts && <span className="ml-3">Last: {ts}</span>}
+        </div>
+
+        {err && <div className="mt-2 text-xs text-red-300 break-words">{err}</div>}
+
+        <div className="mt-3">
+          <Btn className="px-3 py-1.5 rounded-lg bg-white/10" disabled={st === "running"} onClick={onRun}>
+            {st === "running" ? "Running…" : "Run"}
+          </Btn>
+          <a href={url} target="_blank" rel="noreferrer" className="ml-3 text-[#60a5fa] underline text-sm">
+            Open endpoint
+          </a>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="space-y-6">
+      {/* Header bar */}
+      <div className="flex items-center justify-between">
+        <h2 className="text-xl font-semibold">Scraper Control Panel</h2>
+        <div className="flex items-center gap-2">
+          <Btn className="px-4 py-2 rounded-lg bg-white/10" onClick={resetAll}>Reset</Btn>
+          <Btn className="px-4 py-2 rounded-lg bg-white/10" onClick={runAllSequential}>Run All</Btn>
+        </div>
+      </div>
+
+      {/* Section 1: Rate scrapers (unchanged visually) */}
+      <div>
+        <div className="text-white/80 mb-2 font-semibold">Rate scrapers</div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {rateBanks.map((b) => (
+            <Tile
+              key={b.key}
+              id={b.key}
+              label={b.label}
+              isTariff={false}
+              url={/[?&](show|save)=/i.test(b.url) ? b.url : b.url + (b.url.includes("?") ? "&" : "?") + "show=true"}
+              onRun={() => runRateOne(b)}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Section 2: Tariff scrapers (new) */}
+      <div>
+        <div className="text-white/80 mb-2 font-semibold">Tariff scrapers</div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {tariffBanks.map((b) => {
+            const [dashUrl] = tariffEndpointFor(b.key.replace(/_tariff$/, "").replace(/-tariff$/, ""), apiBase);
+            const openUrl = /[?&](show|save)=/i.test(dashUrl)
+              ? dashUrl
+              : dashUrl + (dashUrl.includes("?") ? "&" : "?") + "show=true";
+            return (
+              <Tile
+                key={b.key}
+                id={b.key}              // distinct keys like "hnb_tariff"
+                label={b.label}
+                isTariff={true}
+                url={openUrl}
+                onRun={() => runTariffOne(b)}
+              />
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+type CbslRow = { period: string; weekEnd: string; metric: string; rate: string; source: string; updatedAt: string };
+
+function reduceCbslToMonthlyAwpr(rows: CbslRow[]): Record<string, number> {
+  const map: Record<string, { ts: number; rate: number }> = {};
+  for (const r of rows) {
+    const m = ym(r.weekEnd || r.period);
+    const n = parseFloat(String(r.rate));
+    if (!isFinite(n)) continue;
+    const ts = new Date(r.weekEnd || r.period).getTime();
+    const cur = map[m];
+    if (!cur || ts >= cur.ts) map[m] = { ts, rate: n };
+  }
+  const out: Record<string, number> = {};
+  for (const k of Object.keys(map).sort()) out[k] = map[k].rate;
+  return out;
+}
+function monthRange(minYm: string, maxYm: string): string[] {
+  const [y1, m1] = minYm.split("-").map(Number);
+  const [y2, m2] = maxYm.split("-").map(Number);
+  const out: string[] = [];
+  let y = y1, m = m1;
+  while (y < y2 || (y === y2 && m <= m2)) {
+    out.push(`${y}-${String(m).padStart(2, "0")}`);
+    m++;
+    if (m > 12) { m = 1; y++; }
+  }
+  return out;
+}
+function tenorKeys(): TenorKey[] { return ["1M","3M","6M","12M","24M","36M","48M","60M"]; }
+
+function applyLiquidityPremium(
+  base: number | undefined,
+  lp: number | Partial<Record<TenorKey, number>> | undefined,
+  tenor: TenorKey
+): number | undefined {
+  if (typeof base !== "number") return undefined;
+  if (!lp) return base;
+  if (typeof lp === "number") return base + lp;
+  if (typeof lp[tenor] === "number") return base + (lp[tenor] as number);
+  return base;
+}
+
+export function buildAwprFtpMultiSeries(cbslRows: CbslRow[], ftpMonths: UbFtpMonth[]) {
+  const awprMonthly = reduceCbslToMonthlyAwpr(cbslRows);
+  const ftpByMonth: Record<string, Partial<Record<TenorKey, number>>> = {};
+  const lpByMonth: Record<string, number | Partial<Record<TenorKey, number>>> = {};
+
+  for (const rec of ftpMonths) {
+    ftpByMonth[rec.month] = rec.asset || {};
+    if (rec.liquidityPremium != null) lpByMonth[rec.month] = rec.liquidityPremium;
+  }
+
+  const monthsAll = (() => {
+    const ms = new Set<string>([...Object.keys(awprMonthly), ...Object.keys(ftpByMonth)]);
+    const sorted = [...ms].sort();
+    if (!sorted.length) return [];
+    return monthRange(sorted[0], sorted[sorted.length - 1]);
+  })();
+
+  const months = monthsAll.length > 6 ? monthsAll.slice(monthsAll.length - 6) : monthsAll;
+
+  const awprFfilled: Record<string, number | null> = {};
+  let lastAwpr: number | null = null;
+  for (const m of monthsAll) {
+    const cur = typeof awprMonthly[m] === "number" ? awprMonthly[m] : null;
+    if (cur != null) lastAwpr = cur;
+    awprFfilled[m] = lastAwpr;
+  }
+
+  const rows = months.map((m) => {
+    const row: any = { month: m, AWPR: awprFfilled[m] ?? null };
+    for (const t of tenorKeys()) {
+      let last: number | undefined = undefined;
+      for (let i = monthsAll.indexOf(m); i >= 0; i--) {
+        const mm = monthsAll[i];
+        const base = ftpByMonth[mm]?.[t];
+        const lp = lpByMonth[mm];
+        const eff = applyLiquidityPremium(base, lp, t);
+        if (typeof eff === "number") { last = eff; break; }
+      }
+      row[t] = last ?? null;
+    }
+    return row;
+  });
+  return rows as Array<{ month: string; AWPR: number | null } & Partial<Record<TenorKey, number | null>>>;
+}
+
+function AwprFtpChartMulti({
+  cbslRows, ftpMonths, brand,
+}: {
+  cbslRows: CbslRow[];
+  ftpMonths: UbFtpMonth[];
+  brand: typeof BRAND;
+}) {
+  const data = useMemo(() => buildAwprFtpMultiSeries(cbslRows, ftpMonths), [cbslRows, ftpMonths]);
+
+  const [activeTenors, setActiveTenors] = useState<Set<TenorKey>>(
+    () => new Set<TenorKey>(["6M","12M","24M"])
+  );
+  function toggle(t: TenorKey) {
+    setActiveTenors((s) => {
+      const n = new Set(s);
+      if (n.has(t)) n.delete(t); else n.add(t);
+      return n;
+    });
+  }
+
+  return (
+    <div className="h-full flex flex-col">
+      <div className="mb-3 flex flex-wrap gap-2">
+        {tenorKeys().map((t) => (
+          <Btn
+            key={t}
+            className={`px-2.5 py-1 rounded-full text-xs ${activeTenors.has(t) ? "bg-[#3b82f6] text-white" : "bg-white/10"}`}
+            onClick={() => toggle(t)}
+          >
+            {t}
+          </Btn>
+        ))}
+      </div>
+
+      <ResponsiveContainer width="100%" height="100%">
+        <LineChart data={data}>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="month" />
+          <YAxis />
+          <Tooltip formatter={(value) => (typeof value === "number" ? value.toFixed(2) : value)} />
+          <Legend />
+          <Line dataKey="AWPR" stroke={brand.Gold} dot={false} strokeWidth={2} />
+          {tenorKeys().map((t) =>
+            activeTenors.has(t) ? <Line key={t} dataKey={t} dot={false} strokeWidth={2} /> : null
+          )}
+        </LineChart>
+      </ResponsiveContainer>
+    </div>
+  );
+}
+function FtpFileUploader({
+  initialMonths, onSaveAll, onReset,
+}: {
+  initialMonths: UbFtpMonth[];
+  onSaveAll: (months: UbFtpMonth[]) => void;
+  onReset: () => void;
+}) {
+  const [staged, setStaged] = useState<UbFtpMonth[]>([]);
+  const [files, setFiles] = useState<File[]>([]);
+  const [busy, setBusy] = useState(false);
+
+  function currentYm(): string {
+    const d = new Date();
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`;
+  }
+
+  async function parseCsv(text: string): Promise<Partial<Record<TenorKey, number>>> {
+    const out: Partial<Record<TenorKey, number>> = {};
+    const lines = text.split(/\r?\n/).map((s) => s.trim()).filter(Boolean);
+    for (const line of lines) {
+      const m =
+        line.match(/([0-9]{1,2})\s*(m|y)\s*[,:\- ]\s*([0-9]+(?:\.[0-9]+)?)/i) ||
+        line.match(/^\s*([0-9]{1,2})(m|y)\s+([0-9]+(?:\.[0-9]+)?)\s*$/i);
+      if (!m) continue;
+      const num = Number(m[1]);
+      const unit = m[2].toUpperCase();
+      const rate = parseFloat(m[3]);
+      if (!isFinite(rate)) continue;
+      let key: TenorKey | undefined;
+      if (unit === "M") key = ({ 1: "1M", 3: "3M", 6: "6M", 12: "12M" } as const)[num];
+      else key = ({ 1: "12M", 2: "24M", 3: "36M", 4: "48M", 5: "60M" } as const)[num];
+      if (key) out[key] = rate;
+    }
+    return out;
+  }
+
+  function tenorKey(num: number, unit: string): TenorKey | undefined {
+    return unit.toUpperCase() === "M"
+      ? ({ 1: "1M", 3: "3M", 6: "6M", 12: "12M" } as const)[num]
+      : ({ 1: "12M", 2: "24M", 3: "36M", 4: "48M", 5: "60M" } as const)[num];
+  }
+  function getPercentsFromString(line: string): number[] {
+    return [...line.matchAll(/([0-9]+(?:\.[0-9]+)?)\s*%/g)].map((m) => parseFloat(m[1])).filter(isFinite);
+  }
+  function percentAt(tokens: string[], j: number): [number | undefined, number] {
+    const t = tokens[j];
+    let m = t.match(/^([0-9]+(?:\.[0-9]+)?)\s*%$/);
+    if (m) return [parseFloat(m[1]), 1];
+    const mNum = t.match(/^([0-9]+(?:\.[0-9]+)?)$/);
+    if (mNum && tokens[j + 1] === "%") return [parseFloat(mNum[1]), 2];
+    return [undefined, 0];
+  }
+
+  async function parsePdf(
+    file: File
+  ): Promise<{ asset: Partial<Record<TenorKey, number>>; lp?: Partial<Record<TenorKey, number>> | number }> {
+    const pdfjsLib = await import("pdfjs-dist");
+    // @ts-ignore
+    pdfjsLib.GlobalWorkerOptions.workerSrc = new URL("pdfjs-dist/build/pdf.worker.min.mjs", import.meta.url).toString();
+
+    const buf = new Uint8Array(await file.arrayBuffer());
+    // @ts-ignore
+    const doc = await pdfjsLib.getDocument({ data: buf }).promise;
+
+    let allRows: string[][] = [];
+    for (let p = 1; p <= doc.numPages; p++) {
+      const page = await doc.getPage(p);
+      const content = await page.getTextContent();
+      let lineTokens: string[] = [];
+      let lastY: number | null = null;
+      for (const item of content.items as any[]) {
+        const [,, , , x, y] = item.transform;
+        if (lastY !== null && Math.abs(y - lastY) > 2) {
+          if (lineTokens.length) allRows.push([...lineTokens]);
+          lineTokens = [];
+        }
+        lastY = y;
+        const text = String(item.str || "").trim();
+        if (text) lineTokens.push(text);
+      }
+      if (lineTokens.length) allRows.push([...lineTokens]);
+    }
+
+    const tenors: TenorKey[] = ["1M", "3M", "6M", "12M", "24M", "36M", "48M", "60M"];
+    const asset: Partial<Record<TenorKey, number>> = {};
+    const lp: Partial<Record<TenorKey, number>> = {};
+
+    let augHeaderIdx = -1, periodIdx = -1, assetFtpIdx = -1;
+    for (let i = 0; i < allRows.length; ++i) {
+      const lower = allRows[i].map(s => s.toLowerCase());
+      if (lower.includes("period") && lower.includes("asset ftp")) {
+        augHeaderIdx = i; periodIdx = lower.indexOf("period"); assetFtpIdx = lower.indexOf("asset ftp"); break;
+      }
+    }
+
+    if (augHeaderIdx !== -1 && periodIdx !== -1 && assetFtpIdx !== -1) {
+      for (let i = augHeaderIdx + 1; i < allRows.length; ++i) {
+        const row = allRows[i];
+        if (!row.length) continue;
+        const joined = row.join(" ").toLowerCase();
+        if (joined.includes("tenor") || joined.includes("liability/asset") || joined.includes("ftp - fcy")
+            || (joined.includes("asset") && joined.length < 20)) break;
+
+        const period = (row[periodIdx] || "").replace(/\s/g, "").toUpperCase();
+        if (!tenors.includes(period as TenorKey)) continue;
+
+        const assetStr = row[assetFtpIdx] || "";
+        const assetNum = parseFloat(assetStr.replace(/[^0-9.]/g, ""));
+        if (isFinite(assetNum)) asset[period as TenorKey] = assetNum;
+
+        if (row.length > assetFtpIdx + 1) {
+          const lpStr = row[assetFtpIdx + 1] || "";
+          const lpNum = parseFloat(lpStr.replace(/[^0-9.]/g, ""));
+          if (isFinite(lpNum)) lp[period as TenorKey] = lpNum;
+        }
+      }
+      for (const tenor of tenors) {
+        if (typeof asset[tenor] === "number" && typeof lp[tenor] === "number") {
+          asset[tenor] = (asset[tenor] as number) + (lp[tenor] as number);
+        }
+      }
+      const lpOut = Object.keys(lp).length ? lp : undefined;
+      return { asset, lp: lpOut };
+    }
+
+    let headerRowIdx2 = -1;
+    let periodIdx2 = -1, assetIdx2 = -1, lpIdx2 = -1;
+    for (let i = 0; i < allRows.length; ++i) {
+      const lower = allRows[i].map(s => s.toLowerCase());
+      if (lower.includes("period") && (lower.includes("asset lkr") || lower.includes("asset ftp"))) {
+        headerRowIdx2 = i; periodIdx2 = lower.indexOf("period");
+        assetIdx2 = lower.findIndex(c => c === "asset lkr" || c === "asset ftp");
+        lpIdx2 = lower.findIndex(c => c.includes("liquidity premium"));
+        break;
+      }
+    }
+
+    if (headerRowIdx2 !== -1 && assetIdx2 !== -1 && periodIdx2 !== -1) {
+      const rows = [];
+      for (let i = headerRowIdx2 + 1; i < allRows.length; ++i) {
+        const rowLower = allRows[i].map(s => s.toLowerCase()).join(" ");
+        if (rowLower.includes("liability") || rowLower.includes("fcy") || rowLower.includes("foreign")
+            || (rowLower.includes("premium") && !rowLower.includes("liquidity")) || rowLower.includes("period")) break;
+        rows.push(allRows[i]);
+      }
+      for (const tenor of tenors) {
+        const matchRows = rows.filter(r => {
+          const periodCell = r[periodIdx2] || "";
+          return periodCell.replace(/\s/g, "").toUpperCase().startsWith(tenor);
+        });
+        if (matchRows.length) {
+          const last = matchRows[matchRows.length - 1];
+          let val = last[assetIdx2] || "";
+          val = val.replace(/[^0-9.]/g, "");
+          const num = parseFloat(val);
+          if (isFinite(num)) asset[tenor] = num;
+
+          if (lpIdx2 !== -1 && last[lpIdx2]) {
+            const lpVal = parseFloat((last[lpIdx2] || "").replace(/[^0-9.]/g, ""));
+            if (isFinite(lpVal)) lp[tenor] = lpVal;
+          }
+        }
+      }
+      for (const tenor of tenors) {
+        if (typeof asset[tenor] === "number" && typeof lp[tenor] === "number") {
+          asset[tenor] = (asset[tenor] as number) + (lp[tenor] as number);
+        }
+      }
+      const lpOut = Object.keys(lp).length ? lp : undefined;
+      return { asset, lp: lpOut };
+    }
+  }
+
+  async function handleFiles(files: FileList | null) {
+    if (!files || !files.length) return;
+    setBusy(true);
+    const newRows: UbFtpMonth[] = [];
+
+    for (const f of Array.from(files)) {
+      try {
+        const name = f.name;
+        const month = inferMonthFromFilename(name) || currentYm();
+
+        let asset: Partial<Record<TenorKey, number>> = {};
+        let lpMaybe: number | Partial<Record<TenorKey, number>> | undefined;
+
+        if (/\.(csv|txt)$/i.test(name)) {
+          const text = await f.text();
+          asset = await parseCsv(text);
+        } else if (/\.(pdf)$/i.test(name)) {
+          const parsed = await parsePdf(f);
+          asset = parsed.asset || {};
+          if (parsed.lp && Object.keys(parsed.lp).length) lpMaybe = parsed.lp;
+        } else {
+          continue;
+        }
+
+        if (Object.keys(asset).length === 0) continue;
+
+        newRows.push({
+          month,
+          sourceName: name,
+          asset,
+          liquidityPremium: lpMaybe,
+          uploadedAt: new Date().toISOString(),
+        });
+      } catch {
+        // ignore parse errors
+      }
+    }
+
+    const combined = dedupeByMonth([...staged, ...newRows]);
+    setStaged(combined);
+    setBusy(false);
+  }
+
+  function dedupeByMonth(arr: UbFtpMonth[]): UbFtpMonth[] {
+    const map = new Map<string, UbFtpMonth>();
+    for (const r of arr) map.set(r.month, r);
+    return [...map.values()].sort((a, b) => a.month.localeCompare(b.month));
+  }
+
+  function saveAll() {
+    const merged = dedupeByMonth([...initialMonths, ...staged]);
+    onSaveAll(merged);
+    setStaged([]);
+  }
+  function resetAll() { onReset(); setStaged([]); }
+
+  const previewList = staged.length ? staged : initialMonths;
+
+  return (
+    <div className="rounded-2xl border border-white/10 p-4" style={{ backgroundColor: BRAND.card }}>
+      <div className="flex items-center justify-between gap-3">
+        <div>
+          <div className="text-base font-semibold">FTP Uploader</div>
+          <div className="text-white/70 text-sm">Upload monthly Asset FTP (CSV or PDF). Each file = one month.</div>
+        </div>
+
+        <div className="flex items-center gap-3">
+          <label htmlFor="ftpFile" className="cursor-pointer px-4 py-2 rounded-xl bg-white text-black font-semibold shadow hover:bg-[#60a5fa] hover:text-black transition">Browse…</label>
+          <span className="text-white/70 text-sm">{files?.length ? `${files.length} file(s) selected` : "No files selected."}</span>
+          {busy && <span className="text-white/60 text-sm ml-2">Parsing…</span>}
+          <input
+            id="ftpFile" type="file" multiple accept=".csv,.pdf,.txt"
+            onChange={async (e) => { const list = e.target.files; setFiles(Array.from(list ?? [])); await handleFiles(list); e.currentTarget.value = ""; }}
+            className="hidden"
+          />
+        </div>
+      </div>
+
+      <div className="mt-4">
+        <div className="text-sm text-white/80 mb-2">
+          {staged.length
+            ? `Preview (${staged.length} month${staged.length === 1 ? "" : "s"}) — not saved yet`
+            : `Saved (${initialMonths.length} month${initialMonths.length === 1 ? "" : "s"})`}
+        </div>
+        <div className="overflow-auto rounded-xl border border-white/10">
+          <table className="min-w-full text-sm">
+            <thead className="bg-white/5">
+              <tr className="[&>th]:px-3 [&>th]:py-2 text-left">
+                <th>Month</th>
+                <th>Source</th>
+                <th>Tenors (parsed)</th>
+              </tr>
+            </thead>
+            <tbody className="[&>tr:nth-child(even)]:bg-white/5">
+              {previewList.map((r) => (
+                <tr key={r.month} className="border-t border-white/10">
+                  <td className="px-3 py-2 font-medium">{r.month}</td>
+                  <td className="px-3 py-2">{r.sourceName}</td>
+                  <td className="px-3 py-2">
+                    {Object.entries(r.asset)
+                      .filter(([, v]) => typeof v === "number")
+                      .map(([k, v]) => `${k}: ${(v as number).toFixed(2)}%`)
+                      .join("  ·  ") || "—"}
+                  </td>
+                </tr>
+              ))}
+              {!previewList.length && (
+                <tr>
+                  <td colSpan={3} className="px-3 py-6 text-center text-white/70">No staged uploads yet.</td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div className="mt-4 flex flex-wrap items-center gap-2">
+        <Btn className="px-4 py-2 rounded-lg bg-white text-black disabled:opacity-60" disabled={!staged.length || busy} onClick={saveAll}>Save All</Btn>
+        <Btn className="px-4 py-2 rounded-lg bg-white/10 disabled:opacity-60" disabled={busy} onClick={() => setStaged([])}>Clear Preview</Btn>
+        <Btn className="px-4 py-2 rounded-lg bg-white/10 disabled:opacity-60" disabled={busy || !initialMonths.length} onClick={resetAll}>Reset</Btn>
+        {busy && <span className="text-white/60 text-sm ml-2">Parsing…</span>}
+      </div>
+    </div>
+  );
+}
+export default function AppWithAuth() {
+  const [ok, setOk] = React.useState(false);   // always start locked
+  if (!ok) return <LoginGate onSuccess={() => setOk(true)} />;
+  return <UBRateAnalyst />;
+}

@@ -1,0 +1,22 @@
+[
+  {
+    "bank": "Amãna Bank",
+    "product": "Education Loan",
+    "feeCategory": "Processing Fee",
+    "description": "Processing Fee - Education Loan",
+    "amount": "LKR 1,250 - LKR 7,000",
+    "updatedAt": "2025-10-09T18:04:51.832Z",
+    "source": "https://www.amanabank.lk/pdf/tariff/advance-pricing-november-2024-english.pdf",
+    "notes": "Paired amount-first OCR lines p1[9] + p1[10]"
+  },
+  {
+    "bank": "Amãna Bank",
+    "product": "Home Loan",
+    "feeCategory": "Processing Fee",
+    "description": "Home Financing",
+    "amount": "LKR 2,500 - LKR 35,000",
+    "updatedAt": "2025-10-09T18:04:51.832Z",
+    "source": "https://www.amanabank.lk/pdf/tariff/advance-pricing-november-2024-english.pdf",
+    "notes": "Single-line OCR match p1[11]"
+  }
+]

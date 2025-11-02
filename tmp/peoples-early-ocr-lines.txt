@@ -1,0 +1,90 @@
+[p1][ocr][y=0] Pawning
+[p1][ocr][y=20] Rate / Fee (Rs.)
+[p1][ocr][y=40] Handling charges for loss of a pawning Ticket 300/-
+[p1][ocr][y=60] Reminders 2
+[p1][ocr][y=80] nd
+[p1][ocr][y=100] (Demand Notice) 50/= (Excluding postage charges)
+[p1][ocr][y=120] Reminders 3
+[p1][ocr][y=140] rd
+[p1][ocr][y=160] (Notice of auction)   100/= (Excluding postage charges)
+[p1][ocr][y=180] Pawning auction handling charges  500/=
+[p1][ocr][y=200] Loans
+[p1][ocr][y=220] Early Settlement Charges for Housing Loans Granted on Immovable Mortgage
+[p1][ocr][y=240] Rate
+[p1][ocr][y=260] It the loan settled in 1
+[p1][ocr][y=280] st
+[p1][ocr][y=300] Quarter of the repayment tenure 3.0% from the capital outstanding
+[p1][ocr][y=320] It the loan settled in 2
+[p1][ocr][y=340] nd
+[p1][ocr][y=360] Quarter of the repayment tenure 2.0% from the capital outstanding
+[p1][ocr][y=380] It the loan settled in 3
+[p1][ocr][y=400] rd
+[p1][ocr][y=420] Quarter of the repayment tenure 1.0% from the capital outstanding
+[p1][ocr][y=440] Early Settlement Charges For personal loans Granted to Housing, Vehicle, Educational and other purpose
+[p1][ocr][y=460] Time period during which loan is
+[p1][ocr][y=480] settled in Advance
+[p1][ocr][y=500] Payment Period for which Facility Was Granted – Rate/ Fee (Rs.)
+[p1][ocr][y=520] Over 01 year up
+[p1][ocr][y=540] to 03 years
+[p1][ocr][y=560] Over 03 year up to
+[p1][ocr][y=580] 05 years
+[p1][ocr][y=600] Over 05 year up to
+[p1][ocr][y=620] 07years
+[p1][ocr][y=640] Over 07 year
+[p1][ocr][y=660] Within 1
+[p1][ocr][y=680] st
+[p1][ocr][y=700] two years 1.5% 2.0% 2.5% 3.0%
+[p1][ocr][y=720] Within 3
+[p1][ocr][y=740] rd
+[p1][ocr][y=760] and 4
+[p1][ocr][y=780] th
+[p1][ocr][y=800] year 1.0% 1.5% 2.0% 2.5%
+[p1][ocr][y=820] Within 5
+[p1][ocr][y=840] th
+[p1][ocr][y=860] and 6
+[p1][ocr][y=880] th
+[p1][ocr][y=900] year  1.0% 1.5% 2.0%
+[p1][ocr][y=920] Within 7
+[p1][ocr][y=940] th
+[p1][ocr][y=960] and 8
+[p1][ocr][y=980] th
+[p1][ocr][y=1000] year   1.0% 1.5%
+[p1][ocr][y=1020] Within 9
+[p1][ocr][y=1040] th
+[p1][ocr][y=1060] and 10
+[p1][ocr][y=1080] th
+[p1][ocr][y=1100] year    1.0%
+[p1][ocr][y=1120] Early Settlement Charges for Business Loans (Block Loans Facilities)
+[p1][ocr][y=1140] Rate / Fee (Rs.)
+[p1][ocr][y=1160] It the loan settled within the 1
+[p1][ocr][y=1180] st
+[p1][ocr][y=1200] year of the repayment tenure 2.0% from the capital outstanding
+[p1][ocr][y=1220] It the loan settled within the 2
+[p1][ocr][y=1240] nd
+[p1][ocr][y=1260] year of the repayment tenure 1.0% from the capital outstanding
+[p1][ocr][y=1280] It the loan settled after the 2
+[p1][ocr][y=1300] nd
+[p1][ocr][y=1320] year of the repayment tenure Free
+[p1][ocr][y=1340] Treasury & Investment Banking
+[p1][ocr][y=1360] Rate / Fee (Rs.)
+[p1][ocr][y=1380] Issuing of a duplicate confirmation as of any date 100/-
+[p1][ocr][y=1400] Providing of complete investment details of the previous year. 500/-
+[p1][ocr][y=1420] Issuing of balance confirmation for audit purpose for current year  500/-
+[p1][ocr][y=1440] Issuing of balance confirmation for audit purpose for previous year  750/-
+[p1][ocr][y=1460] Issuing of balance confirmation for any other purpose.  750/-
+[p1][ocr][y=1480] Pawning & Loans
+[p1][ocr][y=1500] Service Charges Related to Dormant accounts, Abandoned accounts and Handling fee for Deceased
+[p1][ocr][y=1520] Customer account
+[p1][ocr][y=1540] Rate / Fee (Rs.)
+[p1][ocr][y=1560] Transferring to Dormant category. (one time to all accounts in dormant category)
+[p1][ocr][y=1580] 25/= (Automatically recovered by
+[p1][ocr][y=1600] the System)
+[p1][ocr][y=1620] Dormant account Reactivation charge 100/=
+[p1][ocr][y=1640] Handling & Record maintenance fee on Abandoned Accounts
+[p1][ocr][y=1660] 250/= (At the time of classifying as
+[p1][ocr][y=1680] abandoned accounts)
+[p1][ocr][y=1700] Handling fee for Deceased Customer account
+[p1][ocr][y=1720] Rate / Fee (Rs.)
+[p1][ocr][y=1740] Below Rs. 25,000/=            Free
+[p1][ocr][y=1760] Rs. 25,001 – Rs.100,000           250/=
+[p1][ocr][y=1780] Above Rs. 100,000           500/=

@@ -1,0 +1,198 @@
+[0] Classification: Internal
+[1] oSoo)
+[2] @) sDUsS pee
+[3] ‘NS Sampath Bank
+[4] SERVICE CHARGES, FEES & COMMISSIONS CREDIT
+[5] CREDIT
+[6] 1.1 New facilities /Temporary 0.25% minimum USD 50/- / Rs.7,500/-
+[7] facilities/Facility
+[8] enhancements for the
+[9] enhanced amounts
+[10] Up to Rs.500,000 5,000/-
+[11] Rs. 500,001 — 1,000,000 10,000/-
+[12] Rs. 1,000,001- 5,000,000 20,000/-
+[13] Rs.5,000,001- 10,000,000 | 25,000/-
+[14] Above 10.0 Mn 0.25%
+[15] Personal Loans
+[16] Up to Rs. 500,000 5,000/-
+[17] 1.2 Pawning 250/-
+[18] 1.3 Revolving Loans 2,000/- USD 10/- / Rs.1,500/-
+[19] 1.4 Review charges — For
+[20] same level review of
+[21] facilities
+[22] Up to Rs. 500,000 2,500/- Up to USD 500,000 - USD 100/-
+[23] Rs.500,001 to 1,000,000 5,000/- USD 500,001 to 1,000,000 - USD 200/-
+[24] Rs.1,000,001 to 7,500/- USD 1,000,001 to 2,000,000 - USD 250/-
+[25] 5,000,000 Above USD 2,000,001 - USD 500/-
+[26] Rs.5,000,001 to 10,000/-
+[27] 10,000,000
+[28] Rs.10,000,001 to 15,000/-
+[29] 25,000,000
+[30] Rs. 25,000,001 to 20,000/-
+[31] 50,000,000
+[32] Rs. 50,000,001 to 25,000/-
+[33] 100,000,000
+[34] Rs. 100,000,001 to 50,000/-
+[35] 500,000,000
+[36] Rs. 500,000,001 to Rs.1 Bn | 75,000/-
+[37] Above Rs. 1 Bn 100,000/-
+[38] 1.4.1 Review Charges for
+[39] Samachara Loan Scheme
+[40] Up to Rs 2,500,000 2,500/-
+[41] Rs 2,500,001 -5,000,000 5,000/-
+[42] 1.5 Facilities secured by cash
+[43] New New
+[44] Up to Rs. 0.5Mn 1,500/- Up to USD 10,000 or equivalent -
+[45] Above Rs 0.5Mn 2,500/- USD 10/-
+[46] Classification: Internal
+[47] Over USD 10,000 — USD 20/-
+[48] Review Review
+[49] Up to Rs. 0.5Mn 500/- Any amount — USD 10/-
+[50] Above Rs 0.5Mn 1,000/-
+[51] 1.6 Leases 0.25%
+[52] (minimum
+[53] Rs.5,000/-) of the
+[54] delivery order value
+[55] Factoring fee up to
+[56] 0.5% of the
+[57] invoice/Post Dated
+[58] Cheque (PDC)
+[59] schedule value with
+[60] a minimum fee of
+[61] Rs.2,000/- per
+[62] month together
+[63] with prevailing
+[64] statutory levies.
+[65] 1.7 Factoring
+[66] 1.8
+[67] Insurance loan for new &
+[68] existing lease customers
+[69] Loan amount
+[70] Rs 200,000/- & Below 1,000/-
+[71] Rs 200,000.01 to 1,500/-
+[72] Rs 500,000/-
+[73] Rs 500,000.01 and above 2,000/-
+[74] 1.9 Senior Citizen Loan 2,500/-
+[75] Scheme/ Samachara
+[76] 1.10 Rescheduled/Restructured | 0.15% per 0.15% per reschedulement /
+[77] Facilities reschedulement / Restructuring (per client)
+[78] Restructuring (per Min - USD 10/-
+[79] client) Max - USD 250/-
+[80] Min - 2,000/-
+[81] Max - 50,000/-
+[82] 1.11 Customer Convenience 5,000/-
+[83] Levy
+[84] 2.1 Against 100% cash margin | 0.25% per quarter 0.25% per quarter (Min USD 10/-)
+[85] (Non-interest bearing (Min Rs. 3,000/-)
+[86] deposits)
+[87] 2.2 Against 100% cash margin | 0.375% per quarter | 0.375% per quarter or part thereof (Min
+[88] (interest bearing deposits) | or part thereof USD 10/-)
+[89] (Minimum Rs.
+[90] 5,000/-)
+[91] Classification: Internal
+[92] 2.3 Against other securities 0.5% per quarteror | 0.5% per quarter or part thereof (Min
+[93] part thereof USD 20/-)
+[94] (Minimum Handling fee of USD 30/-
+[95] Rs. 7,000/-)
+[96] 2.4 SPECIAL FORMAT 2,000/- USD 10/-
+[97] 2.5 Processing fee 2,500/- USD 20/-
+[98] 2.6 Cancellation of guarantees | Free Free
+[99] (Submission of original
+[100] guarantee)
+[101] 2.7 Cancellation of 1,000/- USD 5/-
+[102] Guarantees (non - If the guarantee to be advised through
+[103] submission of original SWIFT, relevant SWIFT charges will be
+[104] guarantee) applied.
+[105] 2.8 Guarantee issued for 3% per annum
+[106] foreign projects (0.75% per quarter)
+[107] 2.9 Claim Handling Fee Rs. 2,500/- + VAT USD 15 + VAT
+[108] 3.1 Late payment fee on | Rs.1,000/- per month N/A
+[109] arrears loan
+[110] instalments To be charged on the 21% day after the loan
+[111] instalment demand, except for loans with capital
+[112] outstanding below Rs.100,000/- and Loans
+[113] classified as NPA.
+[114] 3.2 Late payment fee on | Rs.1,000/- N/A
+[115] unsettled casual
+[116] overdrafts To be charged on the 30" and 60" day after the
+[117] account being overdrawn casually over the limit
+[118] or without a limit and remaining unsettled for 30
+[119] days and 60 days, except for accounts with a
+[120] casual overdraft below Rs.10,000/- at the charge
+[121] point and current accounts classified as NPA.
+[122] Classification: Internal
+[123] 3.3 Processing fee on Rs.1,500/- for personal accounts per month N/A
+[124] casual overdrafts not | Rs.2,000/- for business accounts per month
+[125] settled during the
+[126] day When a minimum of one casual overdraft
+[127] granted exists during the month which is not
+[128] settled during the same day to be charged at the
+[129] day end when an unsettled casual overdrafts
+[130] exists, except for accounts with casually
+[131] overdrawn balance below Rs.25,000/- (Exclude
+[132] multiple events and to be charged only once a
+[133] month and casual overdraft created due to bank
+[134] induced debits)
+[135] 3.4 Facility extensions
+[136] for all advances
+[137] Up to Rs.500,000/- RS.1,000/- Up to USD
+[138] From Rs.500,001/- to | Rs.2,000/- 10,000/- USD
+[139] Rs.5,000,000/- 10/-
+[140] From Rs.5,000,001/- | Rs.4,000/-
+[141] to Rs.10,000,000/- Over USD 10,000/-
+[142] Above Rs.10,000,001/- | Rs.7,500/-
+[143] USD 50/-
+[144] 3.5 Premature Loan outstanding at the time of the settlement
+[145] settlement or part
+[146] settlement Remaining | Loan | Less | Less | Loan
+[147] Loan o/s than | than | o/s
+[148] (Applicable for both Balance 100% | 75% - | 50% - | less
+[149] LKR and FCY -75% | upto | upto | than
+[150] advances) 50% | 25% | 25%
+[151] Commercial | 3% 2% 1% 0.5%
+[152] Personal 4% 3% 2% 1%
+[153] Housing 3% 2% 1% 0.5%
+[154] 3.6 Value added services | Handling fee of Rs.5,000/- per property plus
+[155] relating to property actual costs of outside agents’ charges
+[156] mortgages (supported by bills)
+[157] 3.7 Pawning
+[158] e Late payment fee
+[159] e Handling charges
+[160] in appointing a
+[161] third party
+[162] to redeem
+[163] pawned and
+[164] mortgaged articles
+[165] e Handling charges
+[166] in loss of a
+[167] Pawn/Gold Loan
+[168] ticket
+[169] Rs.250/- (per ticket)
+[170] Rs.750/- (per ticket)
+[171] Rs.750/- (per ticket)
+[172] Classification: Internal
+[173] 1 Sevana loans
+[174] - Bond value 1.0%
+[175] Up to Rs 1,000,000/- (Rs. 1.0Mn) 0.75%
+[176] Rs 1,000,001/- — 5,000,000/- 0.50%
+[177] Rs 5,000,001/- — 10,000,000/- 0.25%
+[178] Over Rs 10,000,001/-
+[179] *When granting facilities against Tripartite
+[180] Agreements (ex : for condominiums where
+[181] under construction) above legal fee to be
+[182] charged at the execution of the Tripartite
+[183] Agreement
+[184] 2 Commercial Loans
+[185] - Bond Value
+[186] Upto Rs 1,000,000/- (USD 10,000/-) 1.25% 1.25%
+[187] Rs 1,000,001/- — Rs.5,000,000/- (USD 10,001 — 1.0% 1.0%
+[188] 50,000)
+[189] Rs 5,000,001/- — Rs.10,000,000/- (USD 50,001— | 0.75% 0.75%
+[190] 100,000)
+[191] Over Rs 10,000,001/- (USD 100,001) 0.50% 0.50%
+[192] 3 Undertaking to Mortgage/Agreement to 1% of value subject 1% of value
+[193] Mortgage toaminRs.5,000/- | subject to a Min
+[194] Max Rs. 50,000/- 25/-
+[195] Max 250/-
+[196] As at 01.07.2025
+[197] Copyrights © 2011 Sampath Bank PLC. All Rights Reserved. 110, Sir James Peiris Mawatha, Colombo 02, Sri Lanka.
